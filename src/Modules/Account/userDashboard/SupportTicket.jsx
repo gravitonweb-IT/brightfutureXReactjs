@@ -17,6 +17,8 @@ import {
 } from "react-icons/ai";
 import { GiTrade } from "react-icons/gi";
 import "../user.css";
+import UserDashboard from "../UserDashboard";
+
 const SupportTicket = () => {
   const navigate = useNavigate();
 
@@ -171,186 +173,87 @@ const SupportTicket = () => {
 
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
+  const [email, setEmail] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // onSubmit({ subject, message });
-    setSubject('');
-    setMessage('');
+    setSubject("");
+    setMessage("");
   };
 
   return (
     <>
-      <div className="row">
-        <div className="min-h-screen flex   bg-gray-100">
-          <div className="lg:w-1/4 bg-gray-100 p-5">
-            <ul className="space-y-3">
-              <li
-                className={`flex items-center text-gray-700 hover:text-blue-500 cursor-pointer ${
-                  selectedMenuItem === "Dashboard" ? "font-bold" : ""
-                }`}
-                onClick={() => handleMenuItemClick("Dashboard")}
-              >
-                <Link to="/UserDashboard" className="flex items-center">
-                  <AiOutlineDashboard className="mr-2" />
-                  Dashboard
-                </Link>
-              </li>
-              <li
-                className={`flex items-center text-gray-700 hover:text-blue-500 cursor-pointer ${
-                  selectedMenuItem === "Transaction" ? "font-bold" : ""
-                }`}
-                onClick={() => handleMenuItemClick("Transaction")}
-              >
-                <Link to="/usertransaction" className="flex items-center">
-                  <BsFillClipboard2DataFill className="mr-2" />
-                  Transaction
-                </Link>
-              </li>
-              <li
-                className={`flex items-center text-gray-700 hover:text-blue-500 cursor-pointer ${
-                  selectedMenuItem === "Fund" ? "font-bold" : ""
-                }`}
-                onClick={() => handleMenuItemClick("Fund")}
-              >
-                <Link to="/user-fund" className="flex items-center">
-                  <AiOutlineFundProjectionScreen className="mr-2" />
-                  Add Fund
-                </Link>
-              </li>
-              <li
-                className={`flex items-center text-gray-700 hover:text-blue-500 cursor-pointer ${
-                  selectedMenuItem === "Withdraw" ? "font-bold" : ""
-                }`}
-                onClick={() => handleMenuItemClick("Withdraw")}
-              >
-                <Link to="/user-withdraw" className="flex items-center">
-                  <AiOutlineMoneyCollect className="mr-2" />
-                  Withdraw
-                </Link>
-              </li>
-              <li
-                className={`flex items-center text-gray-700 hover:text-blue-500 cursor-pointer ${
-                  selectedMenuItem === "Now" ? "font-bold" : ""
-                }`}
-                onClick={() => handleMenuItemClick("Now")}
-              >
-                <Link to="/tradeNow" className="flex items-center">
-                  <GiTrade className="mr-2" />
-                  Trade Now
-                </Link>
-              </li>
-              <li
-                className={`flex items-center text-gray-700 hover:text-blue-500 cursor-pointer ${
-                  selectedMenuItem === "Profile" ? "font-bold" : ""
-                }`}
-                onClick={() => handleMenuItemClick("Profile")}
-              >
-                <Link to="/edit-profile" className="flex items-center">
-                  <AiOutlineProfile className="mr-2" />
-                  Edit Profile
-                </Link>
-              </li>
-              <li
-                className={`flex items-center text-gray-700 hover:text-blue-500 cursor-pointer ${
-                  selectedMenuItem === "Password" ? "font-bold" : ""
-                }`}
-                onClick={() => handleMenuItemClick("Password")}
-              >
-                <Link to="/change-password" className="flex items-center">
-                  <AiOutlineLock className="mr-2" />
-                  Change Password
-                </Link>
-              </li>
-              <li
-                className={`flex items-center text-gray-700 hover:text-blue-500 cursor-pointer ${
-                  selectedMenuItem === "Logout" ? "font-bold" : ""
-                }`}
-                onClick={() => handleMenuItemClick("Logout")}
-              >
-                <Link to="/user-logout" className="flex items-center">
-                  <AiOutlineLogout className="mr-2" />
-                  Logout
-                </Link>
-              </li>
-              <li
-                className={`flex items-center text-gray-700 hover:text-blue-500 cursor-pointer ${
-                  selectedMenuItem === "Ticket" ? "font-bold" : ""
-                }`}
-                onClick={() => handleMenuItemClick("Ticket")}
-              >
-                <Link to="/support-ticket" className="flex items-center">
-                  <AiOutlineCustomerService className="mr-2" />
-                  Support Ticket
-                </Link>
-              </li>
-              <li
-                className={`flex items-center text-gray-700 hover:text-blue-500 cursor-pointer ${
-                  selectedMenuItem === "History" ? "font-bold" : ""
-                }`}
-                onClick={() => handleMenuItemClick("History")}
-              >
-                <Link to="/payout-history" className="flex items-center">
-                  <AiOutlineHistory className="mr-2" />
-                  Payout History
-                </Link>
-              </li>
-            </ul>
+      <>
+        <UserDashboard>
+          <div className="py-md-5 py-3 flex items-center justify-center bg-gray-200">
+            <div className="bg-gray-100 p-8 rounded shadow-md w-96">
+              <form onSubmit={handleSubmit} className="">
+                <h2 className="text-2xl font-semibold mb-4">
+                  Submit a Support Ticket
+                </h2>
+                <div className="mb-4">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-600"
+                  >
+                    email
+                  </label>
+                  <input
+                    type="text"
+                    id="email"
+                    name="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="mt-1 p-2 w-full border rounded-md"
+                    required
+                  />
+                </div>
+                <div className="mb-4">
+                  <label
+                    htmlFor="subject"
+                    className="block text-sm font-medium text-gray-600"
+                  >
+                    Subject
+                  </label>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    value={subject}
+                    onChange={(e) => setSubject(e.target.value)}
+                    className="mt-1 p-2 w-full border rounded-md"
+                    required
+                  />
+                </div>
+                <div className="mb-4">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-gray-600"
+                  >
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    className="mt-1 p-2 w-full border rounded-md"
+                    rows="4"
+                    required
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  className="bg-blue-500 text-gray-100 px-4 py-2 border border-transparent rounded-md hover:border-blue-600  hover:bg-gray-100 hover:text-blue-600"
+                >
+                  Submit Ticket
+                </button>
+              </form>
+            </div>
           </div>
-        </div>
-        <div className="col-lg-10 col-sm-12">
-          <>
-            <form
-              onSubmit={handleSubmit}
-              className="bg-gray-100 p-6 rounded shadow-md"
-            >
-              <h2 className="text-2xl font-semibold mb-4">
-                Submit a Support Ticket
-              </h2>
-              <div className="mb-4">
-                <label
-                  htmlFor="subject"
-                  className="block text-sm font-medium text-gray-600"
-                >
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={subject}
-                  onChange={(e) => setSubject(e.target.value)}
-                  className="mt-1 p-2 w-full border rounded-md"
-                  required
-                />
-              </div>
-              <div className="mb-4">
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-gray-600"
-                >
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  className="mt-1 p-2 w-full border rounded-md"
-                  rows="4"
-                  required
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
-              >
-                Submit Ticket
-              </button>
-            </form>
-          </>
-        </div>
-      </div>
+        </UserDashboard>
+      </>
     </>
   );
 };
