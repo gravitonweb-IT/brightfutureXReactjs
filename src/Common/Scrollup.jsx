@@ -29,7 +29,7 @@ const Scrollup = () => {
     <div>
       {top && (
         <button
-          className="fixed bottom-5 right-5 bg-[#034694] text-white px-4 py-2 rounded-full"
+          className="fixed bottom-5 right-5 bg-[#034694] text-gray-100 z-50 px-4 py-2 rounded-full"
           onClick={scrollUp}
         >
           <FontAwesomeIcon icon={faArrowUp} />

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import LogoImage from "./NavbarImages/logoNew.png"
+import LogoImage from "./NavbarImages/logoNew.png";
 import whatsapp from "./NavbarImages/whatsaap.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -57,7 +57,7 @@ const AdminNavbar = ({ setUserType }) => {
                 className="h-5 w-5 text-white pr-3"
               />
               <span className="text-white font-semibold text-lg">
-              info@Trading.com
+                info@Trading.com
               </span>
             </p>
             {/* <p className="pl-10">
@@ -111,7 +111,7 @@ const AdminNavbar = ({ setUserType }) => {
         <div className="flex items-center px-5 md:px-10 py-2">
           <div className="">
             <Link to="/">
-             <img src={LogoImage} className="w-[60px] h-[50px]"></img>
+              <img src={LogoImage} className="w-[60px] h-[50px]"></img>
             </Link>
           </div>
 

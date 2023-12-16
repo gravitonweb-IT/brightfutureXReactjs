@@ -156,9 +156,11 @@ const Contact = () => {
 
         {/*banner-content */}
 
-        <div className="absolute top-0 left-5 lg:left-20 right-0 bottom-0 text-white flex flex-col justify-center ">
+        <div className="absolute top-0 left-5 lg:left-20 right-0 bottom-0 text-gray-100 flex flex-col justify-center ">
           <div className="container mx-auto">
-            <h1 className="text-lg md:text-5xl font-bold">Contact Us</h1>
+            <h1 className="text-lg md:text-5xl font-bold text-gray-100">
+              Contact Us
+            </h1>
 
             <p className="mt-4 text-md md:text-xl font-semibold">
               Get in Touch with Our Stock Market Experts
@@ -174,12 +176,12 @@ const Contact = () => {
       <div className="flex justify-center">
         <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mx-10 md:mx-20 lg:mx-32 mt-10 md:mt-20">
           <div className="  bg-[#06b6d4] border rounded-xl shadow-top-md  px-8 py-10 ">
-            <h1 className="text-3xl font-medium text-white leading-4">
+            <h1 className="text-3xl font-medium text-gray-100 leading-4">
               {" "}
               Get in Touch
             </h1>
 
-            <p className="mt-8 text-justify text-md text-white">
+            <p className="mt-8 text-justify text-md text-gray-100">
               We will get back to you within 24 hours, or call us everyday
             </p>
 
@@ -191,8 +193,8 @@ const Contact = () => {
               <FaInstagram className="text-white text-2xl mr-4 " />
             </div> */}
 
-            <div className="text-white pt-4">
-              <h1 className="text-2xl mt-2 text-white font-mono">
+            <div className="text-gray-100 pt-4">
+              <h1 className="text-2xl mt-2 text-gray-100 font-mono">
                 {" "}
                 Sales Support
               </h1>
@@ -203,7 +205,7 @@ const Contact = () => {
                 <li>info@Trading.com</li>
               </ul>
 
-              <h1 className="text-2xl mt-2 text-white font-mono">
+              <h1 className="text-2xl mt-2 text-gray-100 font-mono">
                 {" "}
                 Technical Support
               </h1>
@@ -229,7 +231,7 @@ const Contact = () => {
               <div className="grid grid-cols-2 gap-3 pb-2 pt-5">
                 <input
                   type="text"
-                  className="mt-1 px-2 py-3 bg-gray-100 border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block  rounded-md sm:text-sm focus:ring-1 col-span-2 md:col-span-1 "
+                  className="mt-1 px-2 py-3 bg-gray-100 border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block  rounded sm:text-sm focus:ring-1 col-span-2 md:col-span-1 "
                   placeholder="Fast Name"
                   onChange={inputHandle}
                   name="fname"
@@ -238,7 +240,7 @@ const Contact = () => {
 
                 <input
                   type="text"
-                  className="mt-1 px-2 py-3  bg-gray-100 border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block  rounded-md sm:text-sm focus:ring-1 col-span-2 md:col-span-1"
+                  className="mt-1 px-2 py-3  bg-gray-100 border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block  rounded sm:text-sm focus:ring-1 col-span-2 md:col-span-1"
                   placeholder="Last Name"
                   onChange={inputHandle}
                   name="lname"
@@ -287,7 +289,7 @@ const Contact = () => {
               <button
                 type="submit"
                 onClick={submitHandle}
-                class="bg-[#06b6d4] hover:bg-white text-white hover:text-black border-2 border-blue-500 text-lg  font-bold rounded-full w-[140px]  h-[40px] p-1 transition duration-300 ease-in-out"
+                class="bg-[#06b6d4] hover:bg-white text-gray-100 hover:text-[#06b6d4] border-2 border-blue-500 text-lg  font-bold rounded-full w-[140px]  h-[40px] p-1 transition duration-300 ease-in-out"
               >
                 Submit
               </button>
@@ -305,45 +307,26 @@ const Contact = () => {
         referrerpolicy="no-referrer-when-downgrade"
         className=" p-4 rounded-md mt-5"
       ></iframe>
-       {showSuccessPopup && (
+      {showSuccessPopup && (
+        <div className="fixed inset-0 flex items-center justify-center z-10">
+          <div className="bg-white p-8 rounded shadow-lg text-center">
+            <h2 className="text-2xl font-semibold text-green-500 mb-4">
+              Contact Form
+            </h2>
 
-<div className="fixed inset-0 flex items-center justify-center z-10">
+            <p className="text-gray-700">Contact form successfully submitted</p>
 
-  <div className="bg-white p-8 rounded shadow-lg text-center">
-
-    <h2 className="text-2xl font-semibold text-green-500 mb-4">
-
-     Contact Form 
-
-    </h2>
-
-    <p className="text-gray-700">
-
-     Contact form successfully submitted
-
-    </p>
-
-    <div className="mt-6">
-
-      <button
-
-        className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
-
-        onClick={() => setShowSuccessPopup(false)}
-
-      >
-
-        Close
-
-      </button>
-
-    </div>
-
-  </div>
-
-</div>
-
-)}
+            <div className="mt-6">
+              <button
+                className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+                onClick={() => setShowSuccessPopup(false)}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };

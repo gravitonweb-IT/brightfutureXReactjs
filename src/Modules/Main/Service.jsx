@@ -46,9 +46,11 @@ const Service = () => {
 
         <div className="absolute top-0 left-5 lg:left-20 right-0 bottom-0 text-white flex flex-col justify-center ">
           <div className="container mx-auto">
-            <h1 className="text-lg md:text-5xl font-bold">Our Services</h1>
+            <h1 className="text-lg md:text-5xl font-bold text-gray-100">
+              Our Services
+            </h1>
 
-            <p className="mt-4 text-md md:text-xl font-semibold">
+            <p className="mt-4 text-md md:text-xl font-semibold text-gray-100">
               Start Investing and Trading with Trading E’s Steps
             </p>
           </div>
@@ -57,7 +59,7 @@ const Service = () => {
 
       {/* services-card */}
 
-      <div className="mt-12 md:mt-20">
+      <div className="mt-12 md:mt-20 mb-5">
         <h1 className="text-[#034694] text-2xl md:text-4xl font-bold mt-4 text-center">
           Our Services
         </h1>
@@ -151,8 +153,6 @@ const Service = () => {
       </div>
 
       {/* plan-card */}
-
-     
     </>
   );
 };

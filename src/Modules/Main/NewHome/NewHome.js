@@ -3,10 +3,11 @@ import banner from "../../../Assests/HomePageImages/01.jpg";
 import banner2 from "../../../Assests/HomePageImages/02.jpg";
 import banner3 from "../../../Assests/HomePageImages/03.jpg";
 import { Carousel } from "bootstrap";
+import playStore from "../../../Assests/HomePageImages/playstore.jpg";
 
 const NewHome = () => {
   const headingStyle = {
-    color: "#ffff",
+    color: "#ffffff",
     fontSize: "70px",
     lineHeight: "1.2",
   };
@@ -52,7 +53,7 @@ const NewHome = () => {
           {/* #masthead */}
           <div className="site-content-contain ">
             <div className="site-content-wrap">
-              <div id="content" className="site-content container">
+              <div id="content" className="site-content py-0">
                 <div className="pbmit-header-search-form-wrapper">
                   <div className="pbmit-search-close">
                     <svg
@@ -152,7 +153,7 @@ const NewHome = () => {
                                             <div className="pbmit-servicebox-left col-lg-3 col-md-12 pbmit-column">
                                               <div className="pbmit-ele-header-area">
                                                 <div className="pbmit-heading-subheading pbmit-reverse-heading-yes animation-style2">
-                                                  <h4 className="pbmit-element-subtitle">
+                                                  <h4 className="pbmit-element-subtitle text-white">
                                                     <span></span>
                                                     What We Provied
                                                   </h4>
@@ -400,85 +401,6 @@ const NewHome = () => {
                                                     />
                                                   </div>
                                                 </article>
-                                                {/* <article className="pbmit-ele pbmit-ele-service pbmit-service-style-2 col-md-4 advisory pbmit-term-30  ">
-                                                  <div className="pbminfotech-post-item">
-                                                    <div className="pbmit-service-wrapper">
-                                                      <div className="pbmit-featured-img-wrapper">
-                                                        <div className="pbmit-featured-wrapper">
-                                                          <img
-                                                            loading="lazy"
-                                                            decoding="async"
-                                                            width={900}
-                                                            height={1000}
-                                                            src={banner3}
-                                                            className="attachment-pbmit-img-900x1000 size-pbmit-img-900x1000 wp-post-image"
-                                                            alt=""
-                                                          />
-                                                        </div>
-                                                      </div>{" "}
-                                                      <div className="pbmit-svg-btn d-flex align-items-center">
-                                                        <a
-                                                          className="btn-arrow d-flex align-items-center justify-content-center"
-                                                          href="#/demo2/service/consulting-service/"
-                                                        >
-                                                          <svg
-                                                            className="pbmit-svg-arrow"
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                            xmlnsXlink="http://www.w3.org/1999/xlink"
-                                                            x="0px"
-                                                            y="0px"
-                                                            width={10}
-                                                            height={19}
-                                                            viewBox="0 0 19 19"
-                                                            xmlSpace="preserve"
-                                                          >
-                                                            <line
-                                                              x1={1}
-                                                              y1={18}
-                                                              x2="17.8"
-                                                              y2="1.2"
-                                                            />
-                                                            <line
-                                                              x1="1.2"
-                                                              y1={1}
-                                                              x2={18}
-                                                              y2={1}
-                                                            />
-                                                            <line
-                                                              x1={18}
-                                                              y1="17.8"
-                                                              x2={18}
-                                                              y2={1}
-                                                            />
-                                                          </svg>
-                                                        </a>
-                                                      </div>
-                                                    </div>
-                                                    <div className="pbminfotech-box-content">
-                                                      <div className="pbmit-service-icon-wrapper">
-                                                        <i className="pbmit-cleanfin-icon pbmit-cleanfin-icon-global" />{" "}
-                                                      </div>
-                                                      <div className="pbmit-serv-cat">
-                                                        <a
-                                                          href="#/demo2/service-category/advisory/"
-                                                          rel="tag"
-                                                        >
-                                                          Illustration with bull
-                                                          and bear
-                                                        </a>
-                                                      </div>
-                                                      <h3 className="pbmit-service-title">
-                                                        <a href="#/demo2/service/consulting-service/">
-                                                          Stock market
-                                                        </a>
-                                                      </h3>
-                                                    </div>
-                                                    <a
-                                                      href="#/demo2/service/consulting-service/"
-                                                      className="pbmit-link"
-                                                    />
-                                                  </div>
-                                                </article> */}
                                               </div>{" "}
                                               {/* .pbmit-element-posts-wrapper */}
                                             </div>{" "}
@@ -590,7 +512,11 @@ const NewHome = () => {
                                 data-element_type="column"
                                 data-settings='{"background_background":"classic"}'
                               >
-                                <div className="elementor-widget-wrap elementor-element-populated">
+                                <div className=" elementor-element-populated">
+                                  <img
+                                    src="https://img.freepik.com/free-vector/mobile-online-trading-isometric-concept-with-smartphone-illustration_1284-55812.jpg?w=740&t=st=1702718644~exp=1702719244~hmac=b4921e3de7090562a8ee57ff9e3b7ebba72e241a94eafa55437a05706fd733ff"
+                                    className="h-100"
+                                  />
                                   <div
                                     className="elementor-element elementor-element-d121d00 elementor-widget elementor-widget-spacer"
                                     data-id="d121d00"
@@ -625,10 +551,6 @@ const NewHome = () => {
                                   >
                                     <div className="elementor-widget-container">
                                       <div className="pbmit-heading-subheading pbmit-reverse-heading-yes animation-style2">
-                                        {/* <h4 className="pbmit-element-subtitle">
-                                          <span></span>
-                                          Who We Are
-                                        </h4> */}
                                         <h2 className="pbmit-element-title">
                                           We provide the solutions
                                           <br /> to grow your portfolio.
@@ -676,13 +598,6 @@ const NewHome = () => {
                                           >
                                             <div className="elementor-widget-container">
                                               <div className="pbmit-ihbox pbmit-ihbox-style-2">
-                                                {/* <div className="pbmit-ihbox-icon">
-                                                  <div className="pbmit-ihbox-icon-wrapper">
-                                                    <div className="pbmit-icon-wrapper pbmit-icon-type-icon">
-                                                      <i className="pbmit-cleanfin-icon pbmit-cleanfin-icon-call-center" />
-                                                    </div>
-                                                  </div>
-                                                </div> */}
                                                 <div className="pbmit-ihbox-contents">
                                                   <h2 className="pbmit-element-title">
                                                     Market Research
@@ -722,6 +637,18 @@ const NewHome = () => {
                                                   </div>{" "}
                                                 </div>
                                               </div>{" "}
+                                              <div className="mt-3">
+                                                <a
+                                                  href="../../../Assests/app-debug.apk"
+                                                  download
+                                                >
+                                                  <img
+                                                    src={playStore}
+                                                    className="cursor-pointer"
+                                                    width={200}
+                                                  />
+                                                </a>
+                                              </div>
                                             </div>
                                           </div>
                                         </div>
@@ -766,7 +693,7 @@ const NewHome = () => {
                                 data-id="1df75fd"
                                 data-element_type="column"
                               >
-                                <div className="elementor-widget-wrap elementor-element-populated">
+                                <div className="elementor-widget-wrap elementor-element-populated pb-3">
                                   <section
                                     className="elementor-section elementor-inner-section elementor-element elementor-element-35f9a35 pbmit-col-stretched-none pbmit-cursor-color-blackish-color pbmit-bg-color-over-image elementor-section-boxed elementor-section-height-default elementor-section-height-default"
                                     data-id="35f9a35"
@@ -802,7 +729,7 @@ const NewHome = () => {
                                         data-id="565c6a2"
                                         data-element_type="column"
                                       >
-                                        <div className="elementor-widget-wrap elementor-element-populated">
+                                        <div className="elementor-widget-wrap elementor-element-populated pb-0">
                                           <div
                                             className="elementor-element elementor-element-5b0675e elementor-widget elementor-widget-text-editor"
                                             data-id="5b0675e"
@@ -825,213 +752,13 @@ const NewHome = () => {
                                     className="elementor-section elementor-inner-section elementor-element elementor-element-0846cfa pbmit-col-stretched-none pbmit-cursor-color-blackish-color pbmit-bg-color-over-image elementor-section-boxed elementor-section-height-default elementor-section-height-default"
                                     data-id="0846cfa"
                                     data-element_type="section"
-                                  >
-                                    {/* <div className="elementor-container elementor-column-gap-no">
-                                      <div
-                                        className="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-8a4b392 pbmit-bg-color-over-image"
-                                        data-id="8a4b392"
-                                        data-element_type="column"
-                                      >
-                                        <div className="elementor-widget-wrap elementor-element-populated">
-                                          <div
-                                            className="elementor-element elementor-element-03268f0 elementor-widget elementor-widget-pbmit_fid_element"
-                                            data-id="03268f0"
-                                            data-element_type="widget"
-                                            data-widget_type="pbmit_fid_element.default"
-                                          >
-                                            <div className="elementor-widget-container">
-                                              <div className="pbminfotech-ele pbminfotech-ele-fid pbminfotech-ele-fid-style-2 ">
-                                                <div className="pbmit-fld-contents">
-                                                  <div className="pbmit-fld-wrap">
-                                                    <div className="pbmit-title-wrap">
-                                                      <span className="pbmit-fid-number">
-                                                        <span>01.</span>
-                                                      </span>
-                                                      <div className="pbmit-fid-title">
-                                                        Companies analyzed
-                                                      </div>
-                                                    </div>
-                                                    <h4 className="pbmit-fid-inner">
-                                                      <span
-                                                        className="pbmit-number-rotate"
-                                                        data-appear-animation="animateDigits"
-                                                        data-from={0}
-                                                        data-to={1932}
-                                                        data-interval={5}
-                                                        data-before=""
-                                                        data-before-style=""
-                                                        data-after=""
-                                                        data-after-style=""
-                                                      >
-                                                        1932{" "}
-                                                      </span>
-                                                      <span className="pbmit-fid">
-                                                        <span>+</span>
-                                                      </span>
-                                                    </h4>
-                                                  </div>
-                                                </div>
-                                              </div>{" "}
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div
-                                        className="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-8efa3e0 pbmit-bg-color-over-image"
-                                        data-id="8efa3e0"
-                                        data-element_type="column"
-                                      >
-                                        <div className="elementor-widget-wrap elementor-element-populated">
-                                          <div
-                                            className="elementor-element elementor-element-807cf41 elementor-widget elementor-widget-pbmit_fid_element"
-                                            data-id="807cf41"
-                                            data-element_type="widget"
-                                            data-widget_type="pbmit_fid_element.default"
-                                          >
-                                            <div className="elementor-widget-container">
-                                              <div className="pbminfotech-ele pbminfotech-ele-fid pbminfotech-ele-fid-style-2 ">
-                                                <div className="pbmit-fld-contents">
-                                                  <div className="pbmit-fld-wrap">
-                                                    <div className="pbmit-title-wrap">
-                                                      <span className="pbmit-fid-number">
-                                                        <span>02.</span>
-                                                      </span>
-                                                      <div className="pbmit-fid-title">
-                                                        Strategies planned
-                                                      </div>
-                                                    </div>
-                                                    <h4 className="pbmit-fid-inner">
-                                                      <span
-                                                        className="pbmit-number-rotate"
-                                                        data-appear-animation="animateDigits"
-                                                        data-from={0}
-                                                        data-to={21921}
-                                                        data-interval={5}
-                                                        data-before=""
-                                                        data-before-style=""
-                                                        data-after=""
-                                                        data-after-style=""
-                                                      >
-                                                        21921{" "}
-                                                      </span>
-                                                      <span className="pbmit-fid">
-                                                        <span>+</span>
-                                                      </span>
-                                                    </h4>
-                                                  </div>
-                                                </div>
-                                              </div>{" "}
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div> */}
-                                  </section>
+                                  ></section>
                                   <section
                                     className="elementor-section elementor-inner-section elementor-element elementor-element-6e21418 pbmit-col-stretched-none pbmit-cursor-color-blackish-color pbmit-bg-color-over-image elementor-section-boxed elementor-section-height-default elementor-section-height-default"
                                     data-id="6e21418"
                                     data-element_type="section"
                                   >
-                                    <div className="elementor-container elementor-column-gap-no">
-                                      {/* <div
-                                        className="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-7207717 pbmit-bg-color-over-image"
-                                        data-id={7207717}
-                                        data-element_type="column"
-                                      >
-                                        <div className="elementor-widget-wrap elementor-element-populated">
-                                          <div
-                                            className="elementor-element elementor-element-1686421 elementor-widget elementor-widget-pbmit_fid_element"
-                                            data-id={1686421}
-                                            data-element_type="widget"
-                                            data-widget_type="pbmit_fid_element.default"
-                                          >
-                                            <div className="elementor-widget-container">
-                                              <div className="pbminfotech-ele pbminfotech-ele-fid pbminfotech-ele-fid-style-2 ">
-                                                <div className="pbmit-fld-contents">
-                                                  <div className="pbmit-fld-wrap">
-                                                    <div className="pbmit-title-wrap">
-                                                      <span className="pbmit-fid-number">
-                                                        <span>03.</span>
-                                                      </span>
-                                                      <div className="pbmit-fid-title">
-                                                        Projects Released
-                                                      </div>
-                                                    </div>
-                                                    <h4 className="pbmit-fid-inner">
-                                                      <span
-                                                        className="pbmit-number-rotate"
-                                                        data-appear-animation="animateDigits"
-                                                        data-from={0}
-                                                        data-to={2501}
-                                                        data-interval={5}
-                                                        data-before=""
-                                                        data-before-style=""
-                                                        data-after=""
-                                                        data-after-style=""
-                                                      >
-                                                        2501{" "}
-                                                      </span>
-                                                      <span className="pbmit-fid">
-                                                        <span>+</span>
-                                                      </span>
-                                                    </h4>
-                                                  </div>
-                                                </div>
-                                              </div>{" "}
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div> */}
-                                      {/* <div
-                                        className="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-44e9ae4 pbmit-bg-color-over-image"
-                                        data-id="44e9ae4"
-                                        data-element_type="column"
-                                      >
-                                        <div className="elementor-widget-wrap elementor-element-populated">
-                                          <div
-                                            className="elementor-element elementor-element-a2b6ffe elementor-widget elementor-widget-pbmit_fid_element"
-                                            data-id="a2b6ffe"
-                                            data-element_type="widget"
-                                            data-widget_type="pbmit_fid_element.default"
-                                          >
-                                            <div className="elementor-widget-container">
-                                              <div className="pbminfotech-ele pbminfotech-ele-fid pbminfotech-ele-fid-style-2 ">
-                                                <div className="pbmit-fld-contents">
-                                                  <div className="pbmit-fld-wrap">
-                                                    <div className="pbmit-title-wrap">
-                                                      <span className="pbmit-fid-number">
-                                                        <span>04.</span>
-                                                      </span>
-                                                      <div className="pbmit-fid-title">
-                                                        Satisfied Clients
-                                                      </div>
-                                                    </div>
-                                                    <h4 className="pbmit-fid-inner">
-                                                      <span
-                                                        className="pbmit-number-rotate"
-                                                        data-appear-animation="animateDigits"
-                                                        data-from={0}
-                                                        data-to={10}
-                                                        data-interval={5}
-                                                        data-before=""
-                                                        data-before-style=""
-                                                        data-after=""
-                                                        data-after-style=""
-                                                      >
-                                                        10{" "}
-                                                      </span>
-                                                      <span className="pbmit-fid">
-                                                        <span>K</span>
-                                                      </span>
-                                                    </h4>
-                                                  </div>
-                                                </div>
-                                              </div>{" "}
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div> */}
-                                    </div>
+                                    <div className="elementor-container elementor-column-gap-no"></div>
                                   </section>
                                 </div>
                               </div>
@@ -1438,255 +1165,7 @@ const NewHome = () => {
                               </div>
                             </div>
                           </section>
-                          {/* <section
-                            className="elementor-section elementor-top-section elementor-element elementor-element-52e733c pbmit-col-stretched-none pbmit-cursor-color-blackish-color pbmit-bg-color-over-image elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-                            data-id="52e733c"
-                            data-element_type="section"
-                          >
-                            <div className="elementor-container elementor-column-gap-no">
-                              <div
-                                className="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-bf62955 pbmit-bg-color-over-image"
-                                data-id="bf62955"
-                                data-element_type="column"
-                              >
-                                <div className="elementor-widget-wrap elementor-element-populated">
-                                  <div
-                                    className="elementor-element elementor-element-e39f0d5 pbmit-align-center elementor-widget elementor-widget-pbmit_heading"
-                                    data-id="e39f0d5"
-                                    data-element_type="widget"
-                                    data-widget_type="pbmit_heading.default"
-                                  >
-                                    <div className="elementor-widget-container">
-                                      <div className="pbmit-heading-subheading pbmit-reverse-heading-yes animation-style2">
-                                        <h4 className="pbmit-element-subtitle">
-                                          <span></span>
-                                          Who We Are
-                                        </h4>
-                                        <h2 className="pbmit-element-title">
-                                          We draw on our global network to{" "}
-                                          <br />
-                                          assemble ask at hand.
-                                        </h2>
-                                      </div>{" "}
-                                    </div>
-                                  </div>
-                                  <section
-                                    className="elementor-section elementor-inner-section elementor-element elementor-element-0634fe3 pbmit-col-stretched-none pbmit-cursor-color-blackish-color pbmit-bg-color-over-image elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-                                    data-id="0634fe3"
-                                    data-element_type="section"
-                                  >
-                                    <div className="elementor-container elementor-column-gap-no">
-                                      <div
-                                        className="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-4faad48 pbmit-bg-color-over-image"
-                                        data-id="4faad48"
-                                        data-element_type="column"
-                                      >
-                                        <div className="elementor-widget-wrap elementor-element-populated">
-                                          <div
-                                            className="elementor-element elementor-element-48c7936 elementor-widget elementor-widget-column_chart"
-                                            data-id="48c7936"
-                                            data-element_type="widget"
-                                            data-widget_type="column_chart.default"
-                                          >
-                                            <div className="elementor-widget-container">
-                                              <div className="chart-card">
-                                                <div className=""></div>
-                                                <div className="">
-                                                  <div
-                                                    className="chart-texture column-chart-48c7936_1661"
-                                                    style={{ minHeight: 350 }}
-                                                    id="column_chart48c7936_1661"
-                                                  />
-                                                </div>
-                                                <div
-                                                  style={{
-                                                    height: 350,
-                                                    display: "flex",
-                                                    justifyContent: "center",
-                                                    alignItems: "center",
-                                                  }}
-                                                  className="d-none area-texture column-chart-48c7936_1661-loader"
-                                                >
-                                                  <p
-                                                    className="graphina-filter-notext d-none"
-                                                    style={{
-                                                      textAlign: "center",
-                                                    }}
-                                                  >
-                                                    No Data Found{" "}
-                                                  </p>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div
-                                        className="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-cfee247 pbmit-bg-color-over-image"
-                                        data-id="cfee247"
-                                        data-element_type="column"
-                                      >
-                                        <div className="elementor-widget-wrap elementor-element-populated">
-                                          <div
-                                            className="elementor-element elementor-element-b05ec2e elementor-widget elementor-widget-accordion"
-                                            data-id="b05ec2e"
-                                            data-element_type="widget"
-                                            data-widget_type="accordion.default"
-                                          >
-                                            <div className="elementor-widget-container">
-                                              <style
-                                                dangerouslySetInnerHTML={{
-                                                  __html:
-                                                    ".elementor-accordion{text-align:left}.elementor-accordion .elementor-accordion-item{border:1px solid #d5d8dc}.elementor-accordion .elementor-accordion-item+.elementor-accordion-item{border-top:none}.elementor-accordion .elementor-tab-title{margin:0;padding:15px 20px;font-weight:700;line-height:1;cursor:pointer;outline:none}.elementor-accordion .elementor-tab-title .elementor-accordion-icon{display:inline-block;width:1.5em}.elementor-accordion .elementor-tab-title .elementor-accordion-icon svg{width:1em;height:1em}.elementor-accordion .elementor-tab-title .elementor-accordion-icon.elementor-accordion-icon-right{float:right;text-align:right}.elementor-accordion .elementor-tab-title .elementor-accordion-icon.elementor-accordion-icon-left{float:left;text-align:left}.elementor-accordion .elementor-tab-title .elementor-accordion-icon .elementor-accordion-icon-closed{display:block}.elementor-accordion .elementor-tab-title .elementor-accordion-icon .elementor-accordion-icon-opened,.elementor-accordion .elementor-tab-title.elementor-active .elementor-accordion-icon-closed{display:none}.elementor-accordion .elementor-tab-title.elementor-active .elementor-accordion-icon-opened{display:block}.elementor-accordion .elementor-tab-content{display:none;padding:15px 20px;border-top:1px solid #d5d8dc}@media (max-width:767px){.elementor-accordion .elementor-tab-title{padding:12px 15px}.elementor-accordion .elementor-tab-title .elementor-accordion-icon{width:1.2em}.elementor-accordion .elementor-tab-content{padding:7px 15px}}.e-con-inner>.elementor-widget-accordion,.e-con>.elementor-widget-accordion{width:var(--container-widget-width);--flex-grow:var(--container-widget-flex-grow)}",
-                                                }}
-                                              />{" "}
-                                              <div className="elementor-accordion">
-                                                <div className="elementor-accordion-item">
-                                                  <div
-                                                    id="elementor-tab-title-1841"
-                                                    className="elementor-tab-title"
-                                                    data-tab={1}
-                                                    role="button"
-                                                    aria-controls="elementor-tab-content-1841"
-                                                    aria-expanded="false"
-                                                  >
-                                                    <span
-                                                      className="elementor-accordion-icon elementor-accordion-icon-left"
-                                                      aria-hidden="true"
-                                                    >
-                                                      <span className="elementor-accordion-icon-closed">
-                                                        <i className="pbmit-cleanfin-icon pbmit-cleanfin-icon-up-arrow" />
-                                                      </span>
-                                                      <span className="elementor-accordion-icon-opened">
-                                                        <i className="pbmit-cleanfin-icon pbmit-cleanfin-icon-thin-download-arrow" />
-                                                      </span>
-                                                    </span>
-                                                    <a
-                                                      className="elementor-accordion-title"
-                                                      tabIndex={0}
-                                                    >
-                                                      <span>01.</span>In what
-                                                      areas do you provide
-                                                      consulting?
-                                                    </a>
-                                                  </div>
-                                                  <div
-                                                    id="elementor-tab-content-1841"
-                                                    className="elementor-tab-content elementor-clearfix"
-                                                    data-tab={1}
-                                                    role="region"
-                                                    aria-labelledby="elementor-tab-title-1841"
-                                                  >
-                                                    Our associate consultants
-                                                    specialize in a range of
-                                                    business areas. These
-                                                    include strategic planning,
-                                                    issues resolution, culture
-                                                    assessment, board
-                                                    effectiveness, retention.
-                                                  </div>
-                                                </div>
-                                                <div className="elementor-accordion-item">
-                                                  <div
-                                                    id="elementor-tab-title-1842"
-                                                    className="elementor-tab-title"
-                                                    data-tab={2}
-                                                    role="button"
-                                                    aria-controls="elementor-tab-content-1842"
-                                                    aria-expanded="false"
-                                                  >
-                                                    <span
-                                                      className="elementor-accordion-icon elementor-accordion-icon-left"
-                                                      aria-hidden="true"
-                                                    >
-                                                      <span className="elementor-accordion-icon-closed">
-                                                        <i className="pbmit-cleanfin-icon pbmit-cleanfin-icon-up-arrow" />
-                                                      </span>
-                                                      <span className="elementor-accordion-icon-opened">
-                                                        <i className="pbmit-cleanfin-icon pbmit-cleanfin-icon-thin-download-arrow" />
-                                                      </span>
-                                                    </span>
-                                                    <a
-                                                      className="elementor-accordion-title"
-                                                      tabIndex={0}
-                                                    >
-                                                      <span>02.</span>In which
-                                                      countries do you provide
-                                                      services?
-                                                    </a>
-                                                  </div>
-                                                  <div
-                                                    id="elementor-tab-content-1842"
-                                                    className="elementor-tab-content elementor-clearfix"
-                                                    data-tab={2}
-                                                    role="region"
-                                                    aria-labelledby="elementor-tab-title-1842"
-                                                  >
-                                                    Our associate consultants
-                                                    specialize in a range of
-                                                    business areas. These
-                                                    include strategic planning,
-                                                    issues resolution, culture
-                                                    assessment, board
-                                                    effectiveness, retention.
-                                                  </div>
-                                                </div>
-                                                <div className="elementor-accordion-item">
-                                                  <div
-                                                    id="elementor-tab-title-1843"
-                                                    className="elementor-tab-title"
-                                                    data-tab={3}
-                                                    role="button"
-                                                    aria-controls="elementor-tab-content-1843"
-                                                    aria-expanded="false"
-                                                  >
-                                                    <span
-                                                      className="elementor-accordion-icon elementor-accordion-icon-left"
-                                                      aria-hidden="true"
-                                                    >
-                                                      <span className="elementor-accordion-icon-closed">
-                                                        <i className="pbmit-cleanfin-icon pbmit-cleanfin-icon-up-arrow" />
-                                                      </span>
-                                                      <span className="elementor-accordion-icon-opened">
-                                                        <i className="pbmit-cleanfin-icon pbmit-cleanfin-icon-thin-download-arrow" />
-                                                      </span>
-                                                    </span>
-                                                    <a
-                                                      className="elementor-accordion-title"
-                                                      tabIndex={0}
-                                                    >
-                                                      <span>03.</span>How is a
-                                                      consulting started and
-                                                      organized?
-                                                    </a>
-                                                  </div>
-                                                  <div
-                                                    id="elementor-tab-content-1843"
-                                                    className="elementor-tab-content elementor-clearfix"
-                                                    data-tab={3}
-                                                    role="region"
-                                                    aria-labelledby="elementor-tab-title-1843"
-                                                  >
-                                                    Our associate consultants
-                                                    specialize in a range of
-                                                    business areas. These
-                                                    include strategic planning,
-                                                    issues resolution, culture
-                                                    assessment, board
-                                                    effectiveness, retention.
-                                                  </div>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </section>
-                                </div>
-                              </div>
-                            </div>
-                          </section> */}
+
                           <section
                             className="elementor-section elementor-top-section elementor-element elementor-element-667f094 elementor-section-stretched pbmit-bg-color-yes pbmit-elementor-bg-color-blackish pbmit-text-color-white pbmit-col-stretched-none pbmit-cursor-color-blackish-color pbmit-bg-color-over-image elementor-section-boxed elementor-section-height-default elementor-section-height-default"
                             data-id="667f094"
@@ -1739,11 +1218,6 @@ const NewHome = () => {
                                                 </div>{" "}
                                               </div>
                                             </div>
-                                            {/* <div className="pbmit-infinite-scroll-data">
-                                              {"{"}
-                                              "cpt":"testimonial","style":"2","columns":"1","show":"6","order":"DESC","orderby":"none"
-                                              {"}"}
-                                            </div>{" "} */}
                                             <div className="pbmit-testimonialbox-right col-lg-9 col-md-12 pbmit-column">
                                               <div className="pbmit-element-posts-wrapper row multi-columns-row swiper-container">
                                                 <article className="pbmit-ele pbmit-ele-testimonial pbmit-testimonial-style-2 col-md-12  pbmit-odd pbmit-col-odd">
@@ -2099,18 +1573,6 @@ const NewHome = () => {
                                   />
                                   Your browser does not support the video tag.
                                 </video>
-                                {/* <video
-                                  className="w-80 m-auto"
-                                  autoPlay
-                                  width="640"
-                                  height="360"
-                                >
-                                  <source
-                                    src="https://static.tradingview.com/static/bundles/chart-big.hvc1.6af4110d38611a03c3a4.mp4"
-                                    type="video/mp4"
-                                  />
-                                  Your browser does not support the video tag.
-                                </video> */}
                               </div>
                             </div>
                           </section>
@@ -2347,7 +1809,7 @@ const NewHome = () => {
                             </div>
                           </section>
                           <section
-                            className="elementor-section elementor-top-section elementor-element elementor-element-7f56520 pbmit-col-stretched-none pbmit-cursor-color-blackish-color pbmit-bg-color-over-image elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                            className="elementor-section px-3 elementor-top-section elementor-element elementor-element-7f56520 pbmit-col-stretched-none pbmit-cursor-color-blackish-color pbmit-bg-color-over-image elementor-section-boxed elementor-section-height-default elementor-section-height-default"
                             data-id="7f56520"
                             data-element_type="section"
                           >
@@ -2465,21 +1927,6 @@ const NewHome = () => {
                                                   </div>{" "}
                                                 </div>
                                                 <div className="pbminfotech-box-content">
-                                                  {/* <div className="pbmit-meta-cat-wrapper pbmit-meta-line d-flex align-items-center">
-                                                    <div className="pbmit-meta-category">
-                                                      <a
-                                                        href="#/demo2/category/business/"
-                                                        rel="category tag"
-                                                      >
-                                                        Business
-                                                      </a>
-                                                    </div>
-                                                    <div className="pbmit-meta-date">
-                                                      <span className="pbmit-date-wrap">
-                                                        14 Jul, 2023
-                                                      </span>
-                                                    </div>
-                                                  </div> */}
                                                   <h3 className="pbmit-post-title">
                                                     <a href="#/demo2/2023/07/14/making-innovative-strategies-for-outstanding/">
                                                       Making innovative
@@ -2552,21 +1999,6 @@ const NewHome = () => {
                                                   </div>{" "}
                                                 </div>
                                                 <div className="pbminfotech-box-content">
-                                                  {/* <div className="pbmit-meta-cat-wrapper pbmit-meta-line d-flex align-items-center">
-                                                    <div className="pbmit-meta-category">
-                                                      <a
-                                                        href="#/demo2/category/economy/"
-                                                        rel="category tag"
-                                                      >
-                                                        Economy
-                                                      </a>
-                                                    </div>
-                                                    <div className="pbmit-meta-date">
-                                                      <span className="pbmit-date-wrap">
-                                                        14 Jul, 2023
-                                                      </span>
-                                                    </div>
-                                                  </div> */}
                                                   <h3 className="pbmit-post-title">
                                                     <a href="https://img.freepik.com/free-vector/forex-trading-stock-market-candle-graph-background_1017-38065.jpg?w=996&t=st=1702552913~exp=1702553513~hmac=6bc13743bb13abcbe1e9246b70551e0d53a9218532ab19eb0f54ca1879341c20">
                                                       What Are The Other Roles
@@ -2638,21 +2070,6 @@ const NewHome = () => {
                                                   </div>{" "}
                                                 </div>
                                                 <div className="pbminfotech-box-content">
-                                                  {/* <div className="pbmit-meta-cat-wrapper pbmit-meta-line d-flex align-items-center">
-                                                    <div className="pbmit-meta-category">
-                                                      <a
-                                                        href="#/demo2/category/finance/"
-                                                        rel="category tag"
-                                                      >
-                                                        Finance
-                                                      </a>
-                                                    </div>
-                                                    <div className="pbmit-meta-date">
-                                                      <span className="pbmit-date-wrap">
-                                                        14 Jul, 2023
-                                                      </span>
-                                                    </div>
-                                                  </div> */}
                                                   <h3 className="pbmit-post-title">
                                                     <a href="https://img.freepik.com/free-vector/forex-trading-background_52683-41604.jpg?w=996&t=st=1702553016~exp=1702553616~hmac=52ee6a83e1d8ea937850f812b9aaeb782fa67a0e1b49b76eceb69e210bd56dea">
                                                       How to Use the Investment
@@ -2706,584 +2123,6 @@ const NewHome = () => {
                                                 />
                                               </div>
                                             </article>
-                                            {/* <article className="pbmit-ele pbmit-ele-blog pbmit-blog-style-1 col-md-4 insurance pbmit-term-20 pbmit-even pbmit-col-even">
-                                              <div className="post-item">
-                                                <div className="pbmit-featured-container">
-                                                  <div className="pbmit-featured-img-wrapper">
-                                                    <div className="pbmit-featured-wrapper">
-                                                      <img
-                                                        loading="lazy"
-                                                        decoding="async"
-                                                        width={950}
-                                                        height={700}
-                                                        src="https://cleanfin-demo.pbminfotech.com/demo2/wp-content/uploads/sites/3/2023/07/blog-img-04-950x700.jpg"
-                                                        className="attachment-pbmit-img-950x700 size-pbmit-img-950x700 wp-post-image"
-                                                        alt=""
-                                                      />
-                                                    </div>
-                                                  </div>{" "}
-                                                </div>
-                                                <div className="pbminfotech-box-content">
-                                                  <div className="pbmit-meta-cat-wrapper pbmit-meta-line d-flex align-items-center">
-                                                    <div className="pbmit-meta-category">
-                                                      <a
-                                                        href="#/demo2/category/insurance/"
-                                                        rel="category tag"
-                                                      >
-                                                        Insurance
-                                                      </a>
-                                                    </div>
-                                                    <div className="pbmit-meta-date">
-                                                      <span className="pbmit-date-wrap">
-                                                        14 Jul, 2023
-                                                      </span>
-                                                    </div>
-                                                  </div>
-                                                  <h3 className="pbmit-post-title">
-                                                    <a href="#/demo2/2023/07/14/consider-when-buying-investment-property/">
-                                                      Consider When Buying
-                                                      Investment Property <article className="pbmit-ele pbmit-ele-service pbmit-service-style-2 col-md-4 advisory pbmit-term-30  ">
-                                                  <div className="pbminfotech-post-item">
-                                                    <div className="pbmit-service-wrapper">
-                                                      <div className="pbmit-featured-img-wrapper">
-                                                        <div className="pbmit-featured-wrapper">
-                                                          <img
-                                                            loading="lazy"
-                                                            decoding="async"
-                                                            width={900}
-                                                            height={1000}
-                                                            src={
-                                                              "https://img.freepik.com/free-vector/gradient-stock-market-concept_23-2149166910.jpg?w=996&t=st=1702555280~exp=1702555880~hmac=59b1a8a217ac404dd8127177138369cc2d66024f1eec36e98cf3df1f20006523"
-                                                            }
-                                                            className="attachment-pbmit-img-900x1000 size-pbmit-img-900x1000 wp-post-image"
-                                                            alt=""
-                                                          />
-                                                        </div>
-                                                      </div>{" "}
-                                                      <div className="pbmit-svg-btn d-flex align-items-center">
-                                                        <a
-                                                          className="btn-arrow d-flex align-items-center justify-content-center"
-                                                          href="https://cleanfin-demo.pbminfotech.com/demo2/service/consulting-service/"
-                                                        >
-                                                          <svg
-                                                            className="pbmit-svg-arrow"
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                            xmlnsXlink="http://www.w3.org/1999/xlink"
-                                                            x="0px"
-                                                            y="0px"
-                                                            width={10}
-                                                            height={19}
-                                                            viewBox="0 0 19 19"
-                                                            xmlSpace="preserve"
-                                                          >
-                                                            <line
-                                                              x1={1}
-                                                              y1={18}
-                                                              x2="17.8"
-                                                              y2="1.2"
-                                                            />
-                                                            <line
-                                                              x1="1.2"
-                                                              y1={1}
-                                                              x2={18}
-                                                              y2={1}
-                                                            />
-                                                            <line
-                                                              x1={18}
-                                                              y1="17.8"
-                                                              x2={18}
-                                                              y2={1}
-                                                            />
-                                                          </svg>
-                                                        </a>
-                                                      </div>
-                                                    </div>
-                                                    <div className="pbminfotech-box-content">
-                                                      <div className="pbmit-service-icon-wrapper">
-                                                        <i className="pbmit-cleanfin-icon pbmit-cleanfin-icon-global" />{" "}
-                                                      </div>
-                                                      <div className="pbmit-serv-cat">
-                                                        <a href="#" rel="tag">
-                                                          Illustration
-                                                        </a>
-                                                      </div>
-                                                      <h3 className="pbmit-service-title">
-                                                        <a href="#">Stock \</a>
-                                                      </h3>
-                                                    </div>
-                                                    <a
-                                                      href="#"
-                                                      className="pbmit-link"
-                                                    />
-                                                  </div>
-                                                </article>
-                                                    </a>
-                                                  </h3>
-                                                  <div className="pbmit-svg-btn">
-                                                    <a
-                                                      className="btn-arrow"
-                                                      href="#/demo2/2023/07/14/consider-when-buying-investment-property/"
-                                                    >
-                                                      Read More{" "}
-                                                      <svg
-                                                        className="pbmit-svg-arrow"
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        xmlnsXlink="http://www.w3.org/1999/xlink"
-                                                        x="0px"
-                                                        y="0px"
-                                                        width={10}
-                                                        height={19}
-                                                        viewBox="0 0 19 19"
-                                                        xmlSpace="preserve"
-                                                      >
-                                                        <line
-                                                          x1={1}
-                                                          y1={18}
-                                                          x2="17.8"
-                                                          y2="1.2"
-                                                        />
-                                                        <line
-                                                          x1="1.2"
-                                                          y1={1}
-                                                          x2={18}
-                                                          y2={1}
-                                                        />
-                                                        <line
-                                                          x1={18}
-                                                          y1="17.8"
-                                                          x2={18}
-                                                          y2={1}
-                                                        />
-                                                      </svg>
-                                                    </a>
-                                                  </div>
-                                                </div>
-                                                <a
-                                                  href="#/demo2/2023/07/14/consider-when-buying-investment-property/"
-                                                  className="pbmit-link"
-                                                />
-                                              </div>
-                                            </article>
-                                            <article className="pbmit-ele pbmit-ele-blog pbmit-blog-style-1 col-md-4 investment pbmit-term-21 pbmit-odd pbmit-col-even">
-                                              <div className="post-item">
-                                                <div className="pbmit-featured-container">
-                                                  <div className="pbmit-featured-img-wrapper">
-                                                    <div className="pbmit-featured-wrapper">
-                                                      <img
-                                                        loading="lazy"
-                                                        decoding="async"
-                                                        width={950}
-                                                        height={700}
-                                                        src="https://cleanfin-demo.pbminfotech.com/demo2/wp-content/uploads/sites/3/2023/07/blog-img-05-950x700.jpg"
-                                                        className="attachment-pbmit-img-950x700 size-pbmit-img-950x700 wp-post-image"
-                                                        alt=""
-                                                      />
-                                                    </div>
-                                                  </div>{" "}
-                                                </div>
-                                                <div className="pbminfotech-box-content">
-                                                  <div className="pbmit-meta-cat-wrapper pbmit-meta-line d-flex align-items-center">
-                                                    <div className="pbmit-meta-category">
-                                                      <a
-                                                        href="#/demo2/category/investment/"
-                                                        rel="category tag"
-                                                      >
-                                                        Investment
-                                                      </a>
-                                                    </div>
-                                                    <div className="pbmit-meta-date">
-                                                      <span className="pbmit-date-wrap">
-                                                        14 Jul, 2023
-                                                      </span>
-                                                    </div>
-                                                  </div>
-                                                  <h3 className="pbmit-post-title">
-                                                    <a href="#/demo2/2023/07/14/what-are-the-hidden-fees-of-crypto-nfts/">
-                                                      What Are The Hidden Fees
-                                                      of Crypto/NFTs?
-                                                    </a>
-                                                  </h3>
-                                                  <div className="pbmit-svg-btn">
-                                                    <a
-                                                      className="btn-arrow"
-                                                      href="#/demo2/2023/07/14/what-are-the-hidden-fees-of-crypto-nfts/"
-                                                    >
-                                                      Read More{" "}
-                                                      <svg
-                                                        className="pbmit-svg-arrow"
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        xmlnsXlink="http://www.w3.org/1999/xlink"
-                                                        x="0px"
-                                                        y="0px"
-                                                        width={10}
-                                                        height={19}
-                                                        viewBox="0 0 19 19"
-                                                        xmlSpace="preserve"
-                                                      >
-                                                        <line
-                                                          x1={1}
-                                                          y1={18}
-                                                          x2="17.8"
-                                                          y2="1.2"
-                                                        />
-                                                        <line
-                                                          x1="1.2"
-                                                          y1={1}
-                                                          x2={18}
-                                                          y2={1}
-                                                        />
-                                                        <line
-                                                          x1={18}
-                                                          y1="17.8"
-                                                          x2={18}
-                                                          y2={1}
-                                                        />
-                                                      </svg>
-                                                    </a>
-                                                  </div>
-                                                </div>
-                                                <a
-                                                  href="#/demo2/2023/07/14/what-are-the-hidden-fees-of-crypto-nfts/"
-                                                  className="pbmit-link"
-                                                />
-                                              </div>
-                                            </article>
-                                            <article className="pbmit-ele pbmit-ele-blog pbmit-blog-style-1 col-md-4 research pbmit-term-22 pbmit-even pbmit-col-even">
-                                              <div className="post-item">
-                                                <div className="pbmit-featured-container">
-                                                  <div className="pbmit-featured-img-wrapper">
-                                                    <div className="pbmit-featured-wrapper">
-                                                      <img
-                                                        loading="lazy"
-                                                        decoding="async"
-                                                        width={950}
-                                                        height={700}
-                                                        src="https://cleanfin-demo.pbminfotech.com/demo2/wp-content/uploads/sites/3/2023/07/blog-img-06-950x700.jpg"
-                                                        className="attachment-pbmit-img-950x700 size-pbmit-img-950x700 wp-post-image"
-                                                        alt=""
-                                                      />
-                                                    </div>
-                                                  </div>{" "}
-                                                </div>
-                                                <div className="pbminfotech-box-content">
-                                                  <div className="pbmit-meta-cat-wrapper pbmit-meta-line d-flex align-items-center">
-                                                    <div className="pbmit-meta-category">
-                                                      <a
-                                                        href="#/demo2/category/research/"
-                                                        rel="category tag"
-                                                      >
-                                                        Research
-                                                      </a>
-                                                    </div>
-                                                    <div className="pbmit-meta-date">
-                                                      <span className="pbmit-date-wrap">
-                                                        14 Jul, 2023
-                                                      </span>
-                                                    </div>
-                                                  </div>
-                                                  <h3 className="pbmit-post-title">
-                                                    <a href="#/demo2/2023/07/14/three-principles-of-personal-financesuccess/">
-                                                      Three Principles of
-                                                      Personal Finance:Success
-                                                    </a>
-                                                  </h3>
-                                                  <div className="pbmit-svg-btn">
-                                                    <a
-                                                      className="btn-arrow"
-                                                      href="#/demo2/2023/07/14/three-principles-of-personal-financesuccess/"
-                                                    >
-                                                      Read More{" "}
-                                                      <svg
-                                                        className="pbmit-svg-arrow"
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        xmlnsXlink="http://www.w3.org/1999/xlink"
-                                                        x="0px"
-                                                        y="0px"
-                                                        width={10}
-                                                        height={19}
-                                                        viewBox="0 0 19 19"
-                                                        xmlSpace="preserve"
-                                                      >
-                                                        <line
-                                                          x1={1}
-                                                          y1={18}
-                                                          x2="17.8"
-                                                          y2="1.2"
-                                                        />
-                                                        <line
-                                                          x1="1.2"
-                                                          y1={1}
-                                                          x2={18}
-                                                          y2={1}
-                                                        />
-                                                        <line
-                                                          x1={18}
-                                                          y1="17.8"
-                                                          x2={18}
-                                                          y2={1}
-                                                        />
-                                                      </svg>
-                                                    </a>
-                                                  </div>
-                                                </div>
-                                                <a
-                                                  href="#/demo2/2023/07/14/three-principles-of-personal-financesuccess/"
-                                                  className="pbmit-link"
-                                                />
-                                              </div>
-                                            </article>
-                                            <article className="pbmit-ele pbmit-ele-blog pbmit-blog-style-1 col-md-4 economy pbmit-term-18 pbmit-odd pbmit-col-odd">
-                                              <div className="post-item">
-                                                <div className="pbmit-featured-container">
-                                                  <div className="pbmit-featured-img-wrapper">
-                                                    <div className="pbmit-featured-wrapper">
-                                                      <img
-                                                        loading="lazy"
-                                                        decoding="async"
-                                                        width={950}
-                                                        height={700}
-                                                        src="https://cleanfin-demo.pbminfotech.com/demo2/wp-content/uploads/sites/3/2023/07/blog-img-07-950x700.jpg"
-                                                        className="attachment-pbmit-img-950x700 size-pbmit-img-950x700 wp-post-image"
-                                                        alt=""
-                                                      />
-                                                    </div>
-                                                  </div>{" "}
-                                                </div>
-                                                <div className="pbminfotech-box-content">
-                                                  <div className="pbmit-meta-cat-wrapper pbmit-meta-line d-flex align-items-center">
-                                                    <div className="pbmit-meta-category">
-                                                      <a
-                                                        href="#/demo2/category/economy/"
-                                                        rel="category tag"
-                                                      >
-                                                        Economy
-                                                      </a>
-                                                    </div>
-                                                    <div className="pbmit-meta-date">
-                                                      <span className="pbmit-date-wrap">
-                                                        14 Jul, 2023
-                                                      </span>
-                                                    </div>
-                                                  </div>
-                                                  <h3 className="pbmit-post-title">
-                                                    <a href="#/demo2/2023/07/14/real-estate-investing-how-does-it-work/">
-                                                      Real Estate Investing
-                                                      &amp; How Does It Work?
-                                                    </a>
-                                                  </h3>
-                                                  <div className="pbmit-svg-btn">
-                                                    <a
-                                                      className="btn-arrow"
-                                                      href="#/demo2/2023/07/14/real-estate-investing-how-does-it-work/"
-                                                    >
-                                                      Read More{" "}
-                                                      <svg
-                                                        className="pbmit-svg-arrow"
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        xmlnsXlink="http://www.w3.org/1999/xlink"
-                                                        x="0px"
-                                                        y="0px"
-                                                        width={10}
-                                                        height={19}
-                                                        viewBox="0 0 19 19"
-                                                        xmlSpace="preserve"
-                                                      >
-                                                        <line
-                                                          x1={1}
-                                                          y1={18}
-                                                          x2="17.8"
-                                                          y2="1.2"
-                                                        />
-                                                        <line
-                                                          x1="1.2"
-                                                          y1={1}
-                                                          x2={18}
-                                                          y2={1}
-                                                        />
-                                                        <line
-                                                          x1={18}
-                                                          y1="17.8"
-                                                          x2={18}
-                                                          y2={1}
-                                                        />
-                                                      </svg>
-                                                    </a>
-                                                  </div>
-                                                </div>
-                                                <a
-                                                  href="#/demo2/2023/07/14/real-estate-investing-how-does-it-work/"
-                                                  className="pbmit-link"
-                                                />
-                                              </div>
-                                            </article>
-                                            <article className="pbmit-ele pbmit-ele-blog pbmit-blog-style-1 col-md-4 insurance pbmit-term-20 pbmit-even pbmit-col-odd">
-                                              <div className="post-item">
-                                                <div className="pbmit-featured-container">
-                                                  <div className="pbmit-featured-img-wrapper">
-                                                    <div className="pbmit-featured-wrapper">
-                                                      <img
-                                                        loading="lazy"
-                                                        decoding="async"
-                                                        width={950}
-                                                        height={700}
-                                                        src="https://cleanfin-demo.pbminfotech.com/demo2/wp-content/uploads/sites/3/2023/07/blog-img-08-950x700.jpg"
-                                                        className="attachment-pbmit-img-950x700 size-pbmit-img-950x700 wp-post-image"
-                                                        alt=""
-                                                      />
-                                                    </div>
-                                                  </div>{" "}
-                                                </div>
-                                                <div className="pbminfotech-box-content">
-                                                  <div className="pbmit-meta-cat-wrapper pbmit-meta-line d-flex align-items-center">
-                                                    <div className="pbmit-meta-category">
-                                                      <a
-                                                        href="#/demo2/category/insurance/"
-                                                        rel="category tag"
-                                                      >
-                                                        Insurance
-                                                      </a>
-                                                    </div>
-                                                    <div className="pbmit-meta-date">
-                                                      <span className="pbmit-date-wrap">
-                                                        14 Jul, 2023
-                                                      </span>
-                                                    </div>
-                                                  </div>
-                                                  <h3 className="pbmit-post-title">
-                                                    <a href="#/demo2/2023/07/14/how-to-increase-your-earning-potential/">
-                                                      How to Increase Your
-                                                      Earning Potential
-                                                    </a>
-                                                  </h3>
-                                                  <div className="pbmit-svg-btn">
-                                                    <a
-                                                      className="btn-arrow"
-                                                      href="#/demo2/2023/07/14/how-to-increase-your-earning-potential/"
-                                                    >
-                                                      Read More{" "}
-                                                      <svg
-                                                        className="pbmit-svg-arrow"
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        xmlnsXlink="http://www.w3.org/1999/xlink"
-                                                        x="0px"
-                                                        y="0px"
-                                                        width={10}
-                                                        height={19}
-                                                        viewBox="0 0 19 19"
-                                                        xmlSpace="preserve"
-                                                      >
-                                                        <line
-                                                          x1={1}
-                                                          y1={18}
-                                                          x2="17.8"
-                                                          y2="1.2"
-                                                        />
-                                                        <line
-                                                          x1="1.2"
-                                                          y1={1}
-                                                          x2={18}
-                                                          y2={1}
-                                                        />
-                                                        <line
-                                                          x1={18}
-                                                          y1="17.8"
-                                                          x2={18}
-                                                          y2={1}
-                                                        />
-                                                      </svg>
-                                                    </a>
-                                                  </div>
-                                                </div>
-                                                <a
-                                                  href="#/demo2/2023/07/14/how-to-increase-your-earning-potential/"
-                                                  className="pbmit-link"
-                                                />
-                                              </div>
-                                            </article>
-                                            <article className="pbmit-ele pbmit-ele-blog pbmit-blog-style-1 col-md-4 research pbmit-term-22 pbmit-odd pbmit-col-odd">
-                                              <div className="post-item">
-                                                <div className="pbmit-featured-container">
-                                                  <div className="pbmit-featured-img-wrapper">
-                                                    <div className="pbmit-featured-wrapper">
-                                                      <img
-                                                        loading="lazy"
-                                                        decoding="async"
-                                                        width={950}
-                                                        height={700}
-                                                        src="https://cleanfin-demo.pbminfotech.com/demo2/wp-content/uploads/sites/3/2023/07/blog-img-09-950x700.jpg"
-                                                        className="attachment-pbmit-img-950x700 size-pbmit-img-950x700 wp-post-image"
-                                                        alt=""
-                                                      />
-                                                    </div>
-                                                  </div>{" "}
-                                                </div>
-                                                <div className="pbminfotech-box-content">
-                                                  <div className="pbmit-meta-cat-wrapper pbmit-meta-line d-flex align-items-center">
-                                                    <div className="pbmit-meta-category">
-                                                      <a
-                                                        href="#/demo2/category/research/"
-                                                        rel="category tag"
-                                                      >
-                                                        Research
-                                                      </a>
-                                                    </div>
-                                                    <div className="pbmit-meta-date">
-                                                      <span className="pbmit-date-wrap">
-                                                        14 Jul, 2023
-                                                      </span>
-                                                    </div>
-                                                  </div>
-                                                  <h3 className="pbmit-post-title">
-                                                    <a href="#/demo2/2023/07/14/what-to-consider-how-to-retire-early/">
-                                                      What to Consider &amp; How
-                                                      to Retire Early
-                                                    </a>
-                                                  </h3>
-                                                  <div className="pbmit-svg-btn">
-                                                    <a
-                                                      className="btn-arrow"
-                                                      href="#/demo2/2023/07/14/what-to-consider-how-to-retire-early/"
-                                                    >
-                                                      Read More{" "}
-                                                      <svg
-                                                        className="pbmit-svg-arrow"
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        xmlnsXlink="http://www.w3.org/1999/xlink"
-                                                        x="0px"
-                                                        y="0px"
-                                                        width={10}
-                                                        height={19}
-                                                        viewBox="0 0 19 19"
-                                                        xmlSpace="preserve"
-                                                      >
-                                                        <line
-                                                          x1={1}
-                                                          y1={18}
-                                                          x2="17.8"
-                                                          y2="1.2"
-                                                        />
-                                                        <line
-                                                          x1="1.2"
-                                                          y1={1}
-                                                          x2={18}
-                                                          y2={1}
-                                                        />
-                                                        <line
-                                                          x1={18}
-                                                          y1="17.8"
-                                                          x2={18}
-                                                          y2={1}
-                                                        />
-                                                      </svg>
-                                                    </a>
-                                                  </div>
-                                                </div>
-                                                <a
-                                                  href="#/demo2/2023/07/14/what-to-consider-how-to-retire-early/"
-                                                  className="pbmit-link"
-                                                />
-                                              </div>
-                                            </article> */}
                                           </div>{" "}
                                           {/* .pbmit-element-posts-wrapper */}
                                         </div>

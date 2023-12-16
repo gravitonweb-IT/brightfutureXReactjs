@@ -45,8 +45,6 @@ import HomeSlide6 from "../../Assests/HomePageImages/stock3.png";
 import Chart from "./Chart";
 import Stockchart from "./Stockchart";
 
-
-
 const slides = [
   {
     image: HomeSlide6,
@@ -180,12 +178,9 @@ const Home = () => {
     settings.slidesToShow = 1;
   }
 
-
-
   return (
     <>
-     
- {/* <div className="bg-gray-200 p-4 w-full overflow-hidden">
+      {/* <div className="bg-gray-200 p-4 w-full overflow-hidden">
       <div className="overflow-x-auto">
         <marquee
          behavior="scroll"
@@ -331,8 +326,6 @@ const Home = () => {
 
       {/* Stock-market-Part */}
       <Stockchart />
-
-     
 
       {/* Services-part */}
 
@@ -545,10 +538,7 @@ const Home = () => {
 
       {/* FAQ's-part-end */}
 
-     
-      <div>
-       
-      </div>
+      <div></div>
 
       {/* Portfolio-part */}
 

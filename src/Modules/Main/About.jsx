@@ -22,12 +22,14 @@ const About = () => {
 
         <div className="absolute top-0 left-5 lg:left-20 right-0 bottom-0  flex flex-col justify-center ">
           <div className="container mx-auto ">
-            <h1 className="text-lg md:text-5xl font-bold ">About Us</h1>
+            <h1 className="text-lg md:text-5xl font-bold text-gray-100 ">
+              About Us
+            </h1>
 
-            <p className="mt-4 text-md md:text-xl text-black ">
-              Welcome to Trading stock market trading website! We are a
-              team <br></br> of experienced traders and financial experts who
-              are passionate about <br></br> helping our clients succeed in the
+            <p className="mt-4 text-md md:text-xl text-gray-100 ">
+              Welcome to Trading stock market trading website! We are a team{" "}
+              <br></br> of experienced traders and financial experts who are
+              passionate about <br></br> helping our clients succeed in the
               stock market.
             </p>
           </div>
@@ -36,9 +38,11 @@ const About = () => {
 
       {/* services cards */}
 
-      <div className="mt-12 md:mt-20">
+      <div className="mt-12 md:mt-20 pb-5">
         <div className="text-center">
-          <h1 className="text-2xl md:text-4xl font-bold text-center text-[#034694]">Why We Smart ?</h1>
+          <h1 className="text-2xl md:text-4xl font-bold text-center text-[#034694]">
+            Why We Smart ?
+          </h1>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mx-10 md:mx-20 lg:mx-32 mt-10 md:mt-20">
@@ -124,9 +128,6 @@ const About = () => {
       </div>
 
       {/* services cards */}
-
-
-      
     </>
   );
 };

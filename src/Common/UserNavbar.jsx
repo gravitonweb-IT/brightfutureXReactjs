@@ -12,21 +12,20 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import PhoneButton from "../Modules/Main/PhoneButton";
 
-
-const UserNavbar = ({setUserType}) => {
+const UserNavbar = ({ setUserType }) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [showSuperAdminDropdown, setShowSuperAdminDropdown] = useState(false);
   const [showMyAccountDropdown, setShowMyAccountDropdown] = useState(false);
 
- const handleLogOut = () =>{
+  const handleLogOut = () => {
     setUserType("0");
-    localStorage.removeItem("login")
-    localStorage.removeItem("userData")
-    setIsDrawerOpen(false) 
-    debugger
-    window.location.reload()
- }
+    localStorage.removeItem("login");
+    localStorage.removeItem("userData");
+    setIsDrawerOpen(false);
+    debugger;
+    window.location.reload();
+  };
 
   const toggleSuperAdminDropdown = () => {
     setShowSuperAdminDropdown(!showSuperAdminDropdown);
@@ -44,13 +43,12 @@ const UserNavbar = ({setUserType}) => {
             <p>
               <FontAwesomeIcon
                 icon={faEnvelope}
-                className="h-5 w-5 text-white pr-3"
+                className="h-5 w-5 text-gray-100 pr-3"
               />
-              <span className="text-white font-semibold text-lg">
-              info@Trading.com
+              <span className="text-gray-100 font-semibold text-lg">
+                info@Trading.com
               </span>
             </p>
-
 
             {/* <p className="pl-10">
               <FontAwesomeIcon
@@ -61,8 +59,6 @@ const UserNavbar = ({setUserType}) => {
                 8349227709
               </span>
             </p> */}
-
-
           </div>
 
           <div>
@@ -73,9 +69,8 @@ const UserNavbar = ({setUserType}) => {
             >
               <FontAwesomeIcon
                 icon={faLink}
-                className="h-5 w-5 text-white pr-3 hover:cursor-pointer"
+                className="h-5 w-5 text-gray-100 pr-3 hover:cursor-pointer"
               />
-              
             </a>
             <a
               href="https://www.moneycontrol.com/news/business/stocks/"
@@ -84,31 +79,29 @@ const UserNavbar = ({setUserType}) => {
             >
               <FontAwesomeIcon
                 icon={faArrowUpRightFromSquare}
-                className="h-4 w-4 text-white pr-3 hover:cursor-pointer"
+                className="h-4 w-4 text-gray-100 pr-3 hover:cursor-pointer"
               />
             </a>
-           
-             <a
+
+            <a
               href="https://www.moneycontrol.com/portfolio-management/portfolio-investment-signup.php"
               target="_blank"
               rel="noopener noreferrer"
             >
               <FontAwesomeIcon
                 icon={faNewspaper}
-                className="h-4 w-4 text-white pr-3 hover:cursor-pointer"
+                className="h-4 w-4 text-gray-100 pr-3 hover:cursor-pointer"
               />
             </a>
-           
           </div>
         </div>
       </div>
 
-      <nav className="bg-white shadow-md sticky top-0 z-50">
-        <div className="flex justify-between items-center px-5 md:px-10 py-2">
+      <nav className="bg-gray-100 shadow-md sticky top-0 z-50">
+        <div className="flex justify-between items-center  px-5 md:px-10 py-2">
           <div className="">
             <Link to="/">
-            <img src={LogoImage} className="w-[60px] h-[50px]"></img>
-            
+              <img src={LogoImage} className="w-[60px] h-[50px]"></img>
             </Link>
           </div>
           <div className="fixed left-4 bottom-3">
@@ -116,7 +109,7 @@ const UserNavbar = ({setUserType}) => {
               <img src={whatsapp} width="50" />
             </Link>
           </div>
-          <PhoneButton/>
+          <PhoneButton />
 
           <div className="hidden lg:flex space-x-5">
             <ul className="flex space-x-5">
@@ -179,33 +172,42 @@ const UserNavbar = ({setUserType}) => {
                   Funds
                 </Link>
               </li>
+
+              <li>
+                <a
+                  href="../Assests/app-debug.apk"
+                  download
+                  className="text-[#64666C] hover:text-blue-500 text-lg font-semibold"
+                >
+                  Download App
+                </a>
+              </li>
             </ul>
 
-            
             {/* My Account Dropdown */}
             <div className="relative">
               <button
                 className="text-[#64666C] hover:text-blue-500 text-lg font-semibold"
-                onClick={() =>setShowDropdown(!showDropdown)}
+                onClick={() => setShowDropdown(!showDropdown)}
               >
-              My Account <span className="ml-1">&#9660;</span>
+                My Account <span className="ml-1">&#9660;</span>
               </button>
 
               {showDropdown && (
                 <div className="absolute bg-blue-950 w-34 flex flex-col text-white hover:text-white cursor-pointer mt-2">
-                   <p className="hover:bg-sky-500 hover:text-white border-b-2  m-2">
-                        <Link
-                          to="/userDashboard"
-                          className="text-white "
-                          // onClick={() => handleLogOut()}
-                        >
-                          UserDashboard
-                        </Link>
-                      </p>
-                  <p className="hover:bg-sky-500 hover:text-white border-b-2  p-2 w-32">
+                  <p className="hover:bg-sky-500 pb-2 hover:text-white border-b-2  m-2">
+                    <Link
+                      to="/userDashboard"
+                      className="text-gray-100"
+                      // onClick={() => handleLogOut()}
+                    >
+                      UserDashboard
+                    </Link>
+                  </p>
+                  <p className="hover:bg-sky-500 pb-2 hover:text-white mx-2">
                     <Link
                       to="/"
-                      className="text-white "
+                      className="text-gray-100 "
                       onClick={() => handleLogOut()}
                     >
                       Logout
@@ -323,18 +325,17 @@ const UserNavbar = ({setUserType}) => {
                   </Link>
                 </li>
 
-                
                 <li>
                   <button
                     className="text-white text-xl hover:text-white relative"
                     onClick={toggleMyAccountDropdown}
                   >
-                     My Account <span className="ml-1">&#9660;</span>
+                    My Account <span className="ml-1">&#9660;</span>
                   </button>
 
                   {showMyAccountDropdown && (
                     <div className="absolute bg-blue-950 w-40 flex flex-col text-white hover:text-white cursor-pointer">
-                        <p className="hover:bg-sky-500 hover:text-white border-b-2  m-2">
+                      <p className="hover:bg-sky-500 hover:text-white border-b-2  m-2">
                         <Link
                           to="/userDashboard"
                           className="text-white "

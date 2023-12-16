@@ -253,7 +253,7 @@ const Portfolio = () => {
 
   return (
     <>
-      <div className="bg-gray-200 p-4 w-full overflow-hidden">
+      <div className="bg-gray-200 px-4 py-2 w-full overflow-hidden">
         <div className="overflow-x-auto">
           <marquee
             behavior="scroll"
@@ -305,73 +305,80 @@ const Portfolio = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mx-5 md:mx-12 mt-8">
-        <div className="  p-10 bg-red-500 text-white rounded-3xl ">
+      <div className="grid grid-cols-1 gap-5 mx-5 md:mx-12 mt-8">
+        <div className="  px-10 py-4 bg-[#ebf3fe] text-[#2a3547] rounded-3xl ">
           <p className=" text-2xl md:text-4xl font-bold ">Welcome</p>
           <p className="mt-2">{name}</p>
           <p className=" text-2xl md:text-3xl font-semibold  mt-2">
             Profit & Loss Details
           </p>
         </div>
+        <div className="row align-items-center">
+          <div className="col-4">
+            <div className="px-5 py-4 bg-[#ebf3fe] rounded-lg">
+              <p className="text-2xl text-black font-bold"> Balance Status</p>
+              <div className="flex mt-2 items-center ">
+                <div>
+                  <FontAwesomeIcon
+                    icon={faMoneyBill}
+                    className="h-8 w-8 p-4 text-gray-100 bg-blue-600 rounded-full"
+                  />
+                </div>
 
-        <div className="  p-5  bg-slate-400 rounded-3xl">
-          <p className="text-2xl  font-bold mt-3  "> Balance Status</p>
-
-          <div className="flex  mt-5  ">
-            <div>
-              <FontAwesomeIcon
-                icon={faMoneyBill}
-                className="h-10 w-10  p-4  bg-blue-600 rounded-full"
-              />
-            </div>
-
-            <div className="font-bold mt-2  pl-5 ">
-              {dataValue?.price}
-              <br />
-              <span className="font-bold text-lg "> PayAmount</span>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <div className="flex mt-5 p-5 bg-blue-200 shadow-xl rounded-lg">
-            <div>
-              <FontAwesomeIcon
-                icon={faArrowTrendUp}
-                className="h-8 w-8 p-3 bg-green-600 rounded-full "
-              />
-            </div>
-
-            <div className="font-semibold  pl-5  ">
-              {dataValue?.profit}
-              <br />
-              <span className="font-bold"> Profit</span>
+                <div className="font-bold mt-2 text-blue-600 pl-5 ">
+                  {dataValue?.price}0000
+                  <br />
+                  <span className="font-bold text-blue-600 text-lg ">
+                    {" "}
+                    PayAmount
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
+          <div className="col-4">
+            <div className="flex p-5 bg-[#e6fffa] shadow-xl items-center rounded-lg">
+              <div>
+                <FontAwesomeIcon
+                  icon={faArrowTrendUp}
+                  className="h-8 w-8 p-3 bg-green-600 text-gray-100 rounded-full "
+                />
+              </div>
 
-          <div className="flex mt-5 p-5 bg-blue-200 shadow-xl rounded-lg  ">
-            <div>
-              <FontAwesomeIcon
-                icon={faArrowTrendDown}
-                className="h-8 w-8 p-3  bg-red-600 rounded-full "
-              />
+              <div className="font-semibold text-green-600  pl-5  ">
+                {dataValue?.profit}000
+                <br />
+                <span className="font-bold text-green-600"> Profit</span>
+              </div>
             </div>
+          </div>
+          <div className="col-4">
+            <div className="flex p-5 bg-[#fbf2ef] shadow-xl items-center rounded-lg  ">
+              <div>
+                <FontAwesomeIcon
+                  icon={faArrowTrendDown}
+                  className="h-8 w-8 p-3  bg-red-600 text-gray-100 rounded-full "
+                />
+              </div>
 
-            <div className="font-semibold  pl-5  ">
-              {dataValue?.loss}
-              <br />
-              <span className="font-bold"> Loss</span>
+              <div className="font-semibold text-red-600  pl-5  ">
+                {dataValue?.loss}000
+                <br />
+                <span className="font-bold"> Loss</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="text-2xl md:text-3xl font-semibold mt-10  text-blue-500 text-center">
+      <div className="text-2xl md:text-4xl font-semibold mt-10  text-blue-500 text-center">
         CUSTOMER PORTFOLIO PROFIT AND LOSS DETAILS
       </div>
 
-      <div className="bg-[#50e536] mt-5 p-5 ">
-        <div className="text-xl font-semibold  text-center">WELCOME {name}</div>
+      <div className="bg-[#ebf3fe] mt-5 p-4 ">
+        <div className="text-[28px] text-[#2a3547] font-semibold  text-center">
+          WELCOME {name}
+        </div>
       </div>
 
       {/* <div className="flex flex-wrap mx-5 mt-10  items-center justify-center">
@@ -527,7 +534,7 @@ const Portfolio = () => {
         behavior="scroll"
         direction="left"
         scrollamount="2"
-        className="font-bold bg-teal-600 p-3 mt-2"
+        className="font-bold bg-teal-600 p-3 mt-2 text-gray-100"
       >
         म्यूचुअल फंड बाज़ार से जुड़े निवेश हैं और इस तरह वे कभी पूरी तरह से
         सुरक्षित नहीं हो सकते हैं। हालांकि, जोखिम कम करने के लिए इन पर कई तरह के
