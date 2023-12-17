@@ -5,6 +5,7 @@ import { BsFillClipboard2DataFill } from "react-icons/bs";
 import { FaDollarSign } from "react-icons/fa6";
 import { servieUrl } from "../../../env/env";
 import React, { useEffect, useState } from "react";
+
 import {
   AiOutlineDashboard,
   AiOutlineFundProjectionScreen,
@@ -19,7 +20,7 @@ import { GiTrade } from "react-icons/gi";
 import "../user.css";
 import UserDashboard from "../UserDashboard";
 import "../../Account/data_table.css";
-
+import './UserTransaction.css'
 const UserTransaction = () => {
   const navigate = useNavigate();
 
@@ -43,7 +44,7 @@ const UserTransaction = () => {
     redirect: 'follow'
   };
   
-  fetch("http://127.0.0.1:8000/rolebased/transaction/johndoe@example.com/", requestOptions)
+  fetch(servieUrl.url+"rolebased/transaction/johndoe@example.com/", requestOptions)
     .then(response => response.json())
     .then(result =>{
       setTrsaction(result)
@@ -202,14 +203,17 @@ const UserTransaction = () => {
     <>
       <>
         <UserDashboard>
-          <div className="py-md-5 py-3  flex items-center justify-center bg-gray-200">
-            <div className=" p-8 rounded shadow-md bg-gray-100 w-[800px]">
-              <h2 className="text-2xl font-semibold ">Data Transition</h2>
+          
+          <div className="py-md-5 py-3  flex items-center justify-center bg-white-200 background-image" >
+          <div className="background-overlays"></div>
+<div style={{border:'1px solid white'}}>
+<div className=" p-8 rounded shadow-md  form-containers" style={{backgroundColor:'#808080bd'}}>
+              <h2 className="text-2xl font-semibold  " style={{color:'white'}}>Data Transition</h2>
               <div className="">
-                <div class="table-wrapper">
+                <div class="table-wrapper" >
                   <table>
-                    <thead>
-                      <tr>
+                    <thead >
+                      <tr >
                         <th>Name</th>
                         <th>Email</th>
                         <th>Type</th>
@@ -218,7 +222,7 @@ const UserTransaction = () => {
                     </thead>
                     <tbody>
                       {
- trsansaction?.map(data=> <tr>
+ trsansaction?.map(data=> <tr style={{backgroundColor:'white',color:'black'}} >
   <td>{data.name}</td>
   <td>{data.email}</td>
   <td>{data.type}</td>
@@ -252,6 +256,8 @@ const UserTransaction = () => {
                 ))}
               </ul> */}
             </div>
+</div>
+           
           </div>
         </UserDashboard>
       </>

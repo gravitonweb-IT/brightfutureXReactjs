@@ -57,10 +57,17 @@ const MainStock = () => {
         
         <div>
             <UserDashboard>
-            <button onClick={handleDelete}>Delete All Stock Data</button>
+              <div className='row'>
+                <div className='col-lg-2'></div>
+                <div className='col-lg-8'>
+                <button onClick={handleDelete} style={{fontSize:'20px',fontWeight:'500'}}>Delete All Stock Data</button>
           {stocks.map((stock, index) => (
             <TradeNow key={index} stock={stock} />
           ))}
+                </div>
+
+              </div>
+           
           </UserDashboard>
         </div>
   )

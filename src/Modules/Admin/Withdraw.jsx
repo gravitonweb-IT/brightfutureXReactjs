@@ -74,9 +74,8 @@ const Withdraw = () => {
 
   return (
     <>
-      {/* Search input field */}
-      <div className="w-full bg-[#ccfbf1] p-1 ">
-        <div className="flex flex-col items-start sm:flex-row sm:items-center my-2 pl-2">
+    <div className="row mb-2">
+      <div className="col-lg-8">
           <input
             type="text"
             placeholder="Search by Name.."
@@ -84,42 +83,45 @@ const Withdraw = () => {
             onChange={handleSearchInputChange}
             className="border rounded-md py-2 px-4 hover:border-blue-950"
           />
-          <p className="text-2xl font-bold text-blue-500 mt-4 sm:mt-0 sm:ml-2 lg:pl-[380px]">
+         
+       
+      </div>
+      <div className="col-lg-4">
+      <p style={{fontSize:'24px',fontWeight:'500'}}>
             Withdraw Data Table
           </p>
-        </div>
       </div>
-
-      {/* Table */}
+    </div>
+     
 
       <div className="overflow-x-auto">
         <table className="min-w-full border-4">
-          <thead>
+          <thead style={{backgroundColor:'rgb(29, 35, 58)',color:'white'}}>
             <tr>
-              <th className="px-6 py-3 bg-red-600 text-center text-lg leading-4 font-medium text-white uppercase tracking-wider">
+              <th className="px-6 py-3  text-center text-lg leading-4 font-medium text-white uppercase tracking-wider">
                 Date
               </th>
 
-              <th className="px-6 py-3 bg-red-600 text-center text-lg leading-4 font-medium text-white uppercase tracking-wider">
+              <th className="px-6 py-3  text-center text-lg leading-4 font-medium text-white uppercase tracking-wider">
                 Name
               </th>
 
-              <th className="px-6 py-3 bg-red-600 text-center text-lg leading-4 font-medium text-white uppercase tracking-wider">
+              <th className="px-6 py-3  text-center text-lg leading-4 font-medium text-white uppercase tracking-wider">
                 Account
               </th>
 
-              <th className="px-6 py-3 bg-red-600 text-center text-lg leading-4 font-medium text-white uppercase tracking-wider">
+              <th className="px-6 py-3  text-center text-lg leading-4 font-medium text-white uppercase tracking-wider">
                 IFCS
               </th>
 
-              <th className="px-6 py-3 bg-red-600 text-center text-lg leading-4 font-medium text-white uppercase tracking-wider">
+              <th className="px-6 py-3  text-center text-lg leading-4 font-medium text-white uppercase tracking-wider">
                 PAN CARD
               </th>
 
-              <th className="px-6 py-3 bg-red-600 text-center text-lg leading-4 font-medium text-white uppercase tracking-wider">
+              <th className="px-6 py-3  text-center text-lg leading-4 font-medium text-white uppercase tracking-wider">
                 Amount
               </th>
-              <th className="px-6 py-3 bg-red-600 text-center text-lg leading-4 font-medium text-white uppercase tracking-wider">
+              <th className="px-6 py-3  text-center text-lg leading-4 font-medium text-white uppercase tracking-wider">
                 Action
               </th>
             </tr>
@@ -148,7 +150,8 @@ const Withdraw = () => {
                 <td className="p-2 text-center">
                   <button
                     onClick={() => handleDelete(item.id)} // Pass the item ID to the delete function
-                    className="bg-blue-900 text-white px-2 py-1 rounded ml-2 hover:cursor-pointer"
+                    className="bg-red-500 px-2 py-1 rounded ml-2 hover:cursor-pointer"
+                    style={{color:'white'}}
                   >
                     Delete
                   </button>

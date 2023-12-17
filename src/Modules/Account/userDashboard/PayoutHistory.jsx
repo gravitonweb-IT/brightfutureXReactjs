@@ -18,6 +18,7 @@ import {
 import { GiTrade } from "react-icons/gi";
 import "../user.css";
 import UserDashboard from "../UserDashboard";
+import './PayoutHistory.css'
 const PayoutHistory = () => {
   const navigate = useNavigate();
 
@@ -41,7 +42,7 @@ const PayoutHistory = () => {
      redirect: 'follow'
    };
    
-   fetch("http://127.0.0.1:8000/rolebased/transaction/johndoe@example.com/", requestOptions)
+   fetch(servieUrl.url+"rolebased/transaction/johndoe@example.com/", requestOptions)
      .then(response => response.json())
      .then(result =>{
       const data=result.filter(transaction => transaction.type === "Payout")
@@ -188,12 +189,18 @@ const PayoutHistory = () => {
     <>
       <UserDashboard>
         <>
-          <div className="py-md-5 py-3 flex items-center justify-center bg-gray-200">
-            <div className="bg-gray-100 p-8 rounded shadow-md w-full md:w-3/4 lg:w-2/3 xl:w-1/2">
-              <h2 className="text-2xl font-semibold mb-4">Transaction Table</h2>
+          <div className="py-md-5 py-3 flex items-center justify-center bg-gray-200 background-image">
+          <div className="background-overlayp"></div>
+
+            <div className=" p-8 rounded  w-full md:w-3/4 lg:w-2/3 xl:w-1/2 form-containerp" style={{backgroundColor:'#ffffff91'}}>
+              <div className="shadow-md">
+              <div  style={{border:'1px solid rgb(29, 35, 58)',backgroundColor:'rgb(29, 35, 58)'}}>
+              <h2 className="text-2xl font-semibold p-3 " style={{color:'white',textAlign:'center'}}>Transaction Table</h2>
+
+              </div>
               <table className="w-full border">
                 <thead>
-                  <tr className="bg-gray-200">
+                  <tr className="" style={{backgroundColor:'white'}}>
                     <th className="border p-2">Username</th>
                     <th className="border p-2">Amount</th>
                     {/* <th className="border p-2">Date</th>
@@ -204,7 +211,7 @@ const PayoutHistory = () => {
                   {trsansaction?.map((row, index) => (
                     <tr
                       key={index}
-                      className={index % 2 === 0 ? "bg-gray-100" : ""}
+                      className={index % 2 === 0 ? "bg-gray-300" : ""}
                     >
                       <td className="border p-2">{row.name}</td>
                       <td className="border p-2">{row.amount}</td>
@@ -214,6 +221,7 @@ const PayoutHistory = () => {
                   ))}
                 </tbody>
               </table>
+            </div>
             </div>
           </div>
         </>

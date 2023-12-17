@@ -7,6 +7,7 @@ import { FaSortAmountUpAlt } from "react-icons/fa";
 import { FcNeutralTrading } from "react-icons/fc";
 import { MdPayments } from "react-icons/md";
 import { GiProfit } from "react-icons/gi";
+import { RxDashboard } from "react-icons/rx";
 
 import React, { Children, useEffect, useState } from "react";
 import {
@@ -23,7 +24,7 @@ import { GiTrade } from "react-icons/gi";
 import "../../Account/user.css";
 import { servieUrl } from "../../../env/env";
 import UserDashboard from "../UserDashboard";
-
+import './DashboardUser.css'
 const DashboardUser = ({ Children }) => {
   const navigate = useNavigate();
 
@@ -58,7 +59,7 @@ useEffect(()=>{
     redirect: 'follow'
   };
   
-  fetch("http://127.0.0.1:8000/rolebased/totalUserOneData/", requestOptions)
+  fetch(servieUrl.url+"rolebased/totalUserOneData/", requestOptions)
     .then(response => response.json())
     .then(result => {
       debugger
@@ -206,86 +207,109 @@ const amountData = JSON.parse(data.Amount);
   return (
     <>
       <UserDashboard>
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-4  mx-10 md:mx-10 lg:mx-28 gap-10 m-2">
-          <div className="shadow-lg p-10 flex items-center">
-            <div>
-              <h2 className="text-sm">Amount </h2>
-              <h1 className="font-bold">{totalAmount}</h1>
+        <div className="row">
+          
+          <div className="col-lg-12 p-3" style={{border:'1px solid blue',marginLeft:'-10px',backgroundColor:'#1d233a'}}>
+            <div className="d-flex justify-content-start">
+            <RxDashboard className="mt-2 mx-4" style={{color:'white',fontSize:'24px'}}/>
+            <h3 style={{color:'white',fontSize:'24px',marginLeft:'-10px'}}>Dashboard</h3>
+
             </div>
-            <span className="ml-4">
-              <FaSortAmountUpAlt className="text-5xl text-green-500" />
-            </span>
-          </div>
-          <div className="shadow-lg p-10 flex items-center">
-            <div>
-              <h2 className="text-sm">Trades </h2>
-              <h1 className="font-bold">0</h1>
-            </div>
-            <span className="ml-4">
-              <FcNeutralTrading className="text-5xl text-red-500" />
-            </span>
-          </div>
-          <div className="shadow-lg p-10 flex items-center">
-            <div>
-              <h2 className="text-sm">Payouts </h2>
-              <h1 className="font-bold">3</h1>
-            </div>
-            <span className="ml-4">
-              <MdPayments className="text-5xl text-green-500" />
-            </span>
-          </div>
-          <div className="shadow-lg p-10 flex items-center">
-            <div>
-              <h2 className="text-sm">Profit </h2>
-              <h1 className="font-bold">{totalProfit}</h1>
-            </div>
-            <span className="ml-4">
-              <GiProfit className="text-5xl text-green-500" />
-            </span>
+         
+
           </div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-4  gap-10 mx-10 md:mx-10 lg:mx-28  m-2">
-          <div className="shadow-lg p-10 flex items-center">
-            <div>
-              <h2 className="text-sm">Loss </h2>
-              <h1 className="font-bold">{totalLoss}</h1>
-            </div>
-            <span className="ml-4">
-              <BsFillClipboard2DataFill className="text-5xl text-green-500" />
-            </span>
-          </div>
-          <div className="shadow-lg p-10 flex items-center">
-            <div>
-              <h2 className="text-sm">TotalWidraw</h2>
-              <h1 className="font-bold">{totalWithdrawal}</h1>
-            </div>
-            <span className="ml-4">
-              {" "}
-              <FaRupeeSign className="text-5xl text-green-500" />
-            </span>
-          </div>
-          <div className="shadow-lg p-10 flex items-center">
-            <div>
-              <h2 className="text-sm"> TotalDeposit </h2>
-              <h1 className="font-bold">{totalDeposit}</h1>
-            </div>
-            <span className="ml-4">
-              {" "}
-              <FaRupeeSign className="text-5xl text-green-500" />
-            </span>
-          </div>
-          <div className="shadow-lg p-10 flex items-center">
-            <div>
-              <h2 className="text-sm">TOTAL WITHDRAW CHARGE AMOUNT</h2>
-              <h1 className="font-bold">56.19₹</h1>
-            </div>
-            <span className="ml-4">
-              {" "}
-              <FaRupeeSign className="text-5xl text-green-500" />
-            </span>
-          </div>
-        </div>
+       
         
+        <div className="row m-1 mt-2">
+          <div className="col-lg-3">
+            <div className="d-flex justify-content-center p-4 res" style={{border:'1px solid blue'}}>
+            <div>
+              <h2 className="" style={{fontSize:'34px',fontWeight:'bold',color:'rgb(29, 35, 58)'}}>Amount </h2>
+              <h1 className="font-bold mx-1" style={{marginTop:'-20px'}}>{totalAmount}</h1>
+            </div>
+            <FaSortAmountUpAlt className="text-7xl text-green-500 mx-3 " />
+
+            </div>
+          </div>
+          <div className="col-lg-3">
+              <div className="d-flex justify-content-center p-4 res" style={{border:'1px solid blue'}}>
+            <div>
+              <h2 className="" style={{fontSize:'34px',fontWeight:'bold',color:'rgb(29, 35, 58)'}}>Trades </h2>
+              <h1 className="font-bold mx-1" style={{marginTop:'-20px'}}>0</h1>
+            </div>
+            <FcNeutralTrading className="text-7xl text-green-500 mx-3 " />
+
+            </div>
+          </div>
+
+          <div className="col-lg-3">
+            <div className="d-flex justify-content-center p-4 res" style={{border:'1px solid blue'}}>
+            <div>
+              <h2 className="" style={{fontSize:'34px',fontWeight:'bold',color:'rgb(29, 35, 58)'}}>Payouts </h2>
+              <h1 className="font-bold mx-1" style={{marginTop:'-20px'}}>3</h1>
+            </div>
+            <MdPayments className="text-7xl text-green-500 mx-3 " />
+
+            </div>
+          </div>
+
+          <div className="col-lg-3">
+            <div className="d-flex justify-content-center p-4 res" style={{border:'1px solid blue'}}>
+            <div>
+              <h2 className="" style={{fontSize:'34px',fontWeight:'bold',color:'rgb(29, 35, 58)'}}>Profit </h2>
+              <h1 className="font-bold mx-1" style={{marginTop:'-20px'}}>{totalProfit}</h1>
+            </div>
+            <GiProfit className="text-7xl text-green-500 mx-3 " />
+
+            </div>
+          </div>
+        </div>
+
+        <div className="row m-1 mt-2">
+          <div className="col-lg-3">
+            <div className="d-flex justify-content-center p-4 res" style={{border:'1px solid blue'}}>
+            <div>
+              <h2 className="" style={{fontSize:'34px',fontWeight:'bold',color:'rgb(29, 35, 58)'}}>Loss </h2>
+              <h1 className="font-bold mx-1" style={{marginTop:'-20px'}}>{totalLoss}</h1>
+            </div>
+            <BsFillClipboard2DataFill className="text-7xl text-green-500 mx-3 " />
+
+            </div>
+          </div>
+          <div className="col-lg-3">
+            <div className="d-flex justify-content-center p-4 res" style={{border:'1px solid blue'}}>
+            <div>
+              <h2 className="" style={{fontSize:'28px',fontWeight:'bold',color:'rgb(29, 35, 58)'}}>TotalWidraw </h2>
+              <h1 className="font-bold mx-1" style={{marginTop:'-20px'}}>2000</h1>
+            </div>
+            <FaRupeeSign className="text-7xl text-green-500 mx-3 " />
+
+            </div>
+          </div>
+
+          <div className="col-lg-3">
+            <div className="d-flex justify-content-center p-4 res" style={{border:'1px solid blue'}}>
+            <div>
+              <h2 className="" style={{fontSize:'28px',fontWeight:'bold',color:'rgb(29, 35, 58)'}}>TotalDeposit </h2>
+              <h1 className="font-bold mx-1" style={{marginTop:'-20px'}}>22</h1>
+            </div>
+            <FaRupeeSign className="text-7xl text-green-500 mx-3 " />
+
+            </div>
+          </div>
+
+          <div className="col-lg-3">
+            <div className="d-flex justify-content-center p-4 res" style={{border:'1px solid blue'}}>
+            <div>
+              <h2 className="" style={{fontSize:'14px',fontWeight:'bold',color:'rgb(29, 35, 58)'}}>TOTAL WITHDRAW CHARGE AMOUNT </h2>
+              <h1 className="font-bold mx-1" style={{marginTop:'-20px'}}>56.19₹</h1>
+            </div>
+            <FaRupeeSign className="text-7xl text-green-500 mx-3 " />
+
+            </div>
+          </div>
+        </div>
       </UserDashboard>
     </>
   );

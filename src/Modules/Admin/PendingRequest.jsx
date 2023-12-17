@@ -166,13 +166,14 @@ const editValue=(value)=>{
   const displayedItems = pendingRequest.slice(startIndex, endIndex);
 
   return (
-    <div className="overflow-x-hidden">
-      {
-        !popup? <div className="container mx-auto px-4 py-8 ">
+    <div className="row overflow-x-hidden">
+      
+      <div className="col-lg-12">
+          {!popup? <div >
         <div className="overflow-x-auto">
         <table className="table-auto w-full border-collapse border border-gray-300 ">
-          <thead className="bg-gray-200">
-            <tr>
+          <thead className="" style={{backgroundColor:'rgb(29, 35, 58)',color:'white'}}>
+            <tr >
               <th className="p-2">Email</th>
               <th className="p-2">Aadhaar Card</th>
               <th className="p-2">Bank Account</th>
@@ -196,7 +197,8 @@ const editValue=(value)=>{
                     <>
                       <span className="text-green-600">Approved</span>
                       <button
-                        className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-full ml-2"
+                        className="bg-red-500 hover:bg-red-600  px-3 py-1 rounded-full ml-2"
+                        style={{color:'white'}}
                         onClick={() => reject(result.fields.email)}
                       >
                         Reject
@@ -204,15 +206,18 @@ const editValue=(value)=>{
                     </>
                   ) : (
                     <button
-                      className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-full ml-2"
+                      className="bg-blue-500 hover:bg-blue-600  px-3 py-1 rounded-full ml-2"
+                      style={{color:'white'}}
                       onClick={() => updateValue(result.fields.email, true)}
                     >
                       Approve
                     </button>
                   )}
                    <button
-                        className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-full ml-2"
+                        className="bg-green-500 hover:bg-red-600  px-3 py-1 rounded-full ml-2"
                         onClick={() => editValue(result.fields.email)}
+                        style={{color:'white'}}
+
                       >
                         Edit
                       </button>
@@ -222,7 +227,7 @@ const editValue=(value)=>{
           </tbody>
         </table>
         </div>
-        {/* Pagination */}
+      
         <div className="my-4 flex justify-center">
           <ReactPaginate
             previousLabel={"Previous"}
@@ -377,6 +382,9 @@ const editValue=(value)=>{
         )}
       </div>
       }
+      </div>
+
+    
    
 
     

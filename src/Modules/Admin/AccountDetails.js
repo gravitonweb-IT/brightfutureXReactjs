@@ -115,12 +115,17 @@ function AccountDetails() {
   }, []);
 
   return (
-    <div className="p-4">
+    <>
+    <div className="row">
+      <div className="col-lg-2"></div>
+      <div className="col-lg-8">
       <form
         onSubmit={handleSubmit}
-        className="max-w-md mx-auto bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+        className='p-3' style={{border:'1px solid white',boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px'}}
       >
-        <div className="mb-4">
+        <div className="row">
+          <div className="col-lg-6">
+          <div className="mb-4">
           <label
             htmlFor="name"
             className="block text-gray-700 text-sm font-bold mb-2"
@@ -136,7 +141,9 @@ function AccountDetails() {
             className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
-        <div className="mb-4">
+          </div>
+          <div className="col-lg-6">
+          <div className="mb-4">
           <label
             htmlFor="accountNo"
             className="block text-gray-700 text-sm font-bold mb-2"
@@ -152,7 +159,12 @@ function AccountDetails() {
             className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
-        <div className="mb-4">
+          </div>
+
+        </div>
+        <div className="row">
+          <div className="col-lg-6">
+          <div className="mb-4">
           <label
             htmlFor="ifscCode"
             className="block text-gray-700 text-sm font-bold mb-2"
@@ -168,7 +180,9 @@ function AccountDetails() {
             className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
-        <div className="mb-4">
+          </div>
+          <div className="col-lg-6">
+          <div className="mb-4">
           <label
             htmlFor="qrcodeImage"
             className="block text-gray-700 text-sm font-bold mb-2"
@@ -179,7 +193,12 @@ function AccountDetails() {
             <input type="file" accept="image/*" onChange={handleImageChange} />
           </label>
         </div>
-        <div className="mb-4">
+          </div>
+
+        </div>
+        <div className="row">
+          <div className="col-lg-6">
+          <div className="mb-4">
           <label
             htmlFor="upiId"
             className="block text-gray-700 text-sm font-bold mb-2"
@@ -195,7 +214,9 @@ function AccountDetails() {
             className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
-        <div className="mb-4">
+          </div>
+          <div className="col-lg-6">
+          <div className="mb-4">
           <label
             htmlFor="upiId"
             className="block text-gray-700 text-sm font-bold mb-2"
@@ -211,7 +232,12 @@ function AccountDetails() {
             className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
-        <div className="mb-4">
+          </div>
+
+        </div>
+        <div className="row">
+          <div className="col-lg-12">
+          <div className="mb-4">
           <label
             htmlFor="bankName"
             className="block text-gray-700 text-sm font-bold mb-2"
@@ -227,15 +253,16 @@ function AccountDetails() {
             className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
-        <div>
-          <button
+          </div>
+
+        </div>
+        <button
             type="submit"
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-          >
+            className='p-2 w-100 mt-3 mb-3' style={{backgroundColor:'#1d233a',color:'white',borderRadius:'5px'}}          >
             Submit
           </button>
-        </div>
-      </form>
+          </form>
+      </div>
 
       {showSuccessPopup && (
         <div className="fixed inset-0 flex items-center justify-center z-10">
@@ -258,7 +285,13 @@ function AccountDetails() {
           </div>
         </div>
       )}
+
     </div>
+    </>
+   
+
+    
+    
   );
 }
 

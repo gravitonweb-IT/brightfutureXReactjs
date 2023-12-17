@@ -48,7 +48,7 @@ const AdminNavbar = ({ setUserType }) => {
 
   return (
     <>
-      <div className="bg-[#8ACDD7]">
+      <div style={{backgroundColor:'#1d233a',color:'white'}} >
         <div className="flex justify-between items-center px-5 md:px-20 py-3">
           <div className="flex">
             <p>
@@ -108,8 +108,8 @@ const AdminNavbar = ({ setUserType }) => {
       </div>
 
       <nav className="bg-white shadow-md sticky top-0 z-50">
-        <div className="flex items-center px-5 md:px-10 py-2">
-          <div className="">
+        <div className="row p-2">
+          <div className="col-lg-2">
             <Link to="/">
               <img src={LogoImage} className="w-[60px] h-[50px]"></img>
             </Link>
@@ -121,20 +121,20 @@ const AdminNavbar = ({ setUserType }) => {
             </Link>
           </div>
           <PhoneButton />
-
-          <div className="hidden lg:flex space-x-5">
+<div className="col-lg-3"></div>
+          <div className="col-lg-7 hidden lg:flex space-x-5">
             <ul className="flex space-x-5">
-              <li>
+              <li className="mt-2">
                 <Link
                   to="/"
-                  className="text-[#64666C] hover:text-blue-500 text-lg font-semibold"
+                  className="text-[#64666C] hover:text-blue-500 text-lg font-semibold "
                   activeClassName="font-bold"
                 >
                   Home
                 </Link>
               </li>
 
-              <li>
+             <li className="mt-2">
                 <Link
                   to="/about"
                   className="text-[#64666C] hover:text-blue-500 text-lg font-semibold"
@@ -144,7 +144,7 @@ const AdminNavbar = ({ setUserType }) => {
                 </Link>
               </li>
 
-              <li>
+             <li className="mt-2">
                 <Link
                   to="/service"
                   className="text-[#64666C] hover:text-blue-500 text-lg font-semibold"
@@ -154,7 +154,7 @@ const AdminNavbar = ({ setUserType }) => {
                 </Link>
               </li>
 
-              <li>
+             <li className="mt-2">
                 <Link
                   to="/contact"
                   className="text-[#64666C] hover:text-blue-500 text-lg font-semibold"
@@ -164,7 +164,7 @@ const AdminNavbar = ({ setUserType }) => {
                 </Link>
               </li>
 
-              <li>
+             <li className="mt-2">
                 <Link
                   to="/portfolio"
                   className="text-[#64666C] hover:text-blue-500 text-lg font-semibold"
@@ -173,7 +173,7 @@ const AdminNavbar = ({ setUserType }) => {
                   Portfolio
                 </Link>
               </li>
-              <li>
+             <li className="mt-2">
                 <Link
                   to="/fund"
                   className="text-[#64666C] hover:text-blue-500 text-lg font-semibold"
@@ -187,7 +187,7 @@ const AdminNavbar = ({ setUserType }) => {
             {/* Super Admin Dropdown */}
             <div className="relative">
               <button
-                className="text-[#64666C] hover:text-blue-500 text-lg font-semibold"
+                className="text-[#64666C] hover:text-blue-500 text-lg font-semibold mt-2"
                 onClick={() => toggleDropdown("superAdmin")}
               >
                 Super Admin <span className="ml-1">&#9660;</span>
@@ -198,7 +198,8 @@ const AdminNavbar = ({ setUserType }) => {
                   <p className="hover:bg-sky-500 hover:text-white border-b-2  p-2 ">
                     <Link
                       to="/stockform"
-                      className="text-white "
+                      className=" "
+                      style={{color:'white'}}
                       onClick={() => setIsDrawerOpen(false)}
                     >
                       Stock Form
@@ -207,7 +208,8 @@ const AdminNavbar = ({ setUserType }) => {
                   <p className="hover:bg-sky-500 hover:text-white border-b-2 p-2">
                     <Link
                       to="/withdraw"
-                      className="text-white "
+                      className=""
+                      style={{color:'white'}}
                       onClick={() => setIsDrawerOpen(false)}
                     >
                       Withdraw Data
@@ -216,7 +218,8 @@ const AdminNavbar = ({ setUserType }) => {
                   <p className="hover:bg-sky-500 hover:text-white border-b-2 p-2">
                     <Link
                       to="/addfund"
-                      className="text-white "
+                      className=" "
+                      style={{color:'white'}}
                       onClick={() => setIsDrawerOpen(false)}
                     >
                       Add Funds
@@ -225,7 +228,8 @@ const AdminNavbar = ({ setUserType }) => {
                   <p className="hover:bg-sky-500 hover:text-white  p-2">
                     <Link
                       to="/pendingRequest"
-                      className="text-white "
+                      className=""
+                      style={{color:'white'}}
                       onClick={() => setIsDrawerOpen(false)}
                     >
                       PendingRequest
@@ -235,7 +239,8 @@ const AdminNavbar = ({ setUserType }) => {
                   <p className="hover:bg-sky-500 hover:text-white  p-2">
                     <Link
                       to="/AccountDetails"
-                      className="text-white "
+                      className=" "
+                      style={{color:'white'}}
                       onClick={() => setIsDrawerOpen(false)}
                     >
                       AccountDetails
@@ -248,7 +253,7 @@ const AdminNavbar = ({ setUserType }) => {
             {/* My Account Dropdown */}
             <div className="relative">
               <button
-                className="text-[#64666C] hover:text-blue-500 text-lg font-semibold"
+                className="text-[#64666C] hover:text-blue-500 text-lg font-semibold mt-2"
                 onClick={() => toggleDropdown("myAccount")}
               >
                 My Account <span className="ml-1">&#9660;</span>
@@ -259,7 +264,8 @@ const AdminNavbar = ({ setUserType }) => {
                   <p className="hover:bg-sky-500 hover:text-white border-b-2  p-2 w-32">
                     <Link
                       to="/adminDashboard"
-                      className="text-white "
+                      className=""
+                      style={{color:'white'}}
                       // onClick={() => handleLogOut()}
                     >
                       Dashboard
@@ -268,7 +274,8 @@ const AdminNavbar = ({ setUserType }) => {
                   <p className="hover:bg-sky-500 hover:text-white border-b-2  p-2 w-32">
                     <Link
                       to="/"
-                      className="text-white "
+                      className=""
+                      style={{color:'white'}}
                       onClick={() => handleLogOut()}
                     >
                       Logout
@@ -326,7 +333,7 @@ const AdminNavbar = ({ setUserType }) => {
               </button>
 
               <ul className="space-y-3">
-                <li>
+               <li>
                   <Link
                     to="/"
                     className="text-white text-xl hover:text-blue-500"

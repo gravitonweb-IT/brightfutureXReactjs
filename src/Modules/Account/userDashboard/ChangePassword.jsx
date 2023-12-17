@@ -18,6 +18,7 @@ import {
 import { GiTrade } from "react-icons/gi";
 import "../user.css";
 import UserDashboard from "../UserDashboard";
+import './ChangePassword.css'
 const ChangePassword = () => {
   const navigate = useNavigate();
 
@@ -185,8 +186,74 @@ const ChangePassword = () => {
     <>
       <UserDashboard>
         <>
-          <div className="py-md-5 py-3 flex items-center justify-center bg-gray-200">
-            <div className="bg-gray-100 p-8 rounded shadow-md w-96">
+        <div className="row py-md-5 py-3  bg-white-200 p-3 background-image" >
+        <div className="background-overlay"></div>
+
+          <div className="col-lg-4"></div>
+          <div className='col-lg-4  form-container' style={{backgroundColor:'white',borderRadius: '10px',boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px'}}>
+            <div className="row">
+            <div className='ves' style={{ height: '100px',borderRadius: '10px' }}>
+                <div>
+                  <center>
+                    <h3 className='p-2 ' style={{ fontSize: '1.25rem', marginTop: '10px' }}>
+                    Password Form
+                    </h3>
+                   
+                  </center>
+                </div>
+              </div>
+            </div>
+            <div >
+            <div className="mb-4">
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-medium" style={{color:'black'}}
+                >
+                  Password
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  value={password}
+                  onChange={handlePasswordChange}
+                  className="mt-1 p-2 w-full border rounded-md"
+                />
+              </div>
+              <div className="mb-4">
+                <label
+                  htmlFor="confirmPassword"
+                  className="block text-sm font-medium " style={{color:'black'}}
+                >
+                  Confirm Password
+                </label>
+                <input
+                  type="password"
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  value={confirmPassword}
+                  onChange={handleConfirmPasswordChange}
+                  className="mt-1 p-2 w-full border rounded-md"
+                />
+              </div>
+              <button
+                className=" p-2 w-100 mb-3"
+                onClick={() =>
+                  alert(
+                    `Password: ${password}\nConfirm Password: ${confirmPassword}`
+                  )
+                } style={{backgroundColor:'#1d233a',color:'white',borderRadius:'5px'}}
+              >
+                Submit
+              </button></div> 
+           
+              
+            </div>
+            
+        </div>
+       
+          {/* <div className="py-md-5 py-3 flex items-center justify-center bg-gray-200">
+            <div className="ves bg-gray-100 p-8 rounded shadow-md w-96">
               <h2 className="text-2xl font-semibold mb-4">Password Form</h2>
               <div className="mb-4">
                 <label
@@ -231,7 +298,7 @@ const ChangePassword = () => {
                 Submit
               </button>
             </div>
-          </div>
+          </div> */}
         </>
       </UserDashboard>
     </>

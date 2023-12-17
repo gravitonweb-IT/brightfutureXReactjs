@@ -174,7 +174,7 @@ const UserDashboard = ({ children }) => {
       <div className="row ">
         <div className="col-lg-2  col-sm-12">
           <div className="min-h-screen flexbg-gray-100 w-100">
-            <div className="bg-gray-200 px-2 py-5 ">
+            <div className=" px-2 py-5 "  style={{backgroundColor:'#1d233a'}}>
               <ul className="space-y-3">
                 <li
                   className={`flex items-center text-gray-700 hover:text-blue-500 py-2 px-2 border-l-[2px]  hover:border-blue-500 hover:bg-gray-100 rounded cursor-pointer ${
@@ -190,11 +190,13 @@ const UserDashboard = ({ children }) => {
                   </Link>
                 </li>
                 <li
-                  className={`flex items-center text-gray-700 hover:text-blue-500 py-2 px-2 border-l-[2px]  hover:border-blue-500 hover:bg-gray-100 rounded cursor-pointer ${
+                  className={`flex items-center text-white-700 hover:text-blue-500 py-2 px-2 border-l-[2px]  hover:border-blue-500 hover:bg-gray-100 rounded cursor-pointer ${
                     selectedMenuItem === "Transaction"
                       ? " border-l-[2px] border-blue-500 bg-gray-100 font-bold"
                       : ""
                   }`}
+
+                  style={{color: selectedMenuItem === "Transaction"  ? 'black' :'white'}}
                   onClick={() => setSelectedMenuItem("Transaction")}
                 >
                   <Link to="/usertransaction" className="flex items-center">
@@ -208,6 +210,8 @@ const UserDashboard = ({ children }) => {
                       ? " border-l-[2px] border-blue-500 bg-gray-100 font-bold"
                       : ""
                   }`}
+                  style={{color: selectedMenuItem === "Fund"  ? 'black' :'white'}}
+
                   onClick={() => setSelectedMenuItem("Fund")}
                 >
                   <Link to="/user-fund" className="flex items-center">
@@ -221,6 +225,9 @@ const UserDashboard = ({ children }) => {
                       ? " border-l-[2px] border-blue-500 bg-gray-100 font-bold"
                       : ""
                   }`}
+
+                  style={{color: selectedMenuItem === "Withdraw"  ? 'black' :'white'}}
+
                   onClick={() => setSelectedMenuItem("Withdraw")}
                 >
                   <Link to="/user-withdraw" className="flex items-center">
@@ -234,6 +241,8 @@ const UserDashboard = ({ children }) => {
                       ? " border-l-[2px] border-blue-500 bg-gray-100 font-bold"
                       : ""
                   }`}
+                  style={{color:selectedMenuItem === "Now" ? 'black' :'white'}}
+
                   onClick={() => setSelectedMenuItem("Now")}
                 >
                   <Link to="/tradeNow" className="flex items-center">
@@ -247,6 +256,8 @@ const UserDashboard = ({ children }) => {
                       ? " border-l-[2px] border-blue-500 bg-gray-100 font-bold"
                       : ""
                   }`}
+                  style={{color:selectedMenuItem === "Profile" ? 'black' :'white'}}
+
                   onClick={() => setSelectedMenuItem("Profile")}
                 >
                   <Link to="/edit-profile" className="flex items-center">
@@ -260,6 +271,8 @@ const UserDashboard = ({ children }) => {
                       ? " border-l-[2px] border-blue-500 bg-gray-100 font-bold"
                       : ""
                   }`}
+                  style={{color:selectedMenuItem === "Password" ? 'black' :'white'}}
+
                   onClick={() => setSelectedMenuItem("Password")}
                 >
                   <Link to="/change-password" className="flex items-center">
@@ -284,6 +297,8 @@ const UserDashboard = ({ children }) => {
                       ? " border-l-[2px] border-blue-500 bg-gray-100 font-bold"
                       : ""
                   }`}
+                  style={{color:selectedMenuItem === "Ticket" ? 'black' :'white'}}
+
                   onClick={() => setSelectedMenuItem("Ticket")}
                 >
                   <Link to="/support-ticket" className="flex items-center">
@@ -297,6 +312,8 @@ const UserDashboard = ({ children }) => {
                       ? " border-l-[2px] border-blue-500 bg-gray-100 font-bold"
                       : ""
                   }`}
+                  style={{color:selectedMenuItem === "Ticket" ? 'black' :'white'}}
+
                   onClick={() => setSelectedMenuItem("History")}
                 >
                   <Link to="/payout-history" className="flex items-center">
@@ -308,7 +325,7 @@ const UserDashboard = ({ children }) => {
             </div>
           </div>
         </div>
-        <div className="col-lg-10  col-sm-12">{children}</div>
+        <div className="col-lg-10  col-sm-12 mt-1">{children} </div>
       </div>
     </>
   );

@@ -18,6 +18,7 @@ import {
 import { GiTrade } from "react-icons/gi";
 import "../user.css";
 import UserDashboard from "../UserDashboard";
+import './SupportTicket.css'
 
 const SupportTicket = () => {
   const navigate = useNavigate();
@@ -186,8 +187,10 @@ const SupportTicket = () => {
     <>
       <>
         <UserDashboard>
-          <div className="py-md-5 py-3 flex items-center justify-center bg-gray-200">
-            <div className="bg-gray-100 p-8 rounded shadow-md w-96">
+          <div className="py-md-5 py-3 flex items-center justify-center bg-gray-200 background-image">
+          <div className="background-overlayt"></div>
+
+            <div className="bg-gray-100 p-8 rounded shadow-md w-96 form-containert" style={{backgroundColor:'white'}}>
               <form onSubmit={handleSubmit} className="">
                 <h2 className="text-2xl font-semibold mb-4">
                   Submit a Support Ticket
@@ -195,7 +198,7 @@ const SupportTicket = () => {
                 <div className="mb-4">
                   <label
                     htmlFor="email"
-                    className="block text-sm font-medium text-gray-600"
+                    className="block text-sm font-medium text-gray-900"
                   >
                     email
                   </label>
@@ -205,14 +208,15 @@ const SupportTicket = () => {
                     name="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="mt-1 p-2 w-full border rounded-md"
+                    className=" rounded w-full py-2 px-3"
                     required
+                    style={{border:'1px solid #00000052'}}
                   />
                 </div>
                 <div className="mb-4">
                   <label
                     htmlFor="subject"
-                    className="block text-sm font-medium text-gray-600"
+                    className="block text-sm font-medium text-gray-900"
                   >
                     Subject
                   </label>
@@ -222,14 +226,15 @@ const SupportTicket = () => {
                     name="subject"
                     value={subject}
                     onChange={(e) => setSubject(e.target.value)}
-                    className="mt-1 p-2 w-full border rounded-md"
+                    className=" rounded w-full py-2 px-3"
                     required
+                    style={{border:'1px solid #00000052'}}
                   />
                 </div>
                 <div className="mb-4">
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium text-gray-600"
+                    className="block text-sm font-medium text-gray-900"
                   >
                     Message
                   </label>
@@ -238,15 +243,16 @@ const SupportTicket = () => {
                     name="message"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    className="mt-1 p-2 w-full border rounded-md"
                     rows="4"
+                    className=" rounded w-full py-2 px-3"
                     required
+                    style={{border:'1px solid #00000052'}}
                   ></textarea>
                 </div>
                 <button
                   type="submit"
-                  className="bg-blue-500 text-gray-100 px-4 py-2 border border-transparent rounded-md hover:border-blue-600  hover:bg-gray-100 hover:text-blue-600"
-                >
+                  className="w-100 p-2" style={{border:'1px solid rgb(29, 35, 58)', 
+                  color:'white',backgroundColor:'rgb(29, 35, 58)',borderRadius:'10px'}}                >
                   Submit Ticket
                 </button>
               </form>

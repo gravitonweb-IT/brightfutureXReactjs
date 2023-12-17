@@ -28,7 +28,11 @@ function DepositForm() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <>
+        <div className='row'>
+            <div className='col-lg-3'></div>
+            <div className='col-lg-6'>
+            <form onSubmit={handleSubmit} className='p-3' style={{border:'1px solid white',boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px'}}>
             <div>
                 <label>Name</label>
                 <input
@@ -36,28 +40,39 @@ function DepositForm() {
                     name="Name"
                     value={formData.Name}
                     onChange={handleChange}
+                    style={{border:'1px solid #0000006b',borderRadius:'5px'}}
                 />
             </div>
             <div>
-                <label>Email</label>
+                <label  className='mt-2'>Email</label>
                 <input
                     type="email"
                     name="Email"
                     value={formData.Email}
                     onChange={handleChange}
+                    style={{border:'1px solid #0000006b',borderRadius:'5px'}}
+
+                   
                 />
             </div>
             <div>
-                <label>Amount</label>
+                <label  className='mt-2'>Amount</label>
                 <input
                     type="text"
                     name="Amount"
                     value={formData.Amount}
                     onChange={handleChange}
+                    style={{border:'1px solid #0000006b',borderRadius:'5px'}}
+
                 />
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit" className='p-2 w-100 mt-3 mb-3' style={{backgroundColor:'#1d233a',color:'white',borderRadius:'5px'}}>Submit</button>
         </form>
+            </div>
+
+        </div>
+        </>
+      
     );
 }
 
