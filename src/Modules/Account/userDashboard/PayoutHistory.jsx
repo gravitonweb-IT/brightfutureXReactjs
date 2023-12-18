@@ -42,7 +42,7 @@ const PayoutHistory = () => {
      redirect: 'follow'
    };
    
-   fetch(servieUrl.url+"rolebased/transaction/johndoe@example.com/", requestOptions)
+   fetch(servieUrl.url+"rolebased/transaction/"+localStorage.getItem("userData")+"/", requestOptions)
      .then(response => response.json())
      .then(result =>{
       const data=result.filter(transaction => transaction.type === "Payout")

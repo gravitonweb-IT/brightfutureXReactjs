@@ -326,7 +326,7 @@ const Portfolio = () => {
                 </div>
 
                 <div className="font-bold mt-2 text-blue-600 pl-5 ">
-                  {dataValue?.price}0000
+                  {dataValue?.price}
                   <br />
                   <span className="font-bold text-blue-600 text-lg ">
                     {" "}
@@ -346,7 +346,7 @@ const Portfolio = () => {
               </div>
 
               <div className="font-semibold text-green-600  pl-5  ">
-                {dataValue?.profit}000
+                {dataValue?.profit}
                 <br />
                 <span className="font-bold text-green-600"> Profit</span>
               </div>
@@ -362,7 +362,7 @@ const Portfolio = () => {
               </div>
 
               <div className="font-semibold text-red-600  pl-5  ">
-                {dataValue?.loss}000
+                {dataValue?.loss}
                 <br />
                 <span className="font-bold"> Loss</span>
               </div>

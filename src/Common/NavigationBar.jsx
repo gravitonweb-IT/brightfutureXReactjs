@@ -177,7 +177,15 @@ const NavigationBar = () => {
                     Contact
                   </Link>
                 </li>
-
+                <li>
+                <a
+                  href="../Assests/app-debug.apk"
+                  download
+                  className="text-[#64666C] hover:text-blue-500 text-lg font-semibold"
+                >
+                  Download App
+                </a>
+              </li>
                 <li>
                   <Link
                     to="/loginandregister"
@@ -240,8 +248,15 @@ const NavigationBar = () => {
               >
                 Contact
               </Link>
-            </li>
-
+            </li>  <li>
+                <a
+                  href="../Assests/app-debug.apk"
+                  download
+                  className="text-[#64666C] hover:text-blue-500 text-lg font-semibold"
+                >
+                  Download App
+                </a>
+              </li>
             <li>
               <Link
                 to="/loginandregister"

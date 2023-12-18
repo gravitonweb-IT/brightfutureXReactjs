@@ -262,7 +262,7 @@ const UserDashboard = ({ children }) => {
                 >
                   <Link to="/edit-profile" className="flex items-center">
                     <AiOutlineProfile className="mr-2" />
-                    Edit Profile
+                     Profile
                   </Link>
                 </li>
                 <li

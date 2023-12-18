@@ -64,7 +64,7 @@ useEffect(()=>{
 
       <div className=" flex justify-center mt-10 ">
 
-        <button
+        {/* <button
 
           onClick={openWithdrawForm}
 
@@ -74,7 +74,7 @@ useEffect(()=>{
 
           Withdraw
 
-        </button>
+        </button> */}
 
         {/* <button
 

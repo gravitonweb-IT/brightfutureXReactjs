@@ -36,6 +36,8 @@ const ChangePassword = () => {
 
   const [selectedMenuItem, setSelectedMenuItem] = useState("Dashboard");
 
+  const [url,setUrl]=useState(null)
+
   const menuItems = [
     { name: "Dashboard", icon: AiOutlineDashboard },
     { name: "Transaction", icon: BsFillClipboard2DataFill },
@@ -54,6 +56,27 @@ const ChangePassword = () => {
     // You can perform additional actions here if needed
   };
 
+
+useEffect(()=>{
+  debugger
+  var formdata = new FormData();
+  formdata.append("email", localStorage.getItem("userData"));
+  
+  var requestOptions = {
+    method: 'POST',
+    body: formdata,
+    redirect: 'follow'
+  };
+  
+  fetch("http://127.0.0.1:8000/rolebased/", requestOptions)
+    .then(response => response.json())
+    .then(result => {
+      const urlStart = result.message.indexOf("localhost");
+      const url = urlStart.substring(urlStart);
+      setUrl(url)
+    })
+    .catch(error => console.log('error', error));
+},[])
   useEffect(() => {
     if (localStorage.getItem("userData") == null) {
       navigate("/loginandregister");
@@ -181,6 +204,23 @@ const ChangePassword = () => {
   const handleConfirmPasswordChange = (e) => {
     setConfirmPassword(e.target.value);
   };
+const onSubmit =()=>{
+  var formdata = new FormData();
+formdata.append("password", password);
+
+var requestOptions = {
+  method: 'PATCH',
+  body: formdata,
+  redirect: 'follow'
+};
+
+fetch(url, requestOptions)
+  .then(response => response.json())
+  .then(result => {
+    alert("Succefully Changed")
+  })
+  .catch(error => console.log('error', error));
+}
 
   return (
     <>
@@ -239,9 +279,7 @@ const ChangePassword = () => {
               <button
                 className=" p-2 w-100 mb-3"
                 onClick={() =>
-                  alert(
-                    `Password: ${password}\nConfirm Password: ${confirmPassword}`
-                  )
+                  onSubmit()
                 } style={{backgroundColor:'#1d233a',color:'white',borderRadius:'5px'}}
               >
                 Submit

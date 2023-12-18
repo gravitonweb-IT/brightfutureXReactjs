@@ -176,13 +176,36 @@ const SupportTicket = () => {
   const [message, setMessage] = useState("");
   const [email, setEmail] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // onSubmit({ subject, message });
-    setSubject("");
-    setMessage("");
-  };
+  const handleSubmit = async (e) => {
 
+    const data ={
+      subject: subject,
+      message: message,
+      email: email
+  }
+    e.preventDefault();
+    // console.log("data", formData.subject, formData.message, formData.email);
+
+    try {
+        const response = await fetch('http://127.0.0.1:8000/rolebased/messages/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error: ${response.status}`);
+        }
+
+        const result = await response.json();
+        alert("Successfully Stored")
+        console.log('Message sent successfully:', result);
+    } catch (error) {
+        console.error('Error submitting form:', error);
+    }
+};
   return (
     <>
       <>

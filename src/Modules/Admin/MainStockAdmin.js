@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import "./stockitem.css"
-import TradeNow from './TradeNow';
-import UserDashboard from './Account/UserDashboard';
+import "./MainStockAdmin.css"
+
+
 import axios from 'axios';
-const MainStock = () => {
+import TradeNow from '../TradeNow';
+const MainStockAdmin = () => {
     const [stocks, setStocks] = useState(null);
 
     
@@ -58,11 +59,11 @@ const MainStock = () => {
       return (
         
         <div>
-            <UserDashboard>
+            
               <div className='row'>
                 <div className='col-lg-2'></div>
                 <div className='col-lg-8'>
-                {/* <button onClick={handleDelete} style={{fontSize:'20px',fontWeight:'500'}}>Delete All Stock Data</button> */}
+                <button onClick={handleDelete} style={{fontSize:'20px',fontWeight:'500'}}>Delete All Stock Data</button>
           {stocks?.map((stock, index) => (
             <TradeNow key={index} stock={stock} />
           ))}
@@ -70,9 +71,9 @@ const MainStock = () => {
 
               </div>
            
-          </UserDashboard>
+         
         </div>
   )
 }
 
-export default MainStock
+export default MainStockAdmin

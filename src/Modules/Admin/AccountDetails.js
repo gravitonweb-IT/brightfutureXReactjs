@@ -83,7 +83,7 @@ function AccountDetails() {
     fetch(servieUrl.url + "rolebased/AccountDetails/", requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        // alert("successfully submitted")
+      alert("successfully submitted")
         setShowSuccessPopup(true);
       })
       .catch((error) => console.log("error", error));

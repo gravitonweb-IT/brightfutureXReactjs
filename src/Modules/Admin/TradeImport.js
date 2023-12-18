@@ -1,5 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
+import MainStock from '../MainStock';
+import MainStockAdmin from './MainStockAdmin';
 
 const TradeImport = () => {
     const [file, setFile] = useState(null);
@@ -35,6 +37,7 @@ const TradeImport = () => {
         <div>
             <input type="file" onChange={handleFileChange} accept=".xlsx, .xls" />
             <button onClick={handleUpload}>Upload</button>
+            <MainStockAdmin/>
         </div>
     );
 }

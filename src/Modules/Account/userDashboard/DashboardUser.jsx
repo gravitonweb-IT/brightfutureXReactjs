@@ -51,7 +51,7 @@ const DashboardUser = ({ Children }) => {
 
 useEffect(()=>{
   var formdata = new FormData();
-  formdata.append("userEmail", "usertestuser@gmail.com");
+  formdata.append("userEmail", localStorage.getItem("userData"));
   
   var requestOptions = {
     method: 'POST',

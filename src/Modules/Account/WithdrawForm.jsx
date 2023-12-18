@@ -338,6 +338,49 @@ const WithdrawForm = ({ isOpen, onClose }) => {
     Email: "",
   });
 
+  const [totalAmount,setTotalAmount]=useState(0)
+  const [limit,setLimit]=useState()
+
+  useEffect(() => {
+    var formdata = new FormData();
+    formdata.append("userEmail", localStorage.getItem("userData"));
+
+    var requestOptions = {
+      method: "POST",
+      body: formdata,
+      redirect: "follow",
+    };
+
+    fetch(servieUrl.url + "rolebased/UserAmountStatus/", requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        let totalProfit = 0;
+        let totalLoss = 0;
+        let totalPrice = 0;
+
+        // Loop through the data array
+        result.forEach((item) => {
+          const { profit, loss, price } = item.fields;
+
+          // Add the profit, loss, and price values to the corresponding totals
+          totalProfit += Number(profit);
+          totalLoss += Number(loss);
+          totalPrice += Number(price);
+        });
+
+        // Create an object to store the total values
+        const result1 = {
+          profit: totalProfit,
+          loss: totalLoss,
+          price: totalPrice,
+        };
+        setTotalAmount(totalProfit)
+        setLimit(totalAmount*0.6)
+      })
+      .catch((error) => console.log("error", error));
+  }, []);
+
+
   useEffect(() => {
     var formdata = new FormData();
     formdata.append("userEmail", localStorage.getItem("userData"));
@@ -382,45 +425,55 @@ const WithdrawForm = ({ isOpen, onClose }) => {
 
     formdata.append("price", formData.price);
     formdata.append("user_email", formData.Email);
-    var requestOptions = {
-      method: "POST",
+    // const withdrawalLimit = 300 * 0.60;
+    if (parseFloat(formData.price) > limit) {
+      alert(`Withdrawal amount cannot exceed 60% of 300. Maximum allowed is ${limit}`);
+      return;
+    }
+    else{
+      var requestOptions = {
+        method: "POST",
+  
+        body: formdata,
+  
+        redirect: "follow",
+      };
+  
+      fetch(servieUrl.otpurl + "growadmin/stock_fund/", requestOptions)
+        .then((response) => response.json())
+  
+        .then((result) => {
+          alert("Successfully Stored")
+          // setShowSuccessPopup(true);
+          onClose();
+        })
+  
+        .catch((error) => console.log("error", error));
+  
+      // alert("Submitted Successfully !")
+  
+      console.log(formData);
+  
+      // onSubmit(formData);
+  
+      setFormData({
+        date: "",
+  
+        name: "",
+  
+        accountNo: "",
+  
+        ifsc: "",
+  
+        panNo: "",
+  
+        price: "",
+        Email:""
+      });
+      setRegistrationSuccess(true);
+    }
 
-      body: formdata,
-
-      redirect: "follow",
-    };
-
-    fetch(servieUrl.otpurl + "growadmin/stock_fund/", requestOptions)
-      .then((response) => response.json())
-
-      .then((result) => {
-        // setShowSuccessPopup(true);
-        onClose();
-      })
-
-      .catch((error) => console.log("error", error));
-
-    // alert("Submitted Successfully !")
-
-    console.log(formData);
-
-    // onSubmit(formData);
-
-    setFormData({
-      date: "",
-
-      name: "",
-
-      accountNo: "",
-
-      ifsc: "",
-
-      panNo: "",
-
-      price: "",
-      Email:""
-    });
-    setRegistrationSuccess(true);
+   
   };
 
   return (
@@ -431,11 +484,12 @@ const WithdrawForm = ({ isOpen, onClose }) => {
         // }`}
       >
                   <div className="background-overlayf"></div>
-
+    
         <div className="col-lg-3"></div>
         <div className="col-lg-6" >
         <div className="mt-5 form-containerf" style={{border:'1px solid white',boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px',
       backgroundColor:'white'}}>
+        Total Amount: {totalAmount}                    Limit:{limit}
               <form onSubmit={handleSubmit} className="p-4">
                 <div className="row">
                   <div className="col-lg-6"> <div className="mb-4">
@@ -443,7 +497,7 @@ const WithdrawForm = ({ isOpen, onClose }) => {
                     htmlFor="date"
                     className="block text-gray-700 font-bold"
                   >
-                    Date
+                    Dates
                   </label>
                   <input
                     type="date"
