@@ -50,7 +50,7 @@ const StockForm = () => {
 
 
 const amountUpdate=()=>{
-  debugger
+  
   var formdata = new FormData();
 formdata.append("userEmail",formData.userEmail);
 formdata.append("amount", formData.amount);
@@ -64,7 +64,7 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch(servieUrl.url+"rolebased/updateNewAmount/", requestOptions)
+fetch(servieUrl.url+"growadmin/amount_account/", requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));

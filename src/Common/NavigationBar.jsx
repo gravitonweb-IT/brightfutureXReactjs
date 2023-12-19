@@ -79,11 +79,11 @@ const NavigationBar = () => {
           <div className="">
             <Link to="/">
               <img src={LogoImage} className="w-[70px] h-[60px]"></img>
-            </Link>
+            </Link>/
           </div>
 
           <div className="fixed left-4 bottom-3">
-            <Link to="https://wa.me/918962163025?I want to Know more About this?">
+            <Link to="https://wa.me/919558394627?I want to Know more About this?">
               <img src={whatsapp} width="50" />
             </Link>
           </div>
@@ -179,7 +179,7 @@ const NavigationBar = () => {
                 </li>
                 <li>
                 <a
-                  href="../Assests/app-debug.apk"
+                  href="https://brightfutureapilatest.pythonanywhere.com/media/brightFutureX.apk"
                   download
                   className="text-[#64666C] hover:text-blue-500 text-lg font-semibold"
                 >
@@ -250,7 +250,7 @@ const NavigationBar = () => {
               </Link>
             </li>  <li>
                 <a
-                  href="../Assests/app-debug.apk"
+                  href="https://brightfutureapilatest.pythonanywhere.com/media/brightFutureX.apk"
                   download
                   className="text-[#64666C] hover:text-blue-500 text-lg font-semibold"
                 >

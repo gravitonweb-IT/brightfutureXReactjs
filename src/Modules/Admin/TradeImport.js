@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import MainStock from '../MainStock';
 import MainStockAdmin from './MainStockAdmin';
+import { servieUrl } from '../../env/env';
 
 const TradeImport = () => {
     const [file, setFile] = useState(null);
@@ -20,7 +21,7 @@ const TradeImport = () => {
         formData.append('excel_file', file);
 
         try {
-            const response = await axios.post('http://localhost:8000/rolebased/upload_excel/', formData, {
+            const response = await axios.post(servieUrl.url+'rolebased/upload_excel/', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

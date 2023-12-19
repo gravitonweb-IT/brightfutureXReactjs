@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './MessagesTable.css'; // Import the CSS file for styling
+import { servieUrl } from '../../env/env';
 
 const MessagesTable = () => {
     const [messages, setMessages] = useState([]);
@@ -7,7 +8,7 @@ const MessagesTable = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('http://127.0.0.1:8000/rolebased/messages1/');
+                const response = await fetch(servieUrl.url+'rolebased/messages1/');
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }

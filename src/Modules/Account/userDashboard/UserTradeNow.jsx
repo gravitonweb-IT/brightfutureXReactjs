@@ -26,7 +26,7 @@ const UserTradeNow = () => {
   const [profile, setProfile] = useState([]);
 
   const uploadImage = (value) => {
-    debugger;
+    ;
   };
 
   const sourceDiv = document.querySelector(".tv-embed-widget-wrapper__body");
@@ -94,7 +94,7 @@ const UserTradeNow = () => {
           price: totalPrice,
         };
 
-        debugger;
+        ;
 
         setDataValue(result1);
       })
@@ -105,7 +105,7 @@ const UserTradeNow = () => {
 
     formdata.append("userEmail", localStorage.getItem("userData"));
 
-    debugger;
+    ;
 
     var requestOptions = {
       method: "POST",

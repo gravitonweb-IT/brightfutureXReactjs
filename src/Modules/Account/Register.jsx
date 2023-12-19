@@ -24,6 +24,8 @@ function Register() {
   const [checkOtp, setOtp] = useState(false);
   const [otpValue, setOtpValue] = useState(null);
   const navigate = useNavigate(); // Access the navigation function
+  const [pancard_image, setPancardFile] = useState(null);
+  const [aadhaarcard_image , setAadhaarFile] = useState(null);
 
   const [errors, setErrors] = useState({
     username: "",
@@ -34,10 +36,12 @@ function Register() {
     email: "",
     phonenumber: "",
     dateofbirth: "",
-    pancard: "",
+    pancard: "null",
     bankaccount: "",
     ifsccode: "",
-    aadhaarcardnumber: "",
+    aadhaarcardnumber: "null",
+    pancard_image :null,
+    aadhaarcard_image :null
   });
 
   const [isLoading, setIsLoading] = useState(false);
@@ -97,9 +101,9 @@ function Register() {
       newErrors.dateofbirth = "Date of Birth is required";
     }
 
-    if (!pancard) {
-      newErrors.pancard = "Pan Card Number is required";
-    }
+    // if (!pancard) {
+    //   newErrors.pancard = "Pan Card Number is required";
+    // }
 
     if (!bankaccount) {
       newErrors.bankaccount = "Bank Account Number is required";
@@ -109,9 +113,9 @@ function Register() {
       newErrors.ifsccode = "IFSC Code is required";
     }
 
-    if (!aadhaarcardnumber) {
-      newErrors.aadhaarcardnumber = "Aadhaar Card Number is required";
-    }
+    // if (!aadhaarcardnumber) {
+    //   newErrors.aadhaarcardnumber = "Aadhaar Card Number is required";
+    // }
 
     // Update the errors state with the new errors
     setErrors(newErrors);
@@ -183,7 +187,7 @@ function Register() {
   const handleSubmit = async () => {
     emailSending();
     sendingRegsiter();
-    // debugger
+    // 
     // Disable the button to prevent multiple submissions
 
     if (true) {
@@ -196,11 +200,12 @@ function Register() {
         formdata.append("last_name", lastname);
         formdata.append("email", email);
         formdata.append("phone_number", phonenumber);
-        formdata.append("pancard", pancard);
+        formdata.append("pancard", "null");
         formdata.append("bankaccount", bankaccount);
         formdata.append("ifsccode", ifsccode);
-        formdata.append("aadhaarCardNumber", aadhaarcardnumber);
-
+        formdata.append("aadhaarCardNumber", "null");
+        formdata.append("pancard_image", pancard_image)
+        formdata.append("aadhaarcard_image", aadhaarcard_image)
         var requestOptions = {
           method: "POST",
           body: formdata,
@@ -243,7 +248,13 @@ function Register() {
 
     localStorage.setItem("userData", username);
   };
-
+  const handleFileChange = (e) => {
+    if (e.target.name === 'pancard') {
+        setPancardFile(e.target.files[0]);
+    } else if (e.target.name === 'aadhaar') {
+        setAadhaarFile(e.target.files[0]);
+    }
+};
   return (
     <>
       {checkOtp ? (
@@ -453,19 +464,11 @@ function Register() {
                     icon={faAddressCard}
                     className="absolute pl-3 mt-8 transform -translate-y-1/2 text-gray-500"
                   /> */}
-                <input
-                  type="text"
-                  className="w-full p-2 pl-9 border-2 rounded-lg mt-3"
-                  placeholder="Enter PanCard Number"
-                  id="pcard"
-                  name="pcard"
-                  value={pancard}
-                  onChange={(e) => setPanCard(e.target.value)}
-                ></input>
+                <input type="file" name="pancard" onChange={handleFileChange} />
                 </div>
-                {errors.pancard && (
+                {/* {errors.pancard && (
                   <p className="text-red-500 mt-2">{errors.pancard}</p>
-                )}
+                )} */}
               </p>
 
               <p className="">
@@ -521,7 +524,9 @@ function Register() {
                     icon={faIdCard}
                     className="absolute pl-3 mt-8 transform -translate-y-1/2 text-gray-500"
                   /> */}
-                <input
+                   
+            <input type="file" name="aadhaar" onChange={handleFileChange} />
+                {/* <input
                   type="text"
                   className="w-full p-2 pl-9 border-2 rounded-lg mt-3 "
                   placeholder="Enter Aadhaar Card Number"
@@ -529,13 +534,13 @@ function Register() {
                   name="aadhaar"
                   value={aadhaarcardnumber}
                   onChange={(e) => setAadhaarCardNumber(e.target.value)}
-                ></input>
+                ></input> */}
                 </div>
-                {errors.aadhaarcardnumber && (
+                {/* {errors.aadhaarcardnumber && (
                   <p className="text-red-500 mt-2">
                     {errors.aadhaarcardnumber}
                   </p>
-                )}
+                )} */}
               </p>
 
               <button

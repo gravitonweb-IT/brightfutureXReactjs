@@ -113,7 +113,7 @@ useEffect(()=>{
   };
   const handleUpdate=(e)=>{
     e.preventDefault()
-    debugger
+    
     const selectedRow = tableData[editingIndex];
     var formdata = new FormData();
     formdata.append("price", formData.price);
@@ -138,7 +138,7 @@ useEffect(()=>{
 
   const handleEdit = (index) => {
     setDisable(true)
-    debugger
+    
     // Set the form data to the selected row for editing
     const selectedRow = tableData[index];
     setFormData({

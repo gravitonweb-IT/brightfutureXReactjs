@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './TransactionForm.css'; // Import the CSS file for styling
+import { servieUrl } from '../../env/env';
 
 const TransactionForm = () => {
     const [formData, setFormData] = useState({
@@ -19,7 +20,7 @@ const TransactionForm = () => {
         setShowSuccessMessage(false);
 
         try {
-            const response = await fetch('http://127.0.0.1:8000/rolebased/transaction/', {
+            const response = await fetch(servieUrl.url+'rolebased/transaction/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -62,6 +63,7 @@ const TransactionForm = () => {
                     <option value="">Select Type</option>
                     <option value="Debit">Debit</option>
                     <option value="Credit">Credit</option>
+                    <option value="Payout">Payout</option>
                 </select>
                 <input
                     type="number"

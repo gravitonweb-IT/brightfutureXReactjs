@@ -28,7 +28,7 @@
 
 //     formdata.append("userEmail", localStorage.getItem("userData"));
 
-//     debugger;
+//     ;
 
 //     var requestOptions = {
 //       method: "POST",
@@ -374,8 +374,8 @@ const WithdrawForm = ({ isOpen, onClose }) => {
           loss: totalLoss,
           price: totalPrice,
         };
-        setTotalAmount(totalProfit)
-        setLimit(totalAmount*0.6)
+        setTotalAmount(result1.price)
+        setLimit(result1.price*0.6)
       })
       .catch((error) => console.log("error", error));
   }, []);

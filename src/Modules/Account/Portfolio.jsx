@@ -22,7 +22,7 @@ const Portfolio = () => {
   const [showFundsPopup, setShowFundsPopup] = useState(false);
   const [editData, setrEditData] = useState(null);
   const openFundsPopup = (value) => {
-    debugger;
+    ;
     setrEditData(value);
     setShowFundsPopup(true);
   };
@@ -51,7 +51,7 @@ const Portfolio = () => {
     fetch(servieUrl.otpurl + "rolebased/userData/", requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        debugger;
+        ;
         console.log("result ", result);
         setName(result[0].fields.first_name + " " + result[0].fields.last_name);
       })
@@ -59,7 +59,7 @@ const Portfolio = () => {
   }, []);
   const handleFormSubmit = (updatedData) => {
     // Handle the update logic here, e.g., send the updated data to your server
-    debugger;
+    ;
     console.log("Updated Data:", updatedData);
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -103,7 +103,7 @@ const Portfolio = () => {
         isNameMatch && isFromDateMatch && isEndDateMatch && isQuantityMatch
       );
     });
-    debugger;
+    ;
     console.log(value1);
   };
   const [dataValue, setDataValue] = useState({});
@@ -155,7 +155,7 @@ const Portfolio = () => {
           price: totalPrice,
         };
 
-        debugger;
+        ;
 
         setDataValue(result1);
       })

@@ -15,13 +15,7 @@ const Test = () => {
       const formData = new FormData();
       formData.append('image', image);
   
-      try {
-        const response = await axios.post('http://localhost:8000/rolebased/ocr-extract/', formData);
-        setPanNumber(response.data.panNumber);
-        setAadhaarNumber(response.data.aadhaarNumber);
-      } catch (error) {
-        console.error('Error uploading image:', error);
-      }
+      
     };
   
     return (

@@ -43,7 +43,7 @@ const UserAddFund = () => {
   const [profile, setProfile] = useState([]);
 
   const uploadImage = (value) => {
-    debugger;
+    ;
   };
 
   const sourceDiv = document.querySelector(".tv-embed-widget-wrapper__body");

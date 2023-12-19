@@ -116,7 +116,7 @@ const AdminNavbar = ({ setUserType }) => {
           </div>
 
           <div className="fixed left-4 bottom-3">
-            <Link to="https://wa.me/918962163025?I want to Know more About this?">
+            <Link to="https://wa.me/919558394627?I want to Know more About this?">
               <img src={whatsapp} width="50" />
             </Link>
           </div>

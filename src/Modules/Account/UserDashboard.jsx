@@ -25,7 +25,7 @@ const UserDashboard = ({ children }) => {
   const [profile, setProfile] = useState([]);
 
   const uploadImage = (value) => {
-    debugger;
+    ;
   };
 
   const sourceDiv = document.querySelector(".tv-embed-widget-wrapper__body");
@@ -93,7 +93,7 @@ const UserDashboard = ({ children }) => {
           price: totalPrice,
         };
 
-        debugger;
+        ;
 
         setDataValue(result1);
       })
@@ -104,7 +104,7 @@ const UserDashboard = ({ children }) => {
 
     formdata.append("userEmail", localStorage.getItem("userData"));
 
-    debugger;
+    ;
 
     var requestOptions = {
       method: "POST",

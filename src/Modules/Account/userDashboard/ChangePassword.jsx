@@ -27,7 +27,7 @@ const ChangePassword = () => {
   const [profile, setProfile] = useState([]);
 
   const uploadImage = (value) => {
-    debugger;
+   
   };
 
   const sourceDiv = document.querySelector(".tv-embed-widget-wrapper__body");
@@ -55,10 +55,17 @@ const ChangePassword = () => {
     setSelectedMenuItem(itemName);
     // You can perform additional actions here if needed
   };
-
+  const extractAndReplaceUrl = (json) => {
+    const regex = /localhost:\d{4}\/[a-zA-Z0-9/-]+/;
+    const match = json.message.match(regex);
+    if (match) {
+        return match[0].replace('localhost', 'https://tradingproject-427cb.web.app');
+    }
+    return null;
+};
 
 useEffect(()=>{
-  debugger
+  
   var formdata = new FormData();
   formdata.append("email", localStorage.getItem("userData"));
   
@@ -68,11 +75,13 @@ useEffect(()=>{
     redirect: 'follow'
   };
   
-  fetch("http://127.0.0.1:8000/rolebased/", requestOptions)
+  fetch(servieUrl.url+"/rolebased/", requestOptions)
     .then(response => response.json())
     .then(result => {
-      const urlStart = result.message.indexOf("localhost");
-      const url = urlStart.substring(urlStart);
+      // const urlStart = result.message.indexOf("localhost");
+      // const url = urlStart.substring(urlStart);-
+      const url =extractAndReplaceUrl(result)
+      console.log("url",url)
       setUrl(url)
     })
     .catch(error => console.log('error', error));
@@ -118,7 +127,7 @@ useEffect(()=>{
           price: totalPrice,
         };
 
-        debugger;
+      
 
         setDataValue(result1);
       })
@@ -129,7 +138,7 @@ useEffect(()=>{
 
     formdata.append("userEmail", localStorage.getItem("userData"));
 
-    debugger;
+    
 
     var requestOptions = {
       method: "POST",
@@ -205,6 +214,7 @@ useEffect(()=>{
     setConfirmPassword(e.target.value);
   };
 const onSubmit =()=>{
+  console.log("url checking ",url)
   var formdata = new FormData();
 formdata.append("password", password);
 

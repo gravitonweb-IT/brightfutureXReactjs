@@ -33,7 +33,7 @@ const DashboardUser = ({ Children }) => {
   const [profile, setProfile] = useState([]);
 
   const uploadImage = (value) => {
-    debugger;
+    ;
   };
 
   const sourceDiv = document.querySelector(".tv-embed-widget-wrapper__body");
@@ -48,6 +48,22 @@ const DashboardUser = ({ Children }) => {
   const [totalLoss, setTotalLoss] = useState(0);
   const [totalWithdrawal, setTotalWithdrawal] = useState(0);
   const [totalDeposit, setTotalDeposit] = useState(0);
+  const [payout,setPayouts]=useState(0)
+  const [trade,totalDrade]=useState(0)
+  useEffect(()=>{
+    var requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    };
+    
+    fetch(servieUrl.url+"rolebased/transaction/"+localStorage.getItem("userData")+"/", requestOptions)
+      .then(response => response.json())
+      .then(result =>{
+       const data=result.filter(transaction => transaction.type === "Payout")
+       setPayouts(data.length)
+      })
+      .catch(error => console.log('error', error));
+   },[])
 
 useEffect(()=>{
   var formdata = new FormData();
@@ -62,14 +78,14 @@ useEffect(()=>{
   fetch(servieUrl.url+"rolebased/totalUserOneData/", requestOptions)
     .then(response => response.json())
     .then(result => {
-      debugger
+      
       const data =result
 const amountData = JSON.parse(data.Amount);
-        const profitData = JSON.parse(data.StockForm);
-        const lossData = JSON.parse(data.StockForm);
+        const profitData = JSON.parse(data.Amount);
+        const lossData = JSON.parse(data.Amount);
         const withdrawData = JSON.parse(data.widraw);
         const depositData = JSON.parse(data.Diposit);
-
+        totalDrade( JSON.parse(data.StockForm).length)
         const sumAmounts = amountData.reduce((acc, item) => acc + parseFloat(item.fields.price), 0);
         const sumProfits = profitData.reduce((acc, item) => acc + parseFloat(item.fields.profit), 0);
         const sumLosses = lossData.reduce((acc, item) => acc + parseFloat(item.fields.loss), 0);
@@ -145,7 +161,7 @@ const amountData = JSON.parse(data.Amount);
           loss: totalLoss,
           price: totalPrice,
         };
-        debugger;
+        ;
         setDataValue(result1);
       })
       .catch((error) => console.log("error", error));
@@ -154,7 +170,7 @@ const amountData = JSON.parse(data.Amount);
   useEffect(() => {
     var formdata = new FormData();
     formdata.append("userEmail", localStorage.getItem("userData"));
-    debugger;
+    ;
 
     var requestOptions = {
       method: "POST",
@@ -236,7 +252,7 @@ const amountData = JSON.parse(data.Amount);
               <div className="d-flex justify-content-center p-4 res" style={{border:'1px solid blue'}}>
             <div>
               <h2 className="" style={{fontSize:'34px',fontWeight:'bold',color:'rgb(29, 35, 58)'}}>Trades </h2>
-              <h1 className="font-bold mx-1" style={{marginTop:'-20px'}}>0</h1>
+              <h1 className="font-bold mx-1" style={{marginTop:'-20px'}}>{trade}</h1>
             </div>
             <FcNeutralTrading className="text-7xl text-green-500 mx-3 " />
 
@@ -247,7 +263,7 @@ const amountData = JSON.parse(data.Amount);
             <div className="d-flex justify-content-center p-4 res" style={{border:'1px solid blue'}}>
             <div>
               <h2 className="" style={{fontSize:'34px',fontWeight:'bold',color:'rgb(29, 35, 58)'}}>Payouts </h2>
-              <h1 className="font-bold mx-1" style={{marginTop:'-20px'}}>3</h1>
+              <h1 className="font-bold mx-1" style={{marginTop:'-20px'}}>{payout}</h1>
             </div>
             <MdPayments className="text-7xl text-green-500 mx-3 " />
 
@@ -292,7 +308,7 @@ const amountData = JSON.parse(data.Amount);
             <div className="d-flex justify-content-center p-4 res" style={{border:'1px solid blue'}}>
             <div>
               <h2 className="" style={{fontSize:'28px',fontWeight:'bold',color:'rgb(29, 35, 58)'}}>TotalDeposit </h2>
-              <h1 className="font-bold mx-1" style={{marginTop:'-20px'}}>22</h1>
+              <h1 className="font-bold mx-1" style={{marginTop:'-20px'}}>{totalDeposit}</h1>
             </div>
             <FaRupeeSign className="text-7xl text-green-500 mx-3 " />
 

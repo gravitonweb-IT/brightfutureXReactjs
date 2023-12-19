@@ -23,7 +23,7 @@ const UserNavbar = ({ setUserType }) => {
     localStorage.removeItem("login");
     localStorage.removeItem("userData");
     setIsDrawerOpen(false);
-    debugger;
+    ;
     window.location.reload();
   };
 
@@ -105,7 +105,7 @@ const UserNavbar = ({ setUserType }) => {
             </Link>
           </div>
           <div className="fixed left-4 bottom-3">
-            <Link to="https://wa.me/918962163025?I want to Know more About this?">
+            <Link to="https://wa.me/919558394627?I want to Know more About this?">
               <img src={whatsapp} width="50" />
             </Link>
           </div>
@@ -175,7 +175,7 @@ const UserNavbar = ({ setUserType }) => {
 
               <li>
                 <a
-                  href="../Assests/app-debug.apk"
+                  href="https://brightfutureapilatest.pythonanywhere.com/media/brightFutureX.apk"
                   download
                   className="text-[#64666C] hover:text-blue-500 text-lg font-semibold"
                 >

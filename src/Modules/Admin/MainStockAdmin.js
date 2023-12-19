@@ -4,6 +4,7 @@ import "./MainStockAdmin.css"
 
 import axios from 'axios';
 import TradeNow from '../TradeNow';
+import { servieUrl } from '../../env/env';
 const MainStockAdmin = () => {
     const [stocks, setStocks] = useState(null);
 
@@ -15,15 +16,15 @@ const MainStockAdmin = () => {
   
       const fetchStockData = async () => {
           try {
-              const response = await axios.get('http://localhost:8000/rolebased/get_stocks/');
-  debugger
+              const response = await axios.get(servieUrl.url+'rolebased/get_stocks/');
+  
               const convertedData = response.data.stocks?.map(stock => ({
                 symbol: stock.fields.symbol,
                 change: stock.fields.change,
                 percentageChange: stock.fields.percentageChange,
                 volume: stock.fields.volume
             }));
-            debugger
+            
             setStocks(convertedData)
               // setStocks(response.data.stocks);
           } catch (error) {
@@ -33,7 +34,7 @@ const MainStockAdmin = () => {
   
       const handleDelete = async () => {
         try {
-            await axios.delete('http://localhost:8000/rolebased/delete_stocks/');
+            await axios.delete(servieUrl.url+'rolebased/delete_stocks/');
             alert('All stock data deleted successfully!');
             // Optionally, add logic to update the UI or state
         } catch (error) {

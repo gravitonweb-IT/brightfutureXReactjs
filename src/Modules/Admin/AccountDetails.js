@@ -40,7 +40,7 @@ function AccountDetails() {
             ...formData,
             ["qrcodeImage"]: e.target.result,
           });
-          debugger;
+          ;
           formdata.append("image", e.target.result);
         }
 

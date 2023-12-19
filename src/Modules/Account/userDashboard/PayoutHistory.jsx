@@ -27,7 +27,7 @@ const PayoutHistory = () => {
   const [profile, setProfile] = useState([]);
 
   const uploadImage = (value) => {
-    debugger;
+    ;
   };
 
   const sourceDiv = document.querySelector(".tv-embed-widget-wrapper__body");
@@ -109,7 +109,7 @@ const PayoutHistory = () => {
           price: totalPrice,
         };
 
-        debugger;
+        ;
 
         setDataValue(result1);
       })
@@ -120,7 +120,7 @@ const PayoutHistory = () => {
 
     formdata.append("userEmail", localStorage.getItem("userData"));
 
-    debugger;
+    ;
 
     var requestOptions = {
       method: "POST",

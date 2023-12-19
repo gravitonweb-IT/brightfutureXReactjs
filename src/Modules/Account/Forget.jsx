@@ -1,11 +1,64 @@
+
 // src/components/ForgotPassword.js
 
 import React, { useState } from 'react';
+import { servieUrl } from '../../env/env';
 
 function Forget() {
   const [email, setEmail] = useState('');
+  
+  const sendEmailWithUrl = (email, url) => {
+    var formdata = new FormData();
+    formdata.append("to", email);
+    formdata.append("url", url);
 
+    var requestOptions = {
+        method: 'POST',
+        body: formdata,
+        redirect: 'follow'
+    };
+
+    fetch(servieUrl.url+"rolebased/email/", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+}
+
+
+const extractAndReplaceUrl = (json) => {
+  const regex = /localhost:\d{4}\/[a-zA-Z0-9/-]+/;
+  const match = json.message.match(regex);
+  if (match) {
+      return match[0].replace('localhost:8000', 'https://tradingproject-427cb.web.app/reset');
+  }
+  return null;
+};
+
+const generateurl=(email)=>{
+  var formdata = new FormData();
+  formdata.append("email", email);
+  
+  var requestOptions = {
+    method: 'POST',
+    body: formdata,
+    redirect: 'follow'
+  };
+  
+  fetch(servieUrl.url+"/rolebased/", requestOptions)
+    .then(response => response.json())
+    .then(result => {
+      // const urlStart = result.message.indexOf("localhost");
+      // const url = urlStart.substring(urlStart);-
+      const url =extractAndReplaceUrl(result)
+      console.log("url",url)
+      localStorage.setItem("url",url)
+
+      sendEmailWithUrl(email,url)
+    })
+    .catch(error => console.log('error', error));
+}
   const handleSubmit = (e) => {
+    generateurl(email)
     e.preventDefault();
     alert("submited")
     // Implement your password reset logic here

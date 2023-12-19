@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import LogoImage from "./NavbarImages/logoNew.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
@@ -10,8 +10,34 @@ import {
   faTwitter,
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
+import { servieUrl } from "../env/env";
 
 const FooterOne = () => {
+
+  const [contactInfo, setContactInfo] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+      const fetchData = async () => {
+          try {
+              const response = await fetch(servieUrl.url+'rolebased/get_ContactFomr/');
+              if (!response.ok) {
+                  throw new Error('Network response was not ok');
+              }
+              const data = await response.json();
+              setContactInfo(data[0]);
+          } catch (error) {
+              setError(error.message);
+          } finally {
+              setLoading(false);
+          }
+      };
+
+      fetchData();
+  }, []);
+
+
   return (
     <>
       <footer
@@ -107,8 +133,7 @@ const FooterOne = () => {
                     <h2 className="widget-title">Our address</h2>
                     <div className="pbmit-contact-widget-lines">
                       <div className="pbmit-contact-widget-line pbmit-contact-widget-address">
-                        Valentin, Street Road 24, New <br />
-                        York, USA - 67452
+                       {contactInfo?.address}
                       </div>
                     </div>
                   </aside>{" "}
@@ -122,10 +147,10 @@ const FooterOne = () => {
                     <h2 className="widget-title">Contact Us</h2>
                     <div className="pbmit-contact-widget-lines">
                       <div className="pbmit-contact-widget-line pbmit-contact-widget-phone">
-                        +(02) 574 - 328 - 301
+                      {contactInfo?.phone}
                       </div>
                       <div className="pbmit-contact-widget-line pbmit-contact-widget-email">
-                        noreply@pbminfotech.com
+                      {contactInfo?.email}
                       </div>
                     </div>
                   </aside>{" "}
@@ -137,7 +162,7 @@ const FooterOne = () => {
                     <div className="textwidget">
                       <ul className="pbmit-social-links">
                         <li className="pbmit-social-li pbmit-social-facebook ">
-                          <a href="#" target="_blank" rel="noopener">
+                          <a href={contactInfo?.social_media_facebook} target="_blank" rel="noopener">
                             <span>
                               <FontAwesomeIcon
                                 icon={faFacebook}
@@ -147,7 +172,7 @@ const FooterOne = () => {
                           </a>
                         </li>
                         <li className="pbmit-social-li pbmit-social-twitter ">
-                          <a href="#" target="_blank" rel="noopener">
+                          <a href={contactInfo?.social_media_twitter} target="_blank" rel="noopener">
                             <span>
                               <FontAwesomeIcon
                                 icon={faTwitter}
@@ -157,7 +182,7 @@ const FooterOne = () => {
                           </a>
                         </li>
                         <li className="pbmit-social-li pbmit-social-instagram ">
-                          <a href="#" target="_blank" rel="noopener">
+                          <a href={contactInfo?.social_media_instagram} target="_blank" rel="noopener">
                             <span>
                               <FontAwesomeIcon
                                 icon={faInstagram}
@@ -167,7 +192,7 @@ const FooterOne = () => {
                           </a>
                         </li>
                         <li className="pbmit-social-li pbmit-social-youtube ">
-                          <a href="#" target="_blank" rel="noopener">
+                          <a href={contactInfo?.social_media_linkedin} target="_blank" rel="noopener">
                             <span>
                               <FontAwesomeIcon
                                 icon={faYoutube}

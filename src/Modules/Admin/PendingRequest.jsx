@@ -4,12 +4,47 @@ import { servieUrl } from "../../env/env";
 import "tailwindcss/tailwind.css";
 import ReactPaginate from "react-paginate";
 import "./pendingRequest.css"
+
+
+const ImagePopup = ({ src, onClose }) => {
+  return (
+    <div style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      zIndex: 1000 // Ensure it's on top of other elements
+    }}>
+      <div style={{ position: 'relative' }}>
+        <img src={src} alt="Popup" style={{ maxWidth: '80%', maxHeight: '80%' }} />
+        <button onClick={onClose} style={{ position: 'absolute', top: 0, right: 0 }}>
+          Close
+        </button>
+      </div>
+    </div>
+  );
+};
 const PendingRequest = () => {
   const [pendingRequest, setPendingRequest] = useState([]);
   const [conditiion, seteCondition] = useState(true);
  const [popup,setpop]=useState(false)
  const [editData,setEditData]=useState(null)
   
+ const [showPopup, setShowPopup] = useState(false);
+const [image,setimage]=useState(null)
+ const handleShowImage = (e) => {
+  setimage(e)
+   setShowPopup(true); // Show the popup
+ };
+
+ const handleClosePopup = () => {
+   setShowPopup(false); // Hide the popup
+ };
 
  const handleInputChange = (e) => {
   const { name, value } = e.target;
@@ -77,7 +112,7 @@ fetch(servieUrl.otpurl + "rolebased/reject/", requestOptions)
   const handleSubmit = (e) => {
     setpop(false)
     e.preventDefault();
-debugger
+
 
 var myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
@@ -100,7 +135,7 @@ fetch(  servieUrl.otpurl +"rolebased/accountUpdate/", requestOptions)
 console.log(formData)
   };
 const editValue=(value)=>{
-  debugger
+  
   setpop(true)
   const  editData=displayedItems.filter(result=>result.fields.email==value)
   setFormData({
@@ -187,9 +222,16 @@ const editValue=(value)=>{
             {displayedItems.map((result) => (
               <tr key={result.pk} className="text-center">
                 <td className="p-2">{result.fields.email}</td>
-                <td className="p-2">{result.fields.aadhaarCardNumber}</td>
+                <td className="p-2">
+                <button onClick={(e)=>handleShowImage(servieUrl.url+"media/"+result.fields.aadhaarcard_image)}>Show</button>
+                
+                {/* <img src={servieUrl.url+"media/"+result.fields.aadhaarcard_image} /> */}
+                  </td>
                 <td className="p-2">{result.fields.bankaccount}</td>
-                <td className="p-2">{result.fields.pancard}</td>
+                <td className="p-2">
+                <button onClick={(e)=>handleShowImage(servieUrl.url+"media/"+result.fields.pancard_image)}>Show</button>
+                  
+                </td>
                 <td className="p-2">{result.fields.phone_number}</td>
                 <td className="p-2">{newData.find(entry => entry.Email === result.fields.email)?.Password}</td>
                 <td className="p-2">
@@ -384,7 +426,7 @@ const editValue=(value)=>{
       }
       </div>
 
-    
+      {showPopup && <ImagePopup src={image} onClose={handleClosePopup} />}
    
 
     

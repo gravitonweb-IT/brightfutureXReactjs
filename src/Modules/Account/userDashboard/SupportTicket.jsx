@@ -28,7 +28,7 @@ const SupportTicket = () => {
   const [profile, setProfile] = useState([]);
 
   const uploadImage = (value) => {
-    debugger;
+    ;
   };
 
   const sourceDiv = document.querySelector(".tv-embed-widget-wrapper__body");
@@ -96,7 +96,7 @@ const SupportTicket = () => {
           price: totalPrice,
         };
 
-        debugger;
+        ;
 
         setDataValue(result1);
       })
@@ -107,7 +107,7 @@ const SupportTicket = () => {
 
     formdata.append("userEmail", localStorage.getItem("userData"));
 
-    debugger;
+    ;
 
     var requestOptions = {
       method: "POST",
@@ -187,7 +187,7 @@ const SupportTicket = () => {
     // console.log("data", formData.subject, formData.message, formData.email);
 
     try {
-        const response = await fetch('http://127.0.0.1:8000/rolebased/messages/', {
+        const response = await fetch(servieUrl.url+'rolebased/messages/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

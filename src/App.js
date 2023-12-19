@@ -44,6 +44,7 @@ import WithdrawForm from "./Modules/Account/WithdrawForm";
 import TradeNow from "./Modules/TradeNow";
 import MainStock from "./Modules/MainStock";
 import MobileApp from "./Modules/Main/NewHome/MobileApp";
+import PasswordReset from "./Modules/Account/PasswordReset";
 
 console.log("check", window.location.pathname.includes("adminpanel"));
 function App() {
@@ -115,6 +116,7 @@ function App() {
           <Route path="/usertransaction" element={<UserTransaction />} />
           <Route path="/user-withdraw" element={<UserWithdraw />} />
           <Route path="/tradeNow" element={<MainStock />} />
+          <Route path="/reset/rolebased/password-reset/:id/:token" element={<PasswordReset />}  />
         </Routes>
         <MobileApp />
         <FooterOne />
