@@ -5,6 +5,8 @@ import { BsFillClipboard2DataFill } from "react-icons/bs";
 import { FaDollarSign } from "react-icons/fa6";
 import { servieUrl } from "../../../env/env";
 import React, { useEffect, useState } from "react";
+import { RxDashboard } from "react-icons/rx";
+
 import {
   AiOutlineDashboard,
   AiOutlineFundProjectionScreen,
@@ -213,6 +215,14 @@ const UserTradeNow = () => {
     <>
       <>
         <UserDashboard>
+        <div className="col-lg-12 p-3" style={{border:'1px solid #1d233a',marginLeft:'-13px',backgroundColor:'#1d233a'}}>
+      <div className="d-flex justify-content-start">
+      <RxDashboard className="mt-2 mx-4" style={{color:'white',fontSize:'24px'}}/>
+      <h3 style={{color:'white',fontSize:'24px',marginLeft:'-10px'}}>Dashboard</h3>
+
+      </div>
+      </div>
+   
           <div className="py-md-5 py-3  flex items-center justify-center bg-gray-200">
             <div className="bg-gray-100 p-8 rounded shadow-md w-full md:w-1/2 lg:w-1/3">
               <h2 className="text-2xl font-semibold mb-4">Trade Now</h2>

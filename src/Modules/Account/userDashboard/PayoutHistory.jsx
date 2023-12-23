@@ -5,6 +5,8 @@ import { BsFillClipboard2DataFill } from "react-icons/bs";
 import { FaDollarSign } from "react-icons/fa6";
 import { servieUrl } from "../../../env/env";
 import React, { useEffect, useState } from "react";
+import { RxDashboard } from "react-icons/rx";
+
 import {
   AiOutlineDashboard,
   AiOutlineFundProjectionScreen,
@@ -188,8 +190,20 @@ const PayoutHistory = () => {
   return (
     <>
       <UserDashboard>
+        <div className="row">
+      <div className="col-lg-12 p-3" style={{border:'1px solid #1d233a',marginLeft:'-13px',backgroundColor:'#1d233a'}}>
+      <div className="d-flex justify-content-start">
+      <RxDashboard className="mt-2 mx-4" style={{color:'white',fontSize:'24px'}}/>
+      <h3 style={{color:'white',fontSize:'24px',marginLeft:'-10px'}}>Dashboard</h3>
+
+      </div>
+   
+
+    </div>
         <>
-          <div className="py-md-5 py-3 flex items-center justify-center bg-gray-200 background-image">
+          {/* <div className="py-md-5 py-3 flex items-center justify-center bg-gray-200 background-image"> */}
+          <div className="row py-md-5 py-3  bg-white-200 p-3 background-image" >
+
           <div className="background-overlayp"></div>
 
             <div className=" p-8 rounded  w-full md:w-3/4 lg:w-2/3 xl:w-1/2 form-containerp" style={{backgroundColor:'#ffffff91'}}>
@@ -225,6 +239,7 @@ const PayoutHistory = () => {
             </div>
           </div>
         </>
+        </div>
       </UserDashboard>
     </>
   );

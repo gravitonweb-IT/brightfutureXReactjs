@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom"; // Import useNavigate
+
 import NavigationBar from "../src/Common/NavigationBar";
 import FooterOne from "../src/Common/FooterOne";
 import Home from "../src/Modules/Main/Home";
@@ -46,8 +47,38 @@ import MainStock from "./Modules/MainStock";
 import MobileApp from "./Modules/Main/NewHome/MobileApp";
 import PasswordReset from "./Modules/Account/PasswordReset";
 
+
 console.log("check", window.location.pathname.includes("adminpanel"));
 function App() {
+  const [showHeader, setShowHeader] = useState(true);
+  const location = useLocation();
+  const [showHeaderFooter, setShowHeaderFooter] = useState(true);
+
+  // Define the paths where you want to hide the header and footer
+  const hiddenPaths = [
+    '/userDashboard',
+    '/UserDashboard',
+    '/usertransaction',
+    '/user-fund',
+    '/user-withdraw',
+    '/tradeNow',
+    '/portfolio',
+    '/edit-profile',
+    '/change-password',
+    '/support-ticket',
+    '/payout-history',
+   
+  ];
+
+  useEffect(() => {
+    // Check if the current path is in the list of hidden paths
+    if (hiddenPaths.includes(location.pathname)) {
+      setShowHeaderFooter(false);
+    } else {
+      setShowHeaderFooter(true);
+    }
+  }, [location]);
+
   const [userType, setUserType] = useState("0");
   useEffect(() => {
     if (localStorage.getItem("login") == "user") {
@@ -56,10 +87,18 @@ function App() {
       setUserType("1");
     }
   }, []);
+    const navigate = useNavigate();
+  useEffect(() => {
+    if (window.location.pathname === "/userDashboard") {
+      setShowHeader(false);
+    } else {
+      setShowHeader(true);
+    }
+  }, [navigate]);
 
   return (
     <>
-      <div>
+      {/* <div>
         {localStorage.getItem("login") !== "user" &&
         localStorage.getItem("login") !== "admin" ? (
           <NavigationBar />
@@ -71,7 +110,6 @@ function App() {
           <NavigationBar />
         )}
         <ScrollToTop />{" "}
-        {/* Add the ScrollToTop component here, outside of Routes */}
         <Routes>
           <Route index path="/test1" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -100,6 +138,72 @@ function App() {
           <Route path="/termcondation" element={<TermCondation />} />
           <Route path="/test" element={<Test />} />
           <Route path="/" element={<NewHome />} />
+         
+          <Route path="/user-withdraw" element={<WithdrawForm />} />
+          <Route path="/change-password" element={<ChangePassword />} />
+          <Route path="/payout-history" element={<PayoutHistory />} />
+          <Route path="/support-ticket" element={<SupportTicket />} />
+          <Route path="/user-fund" element={<UserAddFund />} />
+          <Route path="/edit-profile" element={<UserEditProfit />} />
+          <Route path="/user-logout" element={<UserLogout />} />
+          <Route path="/trade-now" element={<UserTradeNow />} />
+          <Route path="/usertransaction" element={<UserTransaction />} />
+          <Route path="/user-withdraw" element={<UserWithdraw />} />
+          <Route path="/tradeNow" element={<MainStock />} />
+          <Route path="/reset/rolebased/password-reset/:id/:token" element={<PasswordReset />}  />
+        </Routes>
+        <MobileApp />
+        <FooterOne />
+        <Scrollup />
+      </div> */}
+
+
+      <div>
+        {showHeaderFooter && (
+          <>
+             {localStorage.getItem("login") !== "user" &&
+        localStorage.getItem("login") !== "admin" ? (
+          <NavigationBar />
+        ) : localStorage.getItem("login") == "admin" ? (
+          <AdminNavbar setUserType={setUserType} />
+        ) : localStorage.getItem("login") == "user" ? (
+          <UserNavbar setUserType={setUserType} />
+        ) : (
+          <NavigationBar />
+        )}
+          <ScrollToTop />{" "}
+          </>
+          
+        )}
+      
+        <Routes>
+          <Route index path="/test1" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/service" element={<Service />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/forget" element={<Forget />} />
+          <Route
+            path="/loginandregister"
+            element={<LoginAndRegister setUserType={setUserType} />}
+          />
+
+          <Route path="/fund" element={<Fund />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/profile" element={<Profile />} />
+
+          <Route path="/withdraw" element={<Withdraw />} />
+          <Route path="/userapproval" element={<UserApproval />} />
+          <Route path="/stockform" element={<StockForm />} />
+          <Route path="/addfund" element={<AddFund />} />
+          <Route path="/adminDashboard" element={<AdminDashboard />} />
+          {/* <Route path="/userDashboard" element={<DashboardUser />} /> */}
+          <Route path="/pendingRequest" element={<PendingRequest />} />
+          <Route path="/AccountDetails" element={<AccountDetails />} />
+          <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+          <Route path="/termcondation" element={<TermCondation />} />
+          <Route path="/test" element={<Test />} />
+          <Route path="/" element={<NewHome />} />
           {/* <Route path ="/adminpanel" element={<AdminNavbar/>}/> */}
           {/* <Route path ="/user" element={<UserNavbar/>}/> */}
 
@@ -117,10 +221,31 @@ function App() {
           <Route path="/user-withdraw" element={<UserWithdraw />} />
           <Route path="/tradeNow" element={<MainStock />} />
           <Route path="/reset/rolebased/password-reset/:id/:token" element={<PasswordReset />}  />
+      
+          <Route
+            path="/userDashboard"
+            element={
+              showHeader ? (
+                <DashboardUser />
+              ) : (
+                <>
+                  <DashboardUser />
+                  {/* Add any additional content for DashboardUser without the header */}
+                </>
+              )
+            }
+          />
+          {/* ... other routes */}
         </Routes>
-        <MobileApp />
+        {showHeaderFooter && (
+        // Footer and other components you want to hide/show
+        <div>
+          <MobileApp />
         <FooterOne />
         <Scrollup />
+        </div>
+      )}
+     
       </div>
     </>
   );

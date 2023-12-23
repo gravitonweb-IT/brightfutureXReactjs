@@ -324,6 +324,8 @@ import React, { useEffect, useState } from "react";
 import { servieUrl } from "../../env/env";
 import UserDashboard from "./UserDashboard";
 import './WithdrawForm.css';
+import { RxDashboard } from "react-icons/rx";
+
 
 
 const WithdrawForm = ({ isOpen, onClose }) => {
@@ -478,6 +480,16 @@ const WithdrawForm = ({ isOpen, onClose }) => {
 
   return (
     <UserDashboard>
+      <div className="row">
+         <div className="col-lg-12 p-3" style={{border:'1px solid #1d233a',marginLeft:'-13px',backgroundColor:'#1d233a'}}>
+      <div className="d-flex justify-content-start">
+      <RxDashboard className="mt-2 mx-4" style={{color:'white',fontSize:'24px'}}/>
+      <h3 style={{color:'white',fontSize:'24px',marginLeft:'-10px'}}>Dashboard</h3>
+
+      </div>
+   
+
+    </div>
       <div className="row background-image" style={{backgroundColor:'#8080800f'}}
         // className={`fixed inset-0 flex items-center justify-center z-50 ${
         //   true ? "" : "hidden"
@@ -486,7 +498,7 @@ const WithdrawForm = ({ isOpen, onClose }) => {
                   <div className="background-overlayf"></div>
     
         <div className="col-lg-3"></div>
-        <div className="col-lg-6" >
+        <div className="col-lg-6 " >
         <div className="mt-5 form-containerf" style={{border:'1px solid white',boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px',
       backgroundColor:'white'}}>
         Total Amount: {totalAmount}                    Limit:{limit}
@@ -659,6 +671,7 @@ const WithdrawForm = ({ isOpen, onClose }) => {
         </div>
 
       
+      </div>
       </div>
     </UserDashboard>
   );

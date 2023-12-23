@@ -1,11 +1,14 @@
 
 
-import React, { useState} from "react";
+import React, { useEffect, useState} from "react";
 import { useNavigate } from 'react-router-dom';
 import { servieUrl } from "../../env/env";
 import A from "../../Assests/HomePageImages/TradingImage1.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAddressCard, faBuildingColumns, faCalendar, faCalendarDay, faCreditCard, faEnvelope, faIdCard, faLock, faPhone, faPiggyBank, faUser } from '@fortawesome/free-solid-svg-icons';
+import ReCAPTCHA from "react-google-recaptcha";
+import { ColorFactory } from "antd/es/color-picker/color";
+import "./register.css"
 
 function Register() {
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
@@ -18,15 +21,19 @@ function Register() {
   const [phonenumber, setPhoneNumber] = useState("");
   const [dateofbirth, setDateOfBirth] = useState("");
   const [pancard, setPanCard] = useState("");
-  const [bankaccount, setBankAccount] = useState("");
-  const [ifsccode, setIfscCode] = useState("");
+  const [bankaccount, setBankAccount] = useState("pending");
+  const [ifsccode, setIfscCode] = useState("pending");
   const [aadhaarcardnumber, setAadhaarCardNumber] = useState("");
   const [checkOtp, setOtp] = useState(false);
   const [otpValue, setOtpValue] = useState(null);
   const navigate = useNavigate(); // Access the navigation function
   const [pancard_image, setPancardFile] = useState(null);
   const [aadhaarcard_image , setAadhaarFile] = useState(null);
-
+ const [errorMessage,seterrormessage]=useState("")
+ const [captchaValue, setCaptchaValue] = useState(null);
+ const [captcha, setCaptcha] = useState('');
+ const [userCaptchaInput, setUserCaptchaInput] = useState('');
+ 
   const [errors, setErrors] = useState({
     username: "",
     password: "",
@@ -43,6 +50,19 @@ function Register() {
     pancard_image :null,
     aadhaarcard_image :null
   });
+
+  const generateCaptcha = () => {
+    const characters = '2B3C4D5F6G7H8J9KLMNPQRSTUVWXY';
+    let result = '';
+    for (let i = 0; i < 6; i++) {
+      result += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    setCaptcha(result);
+  };
+
+  useEffect(() => {
+    generateCaptcha();
+  }, []);
 
   const [isLoading, setIsLoading] = useState(false);
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
@@ -69,12 +89,17 @@ function Register() {
     setUserName(Math.floor(100000 + Math.random() * 900000));
     if (!username) {
       newErrors.username = "Username is required";
+      seterrormessage("Username is required")
     }
 
     if (!password) {
       newErrors.password = "Password is required";
+      seterrormessage("Password is required")
     }
-
+    // else if (!/^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$/.test(password)) {
+    //   newErrors.password = "Password must be alphanumeric";
+    //   seterrormessage("Password must be alphanumeric")
+    // }
     if (!confirmpassword) {
       newErrors.confirmpassword = "Confirm Password is required";
     } else if (password !== confirmpassword) {
@@ -83,22 +108,33 @@ function Register() {
 
     if (!firstname) {
       newErrors.firstname = "First Name is required";
+      seterrormessage("First Name is required")
     }
 
     if (!lastname) {
       newErrors.lastname = "Last Name is required";
+      seterrormessage("Last Name is required")
     }
 
     if (!email) {
       newErrors.email = "Email is required";
+      seterrormessage("Email is required")
     }
 
     if (!phonenumber) {
       newErrors.phonenumber = "Phone Number is required";
+      seterrormessage("Phone Number is required")
     }
 
     if (!dateofbirth) {
       newErrors.dateofbirth = "Date of Birth is required";
+    }
+    if (userCaptchaInput.toLowerCase() !== captcha.toLowerCase()) {
+      newErrors.captcha = 'CAPTCHA is incorrect';
+      seterrormessage('CAPTCHA is incorrect');
+      generateCaptcha(); // Generate a new CAPTCHA
+      setUserCaptchaInput(''); // Clear the CAPTCHA input
+      return; // Exit the function if CAPTCHA is incorrect
     }
 
     // if (!pancard) {
@@ -204,8 +240,8 @@ function Register() {
         formdata.append("bankaccount", bankaccount);
         formdata.append("ifsccode", ifsccode);
         formdata.append("aadhaarCardNumber", "null");
-        formdata.append("pancard_image", pancard_image)
-        formdata.append("aadhaarcard_image", aadhaarcard_image)
+        // formdata.append("pancard_image", pancard_image)
+        // formdata.append("aadhaarcard_image", aadhaarcard_image)
         var requestOptions = {
           method: "POST",
           body: formdata,
@@ -456,93 +492,20 @@ function Register() {
                   <p className="text-red-500 mt-2">{errors.confirmpassword}</p>
                 )}
               </p>
-
-              <p className="">
-                <label className="font-semibold text-lg">Pan Card Number</label>
-                <div className="relative">
-                  {/* <FontAwesomeIcon
-                    icon={faAddressCard}
-                    className="absolute pl-3 mt-8 transform -translate-y-1/2 text-gray-500"
-                  /> */}
-                <input type="file" name="pancard" onChange={handleFileChange} />
-                </div>
-                {/* {errors.pancard && (
-                  <p className="text-red-500 mt-2">{errors.pancard}</p>
-                )} */}
-              </p>
-
-              <p className="">
-                <label className="font-semibold text-lg">Bank Account</label>
-                <div className="relative">
-                  {/* <FontAwesomeIcon
-                    icon={faBuildingColumns}
-                    className="absolute pl-3 mt-8 transform -translate-y-1/2 text-gray-500"
-                  /> */}
-                <input
-                  type="text"
-                  className="w-full p-2 pl-9 border-2 rounded-lg mt-3"
-                  placeholder="Enter Bank Account"
-                  id="bankaccount"
-                  name="bankaccount"
-                  value={bankaccount}
-                  onChange={(e) => setBankAccount(e.target.value)}
-                ></input>
-                </div>
-                {errors.bankaccount && (
-                  <p className="text-red-500 mt-2">{errors.bankaccount}</p>
-                )}
-              </p>
-
-              <p className="">
-                <label className="font-semibold text-lg">IFSC Code</label>
-                <div className="relative">
-                  {/* <FontAwesomeIcon
-                    icon={faCreditCard}
-                    className="absolute pl-3 mt-8 transform -translate-y-1/2 text-gray-500"
-                  /> */}
-                <input
-                  type="text"
-                  className="w-full p-2 pl-9 border-2 rounded-lg mt-3"
-                  placeholder="Enter IFSC Code"
-                  id="ifsc"
-                  name="ifsc"
-                  value={ifsccode}
-                  onChange={(e) => setIfscCode(e.target.value)}
-                ></input>
-                </div>
-                {errors.ifsccode && (
-                  <p className="text-red-500 mt-2">{errors.ifsccode}</p>
-                )}
-              </p>
-
-              <p className="">
-                <label className="font-semibold text-lg">
-                  Aadhaar Card Number
-                </label>
-                <div className="relative">
-                  {/* <FontAwesomeIcon
-                    icon={faIdCard}
-                    className="absolute pl-3 mt-8 transform -translate-y-1/2 text-gray-500"
-                  /> */}
-                   
-            <input type="file" name="aadhaar" onChange={handleFileChange} />
-                {/* <input
-                  type="text"
-                  className="w-full p-2 pl-9 border-2 rounded-lg mt-3 "
-                  placeholder="Enter Aadhaar Card Number"
-                  id="aadhaar"
-                  name="aadhaar"
-                  value={aadhaarcardnumber}
-                  onChange={(e) => setAadhaarCardNumber(e.target.value)}
-                ></input> */}
-                </div>
-                {/* {errors.aadhaarcardnumber && (
-                  <p className="text-red-500 mt-2">
-                    {errors.aadhaarcardnumber}
-                  </p>
-                )} */}
-              </p>
-
+              <div className="captcha-container">
+  
+  <input
+    type="text"
+    placeholder="Enter Captcha"
+    value={userCaptchaInput}
+    onChange={(e) => setUserCaptchaInput(e.target.value)}
+    required
+  />
+  <div className="captcha" onClick={generateCaptcha}>
+    {captcha}
+  </div>
+</div>
+             
               <button
                 className="bg-[#2774AE] mt-8 w-full py-2 hover:bg-slate-100 text-white text-lg font-semibold rounded-lg"
                 type="submit"
@@ -558,6 +521,8 @@ function Register() {
               )}
             </div>
           </form>
+          <p style={{ color: 'red' }}>{errorMessage}</p>
+
         </div>
       )}
 

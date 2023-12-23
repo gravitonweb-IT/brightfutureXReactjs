@@ -1,0 +1,48 @@
+.captcha-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+  
+  .captcha {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9; /* Light grey background */
+    border: 1px solid #d3d3d3; /* Slightly darker border */
+    border-radius: 4px; /* Rounded corners */
+    font-family: 'Courier New', Courier, monospace; /* Monospace font makes it look more like traditional CAPTCHA */
+    font-size: 18px; /* Larger font size for better readability */
+    letter-spacing: 3px; /* Space out the characters */
+    text-align: center;
+    color: #333; /* Dark grey text */
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    user-select: none; /* Prevent text selection */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transition for the background color */
+  }
+  
+  .captcha:hover {
+    background-color: #e8e8e8; /* Slightly darker background on hover */
+  }
+  
+  /* Optional: Adding a subtle gradient and noise texture for a more complex background */
+  .captcha {
+    background-image: 
+      linear-gradient(to bottom, #ffffff, #f1f1f1),
+      url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAAKElEQVRIDbXBAQEAAAABIP6PzgpV3HANODg4ODg4ODg4ODg4ODg4ODg4uI8MXAABAPlJZ6cAAAAASUVORK5CYII=');
+    background-blend-mode: multiply;
+  }
+  
+  /* You can add additional styles for the input field to match the CAPTCHA box */
+  input[type="text"].captcha-input {
+    margin-top: 10px;
+    border: 1px solid #d3d3d3;
+    border-radius: 4px;
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    letter-spacing: 1px;
+    width: calc(100% - 22px); /* Adjust width to account for padding and border */
+  }
+  

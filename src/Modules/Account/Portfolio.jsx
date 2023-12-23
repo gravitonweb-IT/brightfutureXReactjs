@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { servieUrl } from "../../env/env";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./portfolio.css";
+import { RxDashboard } from "react-icons/rx";
+
 import {
   faAngleLeft,
   faAngleRight,
@@ -16,6 +18,7 @@ import { Button } from "bootstrap";
 import FundsPopup from "./FundsPopup";
 import EditStock from "../Admin/EditStock";
 import { BsEmojiSmileUpsideDown } from "react-icons/bs";
+import UserDashboard from "./UserDashboard";
 const Portfolio = () => {
   const itemsPerPage = 10;
   const [data, setData] = useState([]);
@@ -252,8 +255,18 @@ const Portfolio = () => {
   };
 
   return (
-    <>
-      <div className="bg-gray-200 px-4 py-2 w-full overflow-hidden">
+    <><UserDashboard>
+      <div className="row">
+      <div className="col-lg-12 p-3" style={{border:'1px solid #1d233a',marginLeft:'-13px',backgroundColor:'#1d233a'}}>
+      <div className="d-flex justify-content-start">
+      <RxDashboard className="mt-2 mx-4" style={{color:'white',fontSize:'24px'}}/>
+      <h3 style={{color:'white',fontSize:'24px',marginLeft:'-10px'}}>Dashboard</h3>
+
+      </div>
+   
+
+    </div>
+      <div className="bg-gray-200 px-4 py-2 w-full overflow-hidden" style={{marginLeft:'-12px'}}>
         <div className="overflow-x-auto">
           <marquee
             behavior="scroll"
@@ -305,7 +318,8 @@ const Portfolio = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-5 mx-5 md:mx-12 mt-8">
+<div className="p-2">
+      <div className=" m-1 mt-2">
         <div className="  px-10 py-4 bg-[#ebf3fe] text-[#2a3547] rounded-3xl ">
           <p className=" text-2xl md:text-4xl font-bold ">Welcome</p>
           <p className="mt-2">{name}</p>
@@ -313,7 +327,66 @@ const Portfolio = () => {
             Profit & Loss Details
           </p>
         </div>
-        <div className="row align-items-center">
+
+        <div className="row p-2">
+          <div className="col-lg-4 p-2 mt-2">
+          <div className="px-5 py-4 bg-[#ebf3fe] rounded-lg ">
+              <p className="text-2xl text-black font-bold"> Balance Status</p>
+              <div className="flex mt-2 items-center ">
+                <div>
+                  <FontAwesomeIcon
+                    icon={faMoneyBill}
+                    className="h-8 w-8 p-4 text-gray-100 bg-blue-600 rounded-full"
+                  />
+                </div>
+
+                <div className="font-bold mt-2 text-blue-600 pl-5 ">
+                  {dataValue?.price}
+                  <br />
+                  <span className="font-bold text-blue-600 text-lg ">
+                    {" "}
+                    PayAmount
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-4 p-2 mt-2">
+          <div className="flex p-5 bg-[#e6fffa] shadow-xl items-center rounded-lg">
+              <div>
+                <FontAwesomeIcon
+                  icon={faArrowTrendUp}
+                  className="h-8 w-8 p-3 bg-green-600 text-gray-100 rounded-full "
+                />
+              </div>
+
+              <div className="font-semibold text-green-600  pl-5  ">
+                {dataValue?.profit}
+                <br />
+                <span className="font-bold text-green-600"> Profit</span>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-4 p-2 mt-2">
+          <div className="flex p-5 bg-[#fbf2ef] shadow-xl items-center rounded-lg  ">
+              <div>
+                <FontAwesomeIcon
+                  icon={faArrowTrendDown}
+                  className="h-8 w-8 p-3  bg-red-600 text-gray-100 rounded-full "
+                />
+              </div>
+
+              <div className="font-semibold text-red-600  pl-5  ">
+                {dataValue?.loss}
+                <br />
+                <span className="font-bold"> Loss</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        {/* <div className="row align-items-center">
           <div className="col-4">
             <div className="px-5 py-4 bg-[#ebf3fe] rounded-lg">
               <p className="text-2xl text-black font-bold"> Balance Status</p>
@@ -368,68 +441,22 @@ const Portfolio = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       <div className="text-2xl md:text-4xl font-semibold mt-10  text-blue-500 text-center">
         CUSTOMER PORTFOLIO PROFIT AND LOSS DETAILS
       </div>
 
-      <div className="bg-[#ebf3fe] mt-5 p-4 ">
+      <div className=" mt-3 p-2 ">
         <div className="text-[28px] text-[#2a3547] font-semibold  text-center">
           WELCOME {name}
         </div>
       </div>
 
-      {/* <div className="flex flex-wrap mx-5 mt-10  items-center justify-center">
-        <p className="w-full sm:w-1/2 md:w-auto">
-          <input
-            type="text"
-            placeholder="Filter by Name"
-            className="w-full border border-gray-300 rounded-lg p-4 hover:border-indigo-600"
-            value={filter.name}
-            onChange={(e) => setFilter({ ...filter, name: e.target.value })}
-          />
-        </p>
-        <p className="w-full sm:w-1/2   md:w-auto sm:mx-3  mt-4 sm:mt-0  ">
-          <input
-            type="date"
-            placeholder="Filter by From Date"
-            className="w-full border border-gray-300 rounded-lg p-4 hover:border-indigo-600"
-            value={filter.fromDate}
-            onChange={(e) => setFilter({ ...filter, fromDate: e.target.value })}
-          />
-        </p>
-        <p className="w-full sm:w-1/2   md:w-auto sm:mx-3  mt-4 sm:mt-0  ">
-          <input
-            type="date"
-            placeholder="Filter by End Date"
-            className="w-full border border-gray-300 rounded-lg p-4 hover:border-indigo-600"
-            value={filter.endDate}
-            onChange={(e) => setFilter({ ...filter, endDate: e.target.value })}
-          />
-        </p>
-        <p className="w-full sm:w-1/2   md:w-auto sm:mx-3  mt-4 sm:mt-0  ">
-          <input
-            type="text"
-            placeholder="Filter by Quantity"
-            className="w-full border border-gray-300 rounded-lg p-4 hover:border-indigo-600"
-            value={filter.quantity}
-            onChange={(e) => setFilter({ ...filter, quantity: e.target.value })}
-          />
-        </p>
-        <p className="w-full sm:w-1/2   md:w-auto sm:mx-3  mt-4 sm:mt-0  ">
-          <button
-            onClick={filteredData}
-            id="apply-button"
-            class="apply-button bg-blue-500   hover:bg-blue-900 text-white py-2 px-10 rounded-full "
-          >
-            Apply
-          </button>
-        </p>
-      </div> */}
+      
 
-      <div className="overflow-x-auto mt-10">
+      <div className="overflow-x-auto mt-3">
         {data.length == 0 ? (
           <p className="py-2 text-center bg-orange-200">
             Please Buy some Stocks
@@ -476,14 +503,24 @@ const Portfolio = () => {
                     {item.buy_sell}
                   </td>
                   <td className="p-2 text-center bg-slate-200 font-semibold">
-                    <div class="text-base">
+                    <div className="row">
+                      <div className="col-lg-6 ">
+                        <button className="w-100 p-1 m-1" style={{border:'1px solid green',backgroundColor:'green',color:'white'}}>  +{item.profit}</button>
+                      </div>
+                      <div className="col-lg-6 ">
+                      <button className="w-100 p-1 m-1" style={{border:'1px solid red',backgroundColor:'red',color:'white'}}>   -{item.loss}</button>
+
+                      </div>
+
+                    </div>
+                    {/* <div class="text-base">
                       <span class="bg-green-500 text-white rounded-full px-2 py-1 mr-2 profit-amount">
                         +{item.profit}
                       </span>
                       <span class="bg-red-500 text-white rounded-full px-2 py-1 loss-amount">
                         -{item.loss}
                       </span>
-                    </div>
+                    </div> */}
                   </td>
                   {localStorage.getItem("login") == "admin" ? (
                     <th className="p-2">
@@ -548,6 +585,9 @@ const Portfolio = () => {
         data={editData}
         onSubmit={handleFormSubmit}
       />
+      </div>
+      </div>
+      </UserDashboard>
     </>
   );
 };

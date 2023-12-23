@@ -5,6 +5,8 @@ import { BsFillClipboard2DataFill } from "react-icons/bs";
 import { FaDollarSign } from "react-icons/fa6";
 import { servieUrl } from "../../../env/env";
 import React, { useEffect, useState } from "react";
+import { RxDashboard } from "react-icons/rx";
+
 import {
   AiOutlineDashboard,
   AiOutlineFundProjectionScreen,
@@ -210,7 +212,19 @@ const SupportTicket = () => {
     <>
       <>
         <UserDashboard>
-          <div className="py-md-5 py-3 flex items-center justify-center bg-gray-200 background-image">
+          <div className="row">
+        <div className="col-lg-12 p-3" style={{border:'1px solid #1d233a',marginLeft:'-13px',backgroundColor:'#1d233a'}}>
+      <div className="d-flex justify-content-start">
+      <RxDashboard className="mt-2 mx-4" style={{color:'white',fontSize:'24px'}}/>
+      <h3 style={{color:'white',fontSize:'24px',marginLeft:'-10px'}}>Dashboard</h3>
+
+      </div>
+   
+
+    </div>
+          {/* <div className="py-md-5 py-3 flex items-center justify-center bg-gray-200 background-image"> */}
+          <div className="row py-md-5 py-3  bg-white-200 p-3 background-image" >
+
           <div className="background-overlayt"></div>
 
             <div className="bg-gray-100 p-8 rounded shadow-md w-96 form-containert" style={{backgroundColor:'white'}}>
@@ -280,6 +294,7 @@ const SupportTicket = () => {
                 </button>
               </form>
             </div>
+          </div>
           </div>
         </UserDashboard>
       </>

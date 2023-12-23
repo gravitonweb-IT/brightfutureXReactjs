@@ -25,6 +25,7 @@ import "../../Account/user.css";
 import { servieUrl } from "../../../env/env";
 import UserDashboard from "../UserDashboard";
 import './DashboardUser.css'
+import DelayedForm from "./DelayedForm";
 const DashboardUser = ({ Children }) => {
   const navigate = useNavigate();
 
@@ -115,6 +116,8 @@ const amountData = JSON.parse(data.Amount);
     { name: "Logout", icon: AiOutlineLogout },
     { name: "Support Ticket", icon: AiOutlineCustomerService },
     { name: "Payout History", icon: AiOutlineHistory },
+    {name:"portfolio",icon:AiOutlineHistory}
+
   ];
 
   const handleMenuItemClick = (itemName) => {
@@ -222,10 +225,11 @@ const amountData = JSON.parse(data.Amount);
 
   return (
     <>
+    <DelayedForm/>
       <UserDashboard>
         <div className="row">
           
-          <div className="col-lg-12 p-3" style={{border:'1px solid blue',marginLeft:'-10px',backgroundColor:'#1d233a'}}>
+          <div className="col-lg-12 p-3" style={{border:'1px solid #1d233a',marginLeft:'-13px',backgroundColor:'#1d233a'}}>
             <div className="d-flex justify-content-start">
             <RxDashboard className="mt-2 mx-4" style={{color:'white',fontSize:'24px'}}/>
             <h3 style={{color:'white',fontSize:'24px',marginLeft:'-10px'}}>Dashboard</h3>
@@ -238,7 +242,7 @@ const amountData = JSON.parse(data.Amount);
        
         
         <div className="row m-1 mt-2">
-          <div className="col-lg-3">
+          <div className="col-lg-3 mt-2">
             <div className="d-flex justify-content-center p-4 res" style={{border:'1px solid blue'}}>
             <div>
               <h2 className="" style={{fontSize:'34px',fontWeight:'bold',color:'rgb(29, 35, 58)'}}>Amount </h2>
@@ -248,7 +252,7 @@ const amountData = JSON.parse(data.Amount);
 
             </div>
           </div>
-          <div className="col-lg-3">
+          <div className="col-lg-3 mt-2">
               <div className="d-flex justify-content-center p-4 res" style={{border:'1px solid blue'}}>
             <div>
               <h2 className="" style={{fontSize:'34px',fontWeight:'bold',color:'rgb(29, 35, 58)'}}>Trades </h2>
@@ -259,7 +263,7 @@ const amountData = JSON.parse(data.Amount);
             </div>
           </div>
 
-          <div className="col-lg-3">
+          <div className="col-lg-3 mt-2">
             <div className="d-flex justify-content-center p-4 res" style={{border:'1px solid blue'}}>
             <div>
               <h2 className="" style={{fontSize:'34px',fontWeight:'bold',color:'rgb(29, 35, 58)'}}>Payouts </h2>
@@ -270,7 +274,7 @@ const amountData = JSON.parse(data.Amount);
             </div>
           </div>
 
-          <div className="col-lg-3">
+          <div className="col-lg-3 mt-2">
             <div className="d-flex justify-content-center p-4 res" style={{border:'1px solid blue'}}>
             <div>
               <h2 className="" style={{fontSize:'34px',fontWeight:'bold',color:'rgb(29, 35, 58)'}}>Profit </h2>
@@ -283,7 +287,7 @@ const amountData = JSON.parse(data.Amount);
         </div>
 
         <div className="row m-1 mt-2">
-          <div className="col-lg-3">
+          <div className="col-lg-3 mt-2">
             <div className="d-flex justify-content-center p-4 res" style={{border:'1px solid blue'}}>
             <div>
               <h2 className="" style={{fontSize:'34px',fontWeight:'bold',color:'rgb(29, 35, 58)'}}>Loss </h2>
@@ -293,7 +297,7 @@ const amountData = JSON.parse(data.Amount);
 
             </div>
           </div>
-          <div className="col-lg-3">
+          <div className="col-lg-3 mt-2">
             <div className="d-flex justify-content-center p-4 res" style={{border:'1px solid blue'}}>
             <div>
               <h2 className="" style={{fontSize:'28px',fontWeight:'bold',color:'rgb(29, 35, 58)'}}>TotalWidraw </h2>
@@ -304,7 +308,7 @@ const amountData = JSON.parse(data.Amount);
             </div>
           </div>
 
-          <div className="col-lg-3">
+          <div className="col-lg-3 mt-2">
             <div className="d-flex justify-content-center p-4 res" style={{border:'1px solid blue'}}>
             <div>
               <h2 className="" style={{fontSize:'28px',fontWeight:'bold',color:'rgb(29, 35, 58)'}}>TotalDeposit </h2>
@@ -315,7 +319,7 @@ const amountData = JSON.parse(data.Amount);
             </div>
           </div>
 
-          <div className="col-lg-3">
+          <div className="col-lg-3 mt-2">
             <div className="d-flex justify-content-center p-4 res" style={{border:'1px solid blue'}}>
             <div>
               <h2 className="" style={{fontSize:'14px',fontWeight:'bold',color:'rgb(29, 35, 58)'}}>TOTAL WITHDRAW CHARGE AMOUNT </h2>

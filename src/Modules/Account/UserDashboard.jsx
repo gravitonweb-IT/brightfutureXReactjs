@@ -17,6 +17,67 @@ import {
 } from "react-icons/ai";
 import { GiTrade } from "react-icons/gi";
 import "./user.css";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+
+
+
+
+
+
+
+
+
+
+var settings = {
+  dots: false,
+  infinite: true,
+  speed: 500,
+  autoplay: false,
+  autoplaySpeed: 3000,
+  slidesToShow: 4,
+  slidesToScroll: 2,
+
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 5,
+        slidesToScroll: 5,
+        infinite: true,
+        dots: false,
+        speed: 500,
+        autoplay: false,
+        autoplaySpeed: 3000,
+      },
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        initialSlide: 2,
+        speed: 500,
+        autoplay: false,
+        autoplaySpeed: 3000,
+      },
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        initialSlide: 1,
+        infinite: true,
+        speed: 500,
+        autoplay: false,
+        autoplaySpeed: 3000,
+      },
+    },
+  ],
+};
 const UserDashboard = ({ children }) => {
   const navigate = useNavigate();
 
@@ -45,6 +106,7 @@ const UserDashboard = ({ children }) => {
     { name: "Logout", icon: AiOutlineLogout },
     { name: "Support Ticket", icon: AiOutlineCustomerService },
     { name: "Payout History", icon: AiOutlineHistory },
+    {name:"portfolio",icon:AiOutlineHistory}
   ];
 
   const handleMenuItemClick = (itemName) => {
@@ -173,8 +235,10 @@ const UserDashboard = ({ children }) => {
     <>
       <div className="row ">
         <div className="col-lg-2  col-sm-12">
+                      <div className="d-none d-sm-block">
+
           <div className="min-h-screen flexbg-gray-100 w-100">
-            <div className=" px-2 py-5 "  style={{backgroundColor:'#1d233a'}}>
+            <div className=" px-2 py-5 "  style={{backgroundColor:'#1d233a',height:'100vh'}}>
               <ul className="space-y-3">
                 <li
                   className={`flex items-center text-gray-700 hover:text-blue-500 py-2 px-2 border-l-[2px]  hover:border-blue-500 hover:bg-gray-100 rounded cursor-pointer ${
@@ -321,11 +385,191 @@ const UserDashboard = ({ children }) => {
                     Payout History
                   </Link>
                 </li>
+                <li
+                  className={`flex items-center text-gray-700 hover:text-blue-500 py-2 px-2 border-l-[2px]  hover:border-blue-500 hover:bg-gray-100 rounded cursor-pointer ${
+                    selectedMenuItem === "portfolio"
+                      ? " border-l-[2px] border-blue-500 bg-gray-100 font-bold"
+                      : ""
+                  }`}
+
+                  style={{color: selectedMenuItem === "portfolio"  ? 'black' :'white'}}
+
+                  onClick={() => setSelectedMenuItem("portfolio")}
+                >
+                  <Link to="/portfolio" className="flex items-center">
+                    <AiOutlineMoneyCollect className="mr-2" />
+Portfolio                  </Link>
+                </li>
               </ul>
             </div>
           </div>
+          </div>
+          <div className="d-lg-none ">
+                <div className="row m-2" style={{border:'1px solid white',boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px'}}>
+                  <Slider {...settings}>
+                
+                <div
+                  className={`mt-3 flex items-center text-gray-700 hover:text-blue-500 py-2 px-2 border-l-[2px]  hover:border-blue-500 hover:bg-gray-100 rounded cursor-pointer ${
+                    selectedMenuItem === "Dashboard"
+                      ? " border-l-[2px] border-blue-500 bg-gray-100 font-bold"
+                      : ""
+                  }`}
+                
+                  onClick={() => setSelectedMenuItem("Dashboard")}
+                >
+                  <Link to="/UserDashboard" className="flex items-center" style={{fontSize:'22px'}}>
+                    <AiOutlineDashboard className="mr-2" style={{fontSize:'22px'}}/>
+                    Dashboard
+                  </Link>
+               </div>
+                <div
+                  className={`mt-3 flex items-center text-white-700 hover:text-blue-500 py-2 px-2 border-l-[2px]  hover:border-blue-500 hover:bg-gray-100 rounded cursor-pointer ${
+                    selectedMenuItem === "Transaction"
+                      ? " border-l-[2px] border-blue-500 bg-gray-100 font-bold"
+                      : ""
+                  }`}
+
+                  style={{color: selectedMenuItem === "Transaction"  ? 'black' :'white'}}
+                  onClick={() => setSelectedMenuItem("Transaction")}
+                >
+                  <Link to="/usertransaction" className="flex items-center" style={{fontSize:'22px'}}>
+                    <BsFillClipboard2DataFill className="mr-2" style={{fontSize:'22px'}}/>
+                    Transaction
+                  </Link>
+               </div>
+                <div
+                  className={`mt-3 flex items-center text-gray-700 hover:text-blue-500 py-2 px-2 border-l-[2px]  hover:border-blue-500 hover:bg-gray-100 rounded cursor-pointer ${
+                    selectedMenuItem === "Fund"
+                      ? " border-l-[2px] border-blue-500 bg-gray-100 font-bold"
+                      : ""
+                  }`}
+                  style={{color: selectedMenuItem === "Fund"  ? 'black' :'white'}}
+
+                  onClick={() => setSelectedMenuItem("Fund")}
+                >
+                  <Link to="/user-fund" className="flex items-center" style={{fontSize:'22px'}}>
+                    <AiOutlineFundProjectionScreen className="mr-2" style={{fontSize:'22px'}}/>
+                    Add Fund
+                  </Link>
+               </div>
+                <div
+                  className={`mt-3 flex items-center text-gray-700 hover:text-blue-500 py-2 px-2 border-l-[2px]  hover:border-blue-500 hover:bg-gray-100 rounded cursor-pointer ${
+                    selectedMenuItem === "Withdraw"
+                      ? " border-l-[2px] border-blue-500 bg-gray-100 font-bold"
+                      : ""
+                  }`}
+
+                  style={{color: selectedMenuItem === "Withdraw"  ? 'black' :'white'}}
+
+                  onClick={() => setSelectedMenuItem("Withdraw")}
+                >
+                  <Link to="/user-withdraw" className="flex items-center" style={{fontSize:'22px'}}>
+                    <AiOutlineMoneyCollect className="mr-2" style={{fontSize:'22px'}}/>
+                    Withdraw
+                  </Link>
+               </div>
+                <div
+                  className={`mt-3 flex items-center text-gray-700 hover:text-blue-500 py-2 px-2 border-l-[2px]  hover:border-blue-500 hover:bg-gray-100 rounded cursor-pointer ${
+                    selectedMenuItem === "Now"
+                      ? " border-l-[2px] border-blue-500 bg-gray-100 font-bold"
+                      : ""
+                  }`}
+                  style={{color:selectedMenuItem === "Now" ? 'black' :'white'}}
+
+                  onClick={() => setSelectedMenuItem("Now")}
+                >
+                  <Link to="/tradeNow" className="flex items-center" style={{fontSize:'22px'}}>
+                    <GiTrade className="mr-2" style={{fontSize:'22px'}}/>
+                    Trade Now
+                  </Link>
+               </div>
+                <div
+                  className={`mt-3 flex items-center text-gray-700 hover:text-blue-500 py-2 px-2 border-l-[2px]  hover:border-blue-500 hover:bg-gray-100 rounded cursor-pointer ${
+                    selectedMenuItem === "Profile"
+                      ? " border-l-[2px] border-blue-500 bg-gray-100 font-bold"
+                      : ""
+                  }`}
+                  style={{color:selectedMenuItem === "Profile" ? 'black' :'white'}}
+
+                  onClick={() => setSelectedMenuItem("Profile")}
+                >
+                  <Link to="/edit-profile" className="flex items-center" style={{fontSize:'22px'}}>
+                    <AiOutlineProfile className="mr-2" style={{fontSize:'22px'}}/>
+                     Profile
+                  </Link>
+               </div>
+                <div
+                  className={`mt-3 flex items-center text-gray-700 hover:text-blue-500 py-2 px-2 border-l-[2px]  hover:border-blue-500 hover:bg-gray-100 rounded cursor-pointer ${
+                    selectedMenuItem === "Password"
+                      ? " border-l-[2px] border-blue-500 bg-gray-100 font-bold"
+                      : ""
+                  }`}
+                  style={{color:selectedMenuItem === "Password" ? 'black' :'white'}}
+
+                  onClick={() => setSelectedMenuItem("Password")}
+                >
+                  <Link to="/change-password" className="flex items-center" style={{fontSize:'22px'}}>
+                    <AiOutlineLock className="mr-2" style={{fontSize:'22px'}}/>
+                    Change Password
+                  </Link>
+               </div>
+               
+                <div
+                  className={`mt-3 flex items-center text-gray-700 hover:text-blue-500 py-2 px-2 border-l-[2px]  hover:border-blue-500 hover:bg-gray-100 rounded cursor-pointer ${
+                    selectedMenuItem === "Ticket"
+                      ? " border-l-[2px] border-blue-500 bg-gray-100 font-bold"
+                      : ""
+                  }`}
+                  style={{color:selectedMenuItem === "Ticket" ? 'black' :'white'}}
+
+                  onClick={() => setSelectedMenuItem("Ticket")}
+                >
+                  <Link to="/support-ticket" className="flex items-center" style={{fontSize:'22px'}}>
+                    <AiOutlineCustomerService className="mr-2" style={{fontSize:'22px'}}/>
+                    Support Ticket
+                  </Link>
+                </div>
+                <div
+                  className={`mt-3 flex items-center text-gray-700 hover:text-blue-500 py-2 px-2 border-l-[2px]  hover:border-blue-500 hover:bg-gray-100 rounded cursor-pointer ${
+                    selectedMenuItem === "History"
+                      ? " border-l-[2px] border-blue-500 bg-gray-100 font-bold"
+                      : ""
+                  }`}
+                  style={{color:selectedMenuItem === "Ticket" ? 'black' :'white'}}
+
+                  onClick={() => setSelectedMenuItem("History")}
+                >
+                  <Link to="/payout-history" className="flex items-center" style={{fontSize:'22px'}}>
+                    <AiOutlineHistory className="mr-2" style={{fontSize:'22px'}}/>
+                    Payout History
+                  </Link>
+                </div>
+                <div
+                  className={`mt-3 flex items-center text-gray-700 hover:text-blue-500 py-2 px-2 border-l-[2px]  hover:border-blue-500 hover:bg-gray-100 rounded cursor-pointer ${
+                    selectedMenuItem === "portfolio"
+                      ? " border-l-[2px] border-blue-500 bg-gray-100 font-bold"
+                      : ""
+                  }`}
+
+                  style={{color: selectedMenuItem === "portfolio"  ? 'black' :'white'}}
+
+                  onClick={() => setSelectedMenuItem("portfolio")}
+                >
+                  <Link to="/portfolio" className="flex items-center" style={{fontSize:'22px'}}>
+                    <AiOutlineMoneyCollect className="mr-2" style={{fontSize:'22px'}}/>
+Portfolio                  </Link>
+               </div>
+      
+             
+
+                 
+
+                  
+                  </Slider>
+                </div>
+          </div>
         </div>
-        <div className="col-lg-10  col-sm-12 mt-1">{children} </div>
+        <div className="col-lg-10  col-sm-12 ">{children} </div>
       </div>
     </>
   );

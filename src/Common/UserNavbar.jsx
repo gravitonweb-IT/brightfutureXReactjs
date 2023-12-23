@@ -37,6 +37,7 @@ const UserNavbar = ({ setUserType }) => {
 
   return (
     <>
+    <div style={{overflowX:'hidden !important'}}>
       <div className="bg-[#2774AE]">
         <div className="flex justify-between items-center px-5 md:px-20 py-3">
           <div className="flex">
@@ -46,7 +47,7 @@ const UserNavbar = ({ setUserType }) => {
                 className="h-5 w-5 text-gray-100 pr-3"
               />
               <span className="text-gray-100 font-semibold text-lg">
-                info@Trading.com
+                info@Trading.com 
               </span>
             </p>
 
@@ -361,6 +362,7 @@ const UserNavbar = ({ setUserType }) => {
           )}
         </div>
       </nav>
+      </div>
     </>
   );
 };
