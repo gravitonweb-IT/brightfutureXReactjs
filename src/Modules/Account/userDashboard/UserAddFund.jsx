@@ -42,6 +42,9 @@ const UserAddFund = () => {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [userID, setUserID] = useState('');
+  const [UTRNumber, setUTRNumber] = useState('');
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -125,9 +128,18 @@ const UserAddFund = () => {
   const handleSubmit = () => {
     // Logic to handle form submission
     setIsModalOpen(false);
+    // Log submitted values
+    console.log("Submitted values:", {
+      name,
+      email,
+      userID,
+      UTRNumber,
+      // Include other form fields if needed
+    });
     // Add logic to submit the form data
-    // You can fetch the data from the state variables (name, images, etc.)
+    // You can fetch the data from the state variables (name, email, userID, UTRNumber, etc.)
   };
+  
   return (
     <>
       <>
@@ -168,46 +180,62 @@ const UserAddFund = () => {
 <center>
 <Button onClick={() => setIsModalOpen(true)} style={{border:'1px solid #1d233a',backgroundColor:'#1d233a',color:'white'}}>Open Form</Button>
 </center>
-<Modal
-        title="Form"
-        visible={isModalOpen}
-        footer={[
-          <Button key="submit"  onClick={handleSubmit} className="w-100" style={{border:'1px solid #1d233a',backgroundColor:'#1d233a',color:'white'}}>
-            Submit
-          </Button>,
-        ]}
-        onCancel={() => setIsModalOpen(false)}
-      >
-        {/* Input field for name */}
-        <input
-          placeholder="Enter Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          style={{border:'1px solid black',borderRadius:'5px'}}
-          className="w-100 mt-2 p-2"
-        />
 
-        {/* Input field for PAN card image */}
-        <Upload>
-          <Button  style={{border:'1px solid black',borderRadius:'5px'}}
-           className="w-100 mt-2 p-2">Upload PAN Card Image</Button>
-        </Upload>
+      <Modal
+  title="Form"
+  visible={isModalOpen}
+  footer={[
+    <Button key="submit" onClick={handleSubmit} className="w-100" style={{ border: '1px solid #1d233a', backgroundColor: '#1d233a', color: 'white' }}>
+      Submit
+    </Button>,
+  ]}
+  onCancel={() => setIsModalOpen(false)}
+>
+  {/* Input field for name */}
+  <input
+    placeholder="Enter Name"
+    value={name}
+    onChange={(e) => setName(e.target.value)}
+    style={{ border: '1px solid black', borderRadius: '5px' }}
+    className="w-100 mt-2 p-2"
+  />
 
-        {/* Input field for Aadhar card image */}
-        <Upload>
-          <Button  style={{border:'1px solid black',borderRadius:'5px'}}
-           className="w-100 mt-2 p-2">Upload Aadhar Card Image</Button>
-        </Upload>
+  {/* Input field for email */}
+  <input
+    placeholder="Enter Email"
+    value={email}
+    onChange={(e) => setEmail(e.target.value)}
+    style={{ border: '1px solid black', borderRadius: '5px' }}
+    className="w-100 mt-2 p-2"
+  />
 
-        {/* Input field for IFSC code */}
-        <input placeholder="Enter IFSC Code"  style={{border:'1px solid black',borderRadius:'5px'}}
-           className="w-100 mt-2 p-2"/>
+  {/* Input field for userID */}
+  <input
+    placeholder="Enter UserID"
+    value={userID}
+    onChange={(e) => setUserID(e.target.value)}
+    style={{ border: '1px solid black', borderRadius: '5px' }}
+    className="w-100 mt-2 p-2"
+  />
 
-        {/* Input field for account number */}
-        <input placeholder="Enter Account Number"   style={{border:'1px solid black',borderRadius:'5px'}}
-          className="w-100 mt-2 p-2"/>
-      </Modal>
-          <div className=" grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-5  mx-5  md:mx-10 lg:mx-14  mt-5 md:mt-14   p-5">
+  {/* Input field for screenshot */}
+  <Upload>
+    <Button style={{ border: '1px solid black', borderRadius: '5px' }} className="w-100 mt-2 p-2">
+      Upload Screenshot
+    </Button>
+  </Upload>
+
+  {/* Input field for UTRNumber */}
+  <input
+    placeholder="Enter UTRNumber"
+    value={UTRNumber}
+    onChange={(e) => setUTRNumber(e.target.value)}
+    style={{ border: '1px solid black', borderRadius: '5px' }}
+    className="w-100 mt-2 p-2"
+  />
+</Modal>
+
+          {/* <div className=" grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-5  mx-5  md:mx-10 lg:mx-14  mt-5 md:mt-14   p-5">
             <div className="">
               <div className="">
                 <img src={image2}></img>
@@ -267,6 +295,69 @@ const UserAddFund = () => {
                 </li>
               </ul>
             </div>
+          </div> */}
+
+          <div className="row">
+            <div className="col-lg-4 p-2 mt-4">
+            <center>
+                <img src={image2}/>
+              </center>
+              <div className="mt-10 flex justify-center ">
+                <img src={image8}></img>
+              </div>
+
+              <ul className="mt-10 text-center text-lg">
+                <li>
+                  <b>Name: </b> {data?.fields?.Name}{" "}
+                </li>
+
+                <li>
+                  <b>Account No: </b> {data?.fields?.AccountNO}{" "}
+                </li>
+
+                <li>
+                  {" "}
+                  <b>IFSC code: </b> {data?.fields?.IfscCode}{" "}
+                </li>
+              </ul>
+            </div>
+            <div className="col-lg-4 mt-4 p-2">
+            <center>
+                <img src={image5}/>
+          
+
+              <div className="mt-10 ">
+                <img src={data?.fields?.QRcodeImage} className="mx-5"></img>
+              </div>
+            </center>
+            </div>
+            <div className="col-lg-4 mt-4 p-2">
+            <div className="">
+              <div className="flex justify-center">
+                <img src={image3}></img>
+              </div>
+
+              <div className="mt-10 flex justify-center">
+                <img src={image7} className="  w-full md:w-4/5  h-auto"></img>
+              </div>
+
+              <ul className="mt-5  text-center  text-lg ">
+                <li>
+                  <b>UPI ID: </b> {data?.fields?.UPIid}
+                </li>
+
+                <li>
+                  <b>Mobile Number: </b>
+                  {data?.fields?.mobileNumber}{" "}
+                </li>
+
+                <li>
+                  <b>Bank Name: </b> {data?.fields?.BankName}
+                </li>
+              </ul>
+            </div>
+            </div>
+
           </div>
           </div>
         </UserDashboard>

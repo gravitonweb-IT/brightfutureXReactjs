@@ -79,7 +79,7 @@ const NavigationBar = () => {
           <div className="">
             <Link to="/">
               <img src={LogoImage} className="w-[70px] h-[60px]"></img>
-            </Link>/
+            </Link>
           </div>
 
           <div className="fixed left-4 bottom-3">
@@ -116,7 +116,8 @@ const NavigationBar = () => {
           {/* Drawer */}
 
           {isDrawerOpen && (
-            <div className="lg:hidden absolute top-0 right-0 h-screen w-64 bg-[#059DC0] text-white p-4 transition-transform transform translate-x-0">
+            <div className="lg:hidden absolute top-0 right-0 h-screen w-64  p-4 transition-transform transform translate-x-0"
+            style={{backgroundColor:'#1d233a',color:'white'}}>
               <button
                 className="text-white p-2 focus:outline-none absolute top-2 right-2"
                 onClick={() => setIsDrawerOpen(false)}
@@ -181,7 +182,8 @@ const NavigationBar = () => {
                 <a
                   href="https://brightfutureapilatest.pythonanywhere.com/media/brightFutureX.apk"
                   download
-                  className="text-[#64666C] hover:text-blue-500 text-lg font-semibold"
+                  className=" text-lg font-semibold"
+                  style={{color:'white'}}
                 >
                   Download App
                 </a>
@@ -209,14 +211,15 @@ const NavigationBar = () => {
             </div>
           )}
 
-          <ul className="hidden lg:flex space-x-5">
+          <ul className="hidden lg:flex space-x-5" >
             <li>
               <Link
                 to="/"
-                className="text-[#64666C] hover:text-blue-500 text-lg font-semibold"
+                className=" text-lg font-semibold"
                 activeClassName="font-bold"
+                style={{color:'white'}}
               >
-                Home
+                Home 
               </Link>
             </li>
 

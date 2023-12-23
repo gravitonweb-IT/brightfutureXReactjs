@@ -20,6 +20,7 @@ import "./user.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { TfiMenuAlt } from "react-icons/tfi";
 
 
 
@@ -94,7 +95,7 @@ const UserDashboard = ({ children }) => {
   const targetDiv = document.getElementById("grapch");
 
   const [selectedMenuItem, setSelectedMenuItem] = useState("Dashboard");
-
+const[open,setOpen]=useState(false)
   const menuItems = [
     { name: "Dashboard", icon: AiOutlineDashboard },
     { name: "Transaction", icon: BsFillClipboard2DataFill },
@@ -231,8 +232,13 @@ const UserDashboard = ({ children }) => {
     console.log("base64", e.target.result);
   };
 
+  const handleOpen = () => {
+    setOpen(!open); // Toggle the value of 'open'
+  };
+  
   return (
     <>
+    
       <div className="row ">
         <div className="col-lg-2  col-sm-12">
                       <div className="d-none d-sm-block">
@@ -405,10 +411,13 @@ Portfolio                  </Link>
           </div>
           </div>
           <div className="d-lg-none ">
-                <div className="row m-2" style={{border:'1px solid white',boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px'}}>
-                  <Slider {...settings}>
-                
-                <div
+            <div style={{backgroundColor:'rgb(29, 35, 58)'}} className="p-2">
+            <TfiMenuAlt style={{fontSize:'36px',color:'white'}} onClick={handleOpen}/>
+
+            </div>
+          {open && 
+          <center style={{backgroundColor:'rgb(29, 35, 58)',marginTop:'-10px'}}>
+     <div
                   className={`mt-3 flex items-center text-gray-700 hover:text-blue-500 py-2 px-2 border-l-[2px]  hover:border-blue-500 hover:bg-gray-100 rounded cursor-pointer ${
                     selectedMenuItem === "Dashboard"
                       ? " border-l-[2px] border-blue-500 bg-gray-100 font-bold"
@@ -559,14 +568,11 @@ Portfolio                  </Link>
                     <AiOutlineMoneyCollect className="mr-2" style={{fontSize:'22px'}}/>
 Portfolio                  </Link>
                </div>
-      
-             
 
-                 
-
-                  
-                  </Slider>
-                </div>
+          </center>
+        
+               
+                }
           </div>
         </div>
         <div className="col-lg-10  col-sm-12 ">{children} </div>

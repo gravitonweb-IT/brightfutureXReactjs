@@ -244,7 +244,8 @@ const UserNavbar = ({ setUserType }) => {
 
           {/* Drawer */}
           {isDrawerOpen && (
-            <div className="lg:hidden absolute top-0 right-0 h-screen w-64 bg-[#059DC0] text-white p-4 transition-transform transform translate-x-0">
+            <div className="lg:hidden absolute top-0 right-0 h-screen w-64  p-4 transition-transform transform translate-x-0"
+            style={{backgroundColor:'#1d233a',color:'white'}}>
               <button
                 className="text-white p-2 focus:outline-none absolute top-2 right-2"
                 onClick={() => setIsDrawerOpen(false)}
@@ -272,7 +273,7 @@ const UserNavbar = ({ setUserType }) => {
                     className="text-white text-xl hover:text-blue-500"
                     onClick={() => setIsDrawerOpen(false)}
                   >
-                    Home
+                    Home 
                   </Link>
                 </li>
 

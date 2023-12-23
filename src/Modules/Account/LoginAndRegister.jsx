@@ -56,14 +56,16 @@ export default function LoginAndRegister({ setUserType }) {
   }, [role, navigate]);
 
   return (
+    <>
+   
 
-    <div className="flex justify-center items-center h-screen bg-gray-200"> {/* Updated background color */}
-    <div className="flex md:flex-row flex-col bg-white rounded-lg shadow-lg overflow-hidden"> {/* Lighter shade for the form container */}
+    <div className="flex justify-center items-start h-100 bg-gray-200 "> {/* Updated background color */}
+    <div className="flex md:flex-row flex-col bg-white rounded-lg shadow-lg overflow-hidden mt-5 mb-5"> {/* Lighter shade for the form container */}
       <div className="hidden md:block md:w-1/2">
       <img src="https://miro.medium.com/v2/resize:fit:960/1*43wCZ5wJDhoWJS3kT0sAbQ.gif" alt="Trading" className="object-cover w-full h-full" />
 
       </div>
-      <div className="w-full md:w-1/2 p-8">
+      <div className="w-full md:w-1/2 p-8 " style={{backgroundColor:'white'}}>
       <form onSubmit={(e) => e.preventDefault()}>
             <h2 className="text-2xl font-bold mb-4 text-white">Login</h2>
             {/* Email Input */}
@@ -102,11 +104,12 @@ export default function LoginAndRegister({ setUserType }) {
             <div className="flex justify-between items-center">
               <button
                 onClick={handleLogin}
-                className="bg-blue-600 px-5 py-2 text-white rounded hover:bg-blue-700"
+                className=" px-5 py-2  rounded w-100 m-1"
+                style={{backgroundColor:'#1d233a',color:'white'}}
               >
                 Login
               </button>
-              <Link to="/register" className="bg-green-600 px-5 py-2 text-white rounded hover:bg-green-700">
+              <Link to="/register" className=" px-5 py-2  rounded w-100 m-1" style={{color:'white',backgroundColor:'green'}}>
                 Register
               </Link>
             </div>
@@ -115,6 +118,6 @@ export default function LoginAndRegister({ setUserType }) {
     </div>
   </div>
   
-   
+   </>
   );
 }

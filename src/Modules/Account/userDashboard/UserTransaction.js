@@ -221,7 +221,7 @@ const UserTransaction = () => {
 <div style={{border:'1px solid white'}}>
 <div className=" p-8 rounded shadow-md  form-containers" style={{backgroundColor:'#808080bd'}}>
               <h2 className="text-2xl font-semibold  " style={{color:'white'}}>Data Transition</h2>
-              <div className="">
+              <div className="p-2">
                 <div class="table-wrapper" >
                   <table>
                     <thead >
