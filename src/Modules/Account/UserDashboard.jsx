@@ -107,9 +107,17 @@ const[open,setOpen]=useState(false)
     { name: "Logout", icon: AiOutlineLogout },
     { name: "Support Ticket", icon: AiOutlineCustomerService },
     { name: "Payout History", icon: AiOutlineHistory },
-    {name:"portfolio",icon:AiOutlineHistory}
+    {name:"portfolio",icon:AiOutlineHistory},
+    {name:"logout",icon:AiOutlineHistory}
   ];
+  const handleLogOut = () => {
+  
+    localStorage.removeItem("login");
+    localStorage.removeItem("userData");
+ 
 
+    window.location.reload();
+  };
   const handleMenuItemClick = (itemName) => {
     setSelectedMenuItem(itemName);
     // You can perform additional actions here if needed
@@ -406,6 +414,21 @@ const[open,setOpen]=useState(false)
                     <AiOutlineMoneyCollect className="mr-2" />
 Portfolio                  </Link>
                 </li>
+                <li
+                  className={`flex items-center text-gray-700 hover:text-blue-500 py-2 px-2 border-l-[2px]  hover:border-blue-500 hover:bg-gray-100 rounded cursor-pointer ${
+                    selectedMenuItem === "logout"
+                      ? " border-l-[2px] border-blue-500 bg-gray-100 font-bold"
+                      : ""
+                  }`}
+
+                  style={{color: selectedMenuItem === "logout"  ? 'black' :'white'}}
+
+                  onClick={() => setSelectedMenuItem("logout")}
+                >
+                <button to="/loginandregister"   onClick={() => handleLogOut()} className="flex items-center" style={{fontSize:'15px'}}>
+                    <AiOutlineMoneyCollect className="mr-2" style={{fontSize:'22px'}}/>
+Logout                  </button>
+                </li>
               </ul>
             </div>
           </div>
@@ -568,7 +591,21 @@ Portfolio                  </Link>
                     <AiOutlineMoneyCollect className="mr-2" style={{fontSize:'22px'}}/>
 Portfolio                  </Link>
                </div>
+               <div
+                  className={`mt-3 flex items-center text-gray-700 hover:text-blue-500 py-2 px-2 border-l-[2px]  hover:border-blue-500 hover:bg-gray-100 rounded cursor-pointer ${
+                    selectedMenuItem === "portfolio"
+                      ? " border-l-[2px] border-blue-500 bg-gray-100 font-bold"
+                      : ""
+                  }`}
 
+                  style={{color: selectedMenuItem === "logout"  ? 'black' :'white'}}
+
+                  onClick={() => setSelectedMenuItem("logout")}
+                >
+                  <button to="/loginandregister"   onClick={() => handleLogOut()} className="flex items-center" style={{fontSize:'22px'}}>
+                    <AiOutlineMoneyCollect className="mr-2" style={{fontSize:'22px'}}/>
+Logout                  </button>
+               </div>
           </center>
         
                

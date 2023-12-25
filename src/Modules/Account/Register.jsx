@@ -78,7 +78,7 @@ function Register() {
       redirect: "follow",
     };
 
-    fetch(servieUrl.otpurl + "rolebased/email/", requestOptions)
+    fetch(servieUrl.otpurl + "rolebased/emailNewRegistratinos/", requestOptions)
       .then((response) => response.text())
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
@@ -87,10 +87,7 @@ function Register() {
     e.preventDefault();
     const newErrors = {};
     setUserName(Math.floor(100000 + Math.random() * 900000));
-    if (!username) {
-      newErrors.username = "Username is required";
-      seterrormessage("Username is required")
-    }
+    
 
     if (!password) {
       newErrors.password = "Password is required";

@@ -12,6 +12,7 @@ import MessagesTable from "./MessagesTable";
 import { GiAmericanFootballPlayer } from "react-icons/gi";
 import Footer from "./Footer";
 import ContactTable from "./ContactTable";
+import FundRequest from "./FundRequest";
 
 export default function AdminDashboard() {
   const navigate = useNavigate();
@@ -80,6 +81,7 @@ export default function AdminDashboard() {
           <li className='mt-1 p-2' onClick={() => handleSelect('support')}>Support Tickets</li>
           <li className='mt-1 p-2' onClick={() => handleSelect('contactTable')}>Contact</li>
           <li className='mt-1 p-2' onClick={() => handleSelect('footer')}>Footer</li>
+          <li className='mt-1 p-2' onClick={() => handleSelect('FundRequest')}>FundRequest</li>
             {/* ... other menu items */}
           </ul>
       </div>
@@ -98,6 +100,7 @@ export default function AdminDashboard() {
         {selectedOption === 'support' && <MessagesTable />}
         {selectedOption === 'contactTable' && <ContactTable />}
         {selectedOption === 'footer' && <Footer />}
+        {selectedOption === 'FundRequest' && <FundRequest />}
         </div>
         </div>
 

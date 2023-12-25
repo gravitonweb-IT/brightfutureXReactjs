@@ -14,7 +14,10 @@ import PhoneButton from "../Modules/Main/PhoneButton";
 
 const NavigationBar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-
+  const isAndroidWebView = () => {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    return /wv/.test(userAgent);
+};
   return (
     <>
       <div className="bg-[#8ACDD7] hidden md:block">
@@ -76,10 +79,17 @@ const NavigationBar = () => {
 
       <nav className="bg-white shadow-md sticky top-0 z-50 bg-white">
         <div className=" flex justify-between items-center px-5 md:px-10 py-2 bg-white">
+
+       
           <div className="">
-            <Link to="/">
+          {!isAndroidWebView() ? <Link to="">
+              <img src={LogoImage} className="w-[70px] h-[60px]"></img>
+            </Link>:<Link to="">
               <img src={LogoImage} className="w-[70px] h-[60px]"></img>
             </Link>
+        
+        }
+           
           </div>
 
           <div className="fixed left-4 bottom-3">
@@ -139,7 +149,10 @@ const NavigationBar = () => {
               </button>
 
               <ul className="space-y-3">
-                <li>
+
+              {!isAndroidWebView() && 
+               <>
+               <li>
                   <Link
                     to="/"
                     className="text-white text-xl hover:text-blue-500"
@@ -158,6 +171,10 @@ const NavigationBar = () => {
                     About
                   </Link>
                 </li>
+               </>
+               }
+
+                
 
                 <li>
                   <Link
@@ -169,6 +186,7 @@ const NavigationBar = () => {
                   </Link>
                 </li>
 
+
                 <li>
                   <Link
                     to="/contact"
@@ -178,16 +196,20 @@ const NavigationBar = () => {
                     Contact
                   </Link>
                 </li>
-                <li>
-                <a
-                  href="https://brightfutureapilatest.pythonanywhere.com/media/brightFutureX.apk"
-                  download
-                  className=" text-lg font-semibold"
-                  style={{color:'white'}}
-                >
-                  Download App
-                </a>
-              </li>
+                {!isAndroidWebView() && 
+                       <li>
+                       <a
+                         href="https://brightfutureapilatest.pythonanywhere.com/media/brightFutureX.apk"
+                         download
+                         className=" text-lg font-semibold"
+                         style={{color:'white'}}
+                       >
+                         Download App
+                       </a>
+                     </li>
+}
+
+         
                 <li>
                   <Link
                     to="/loginandregister"

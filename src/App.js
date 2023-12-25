@@ -54,6 +54,12 @@ function App() {
   const location = useLocation();
   const [showHeaderFooter, setShowHeaderFooter] = useState(true);
 
+
+  const isAndroidWebView = () => {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    return /wv/.test(userAgent);
+};
+
   // Define the paths where you want to hide the header and footer
   const hiddenPaths = [
     '/userDashboard',
@@ -95,7 +101,7 @@ function App() {
       setShowHeader(true);
     }
   }, [navigate]);
-
+ 
   return (
     <>
       {/* <div>
@@ -240,8 +246,14 @@ function App() {
         {showHeaderFooter && (
         // Footer and other components you want to hide/show
         <div>
-          <MobileApp />
-        <FooterOne />
+        
+          {!isAndroidWebView() &&
+          <>
+            <MobileApp />
+            <FooterOne />
+          </>
+          }
+        
         <Scrollup />
         </div>
       )}

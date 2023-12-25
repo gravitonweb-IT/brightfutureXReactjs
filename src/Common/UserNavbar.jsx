@@ -18,6 +18,10 @@ const UserNavbar = ({ setUserType }) => {
   const [showSuperAdminDropdown, setShowSuperAdminDropdown] = useState(false);
   const [showMyAccountDropdown, setShowMyAccountDropdown] = useState(false);
 
+  const isAndroidWebView = () => {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    return /wv/.test(userAgent);
+};
   const handleLogOut = () => {
     setUserType("0");
     localStorage.removeItem("login");
@@ -114,7 +118,8 @@ const UserNavbar = ({ setUserType }) => {
 
           <div className="hidden lg:flex space-x-5">
             <ul className="flex space-x-5">
-              <li>
+              
+            {!isAndroidWebView() &&<><li>
                 <Link
                   to="/"
                   className="text-[#64666C] hover:text-blue-500 text-lg font-semibold"
@@ -132,7 +137,8 @@ const UserNavbar = ({ setUserType }) => {
                 >
                   About
                 </Link>
-              </li>
+              </li></>}
+              
 
               <li>
                 <Link

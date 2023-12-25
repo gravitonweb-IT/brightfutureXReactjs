@@ -51,6 +51,7 @@ const DashboardUser = ({ Children }) => {
   const [totalDeposit, setTotalDeposit] = useState(0);
   const [payout,setPayouts]=useState(0)
   const [trade,totalDrade]=useState(0)
+  const [popupDelayForm,setPopupDelayForm]=useState(false)
   useEffect(()=>{
     var requestOptions = {
       method: 'GET',
@@ -185,6 +186,9 @@ const amountData = JSON.parse(data.Amount);
       .then((response) => response.json())
       .then((result) => {
         setProfile(result);
+        debugger
+        if(result[0].fields.aadhaarcard_image=="" || result[0].fields.bankaccount=="pending"|| result[0].fields.ifsccode=="pending"|| result[0].fields.pancard_image=="")
+        setPopupDelayForm(true)
       })
       .catch((error) => console.log("error", error));
     console.log(profile);
@@ -225,7 +229,8 @@ const amountData = JSON.parse(data.Amount);
 
   return (
     <>
-    <DelayedForm/>
+    {popupDelayForm &&  <DelayedForm/>}
+   
       <UserDashboard>
         <div className="row">
           

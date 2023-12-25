@@ -7,7 +7,7 @@ import { servieUrl } from "../../../env/env";
 import React, { useEffect, useState } from "react";
 import { RxDashboard } from "react-icons/rx";
 import { Modal, Input, Upload, Button } from 'antd';
-
+import axios from 'axios';
 import {
   AiOutlineDashboard,
   AiOutlineFundProjectionScreen,
@@ -40,11 +40,7 @@ import UserDashboard from "../UserDashboard";
 
 const UserAddFund = () => {
   const navigate = useNavigate();
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [userID, setUserID] = useState('');
-  const [UTRNumber, setUTRNumber] = useState('');
+
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -125,21 +121,41 @@ const UserAddFund = () => {
   const openFundsPopup = () => {
     setShowFundsPopup(true);
   };
-  const handleSubmit = () => {
-    // Logic to handle form submission
-    setIsModalOpen(false);
-    // Log submitted values
-    console.log("Submitted values:", {
-      name,
-      email,
-      userID,
-      UTRNumber,
-      // Include other form fields if needed
-    });
-    // Add logic to submit the form data
-    // You can fetch the data from the state variables (name, email, userID, UTRNumber, etc.)
+ 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [userID, setUserID] = useState('');
+  const [UTRNumber, setUTRNumber] = useState('');
+  const [screenshot, setScreenshot] = useState(null);
+
+  const handleSubmit = async () => {
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('email', email);
+    formData.append('user_id', userID);
+    formData.append('utr_number', UTRNumber);
+    formData.append('screenshot', screenshot);
+
+    try {
+      const response = await axios.post(servieUrl.url+'rolebased/user-data/', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+      console.log(response.data);
+      // Handle success
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      // Handle error
+    }
   };
-  
+
+  const handleFileChange = (info) => {
+    debugger
+      setScreenshot(info.file.originFileObj);
+   
+  };
   return (
     <>
       <>
@@ -219,11 +235,11 @@ const UserAddFund = () => {
   />
 
   {/* Input field for screenshot */}
-  <Upload>
-    <Button style={{ border: '1px solid black', borderRadius: '5px' }} className="w-100 mt-2 p-2">
-      Upload Screenshot
-    </Button>
-  </Upload>
+  <Upload onChange={handleFileChange}>
+          <Button style={{ border: '1px solid black', borderRadius: '5px' }} className="w-100 mt-2 p-2">
+            Upload Screenshot
+          </Button>
+        </Upload>
 
   {/* Input field for UTRNumber */}
   <input

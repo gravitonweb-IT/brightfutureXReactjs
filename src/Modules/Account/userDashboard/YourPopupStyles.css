@@ -1,35 +1,62 @@
 .popup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.popup-content {
-    background: white;
+    background-color: rgba(0, 0, 0, 0.5); /* Dimmed background */
+  }
+  
+  .popup-content {
+    background-color: white;
     padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 90%; /* Adjust width for your design */
+    max-width: 500px; /* Maximum width */
+    text-align: center;
+  }
+  
+  .red-note {
+    background-color: #ffcccb; /* Light red */
+    color: black;
+    padding: 10px;
+    margin-bottom: 20px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-}
-
-.close-btn {
-    float: right;
+  }
+  
+  input[type="file"],
+  input[type="text"] {
+    width: calc(100% - 20px); /* Full width minus padding */
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box; /* Include padding in width */
+  }
+  
+  button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
     border: none;
-    background: none;
-    font-size: 1.2rem;
+    background-color: #1d233a;
+    color: white;
+    border-radius: 5px;
     cursor: pointer;
-}
-.red-note {
-    color: white; /* Text color */
-    background-color: red; /* Background color */
-    padding: 10px; /* Padding inside the note */
-    margin: 10px 0; /* Margin around the note */
-    border-radius: 5px; /* Rounded corners */
-    text-align: center; /* Center the text */
-    font-weight: bold; /* Make the font bold */
-}
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #162035; /* Darker shade for hover state */
+  }
+  
+  /* Add responsiveness */
+  @media (max-width: 768px) {
+    .popup-content {
+      width: 95%;
+    }
+  }

@@ -7,36 +7,72 @@ export default function LoginAndRegister({ setUserType }) {
   const [password, setPassword] = useState("");
   const [role, setRole] = useState(null);
   const [error, setError] = useState(null);
+  const [captcha, setCaptcha] = useState('');
+  const [errorMessage,seterrormessage]=useState("")
   const navigate = useNavigate();
+  const [userCaptchaInput, setUserCaptchaInput] = useState('');
+  const generateCaptcha = () => {
+    const characters = '2B3C4D5F6G7H8J9KLMNPQRSTUVWXY';
+    let result = '';
+    for (let i = 0; i < 6; i++) {
+      result += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    setCaptcha(result);
+  };
 
+
+  useEffect(() => {
+
+    if(localStorage.getItem("login")=="admin"){
+      navigate("/adminDashboard");
+    }
+    if(localStorage.getItem("login")=="user"){
+      navigate("/userDashboard");
+    }
+ 
+  }, []);
+  useEffect(() => {
+    
+    generateCaptcha();
+  }, []);
   const handleLogin = async () => {
+    const newErrors = {};
     setError(null); // Reset error on new login attempt
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-
-    const raw = JSON.stringify({ email: username, password: password });
-    const requestOptions = {
-      method: "POST",
-      headers: myHeaders,
-      body: raw,
-      redirect: "follow",
-    };
-
-    try {
-      const response = await fetch(servieUrl.otpurl + "rolebased/login/", requestOptions);
-      const data = await response.json();
-
-      if (response.status === 200) {
-        localStorage.setItem("userData", username);
-        localStorage.setItem("Name", data.first_name);
-        setRole(data.role);
-        setUserType(data.role);
-      } else {
-        setError("Login failed. Please check your credentials.");
-      }
-    } catch (error) {
-      setError("Login failed. Please try again later.");
+    if (userCaptchaInput.toLowerCase() !== captcha.toLowerCase()) {
+      newErrors.captcha = 'CAPTCHA is incorrect';
+      seterrormessage('CAPTCHA is incorrect');
+      generateCaptcha(); // Generate a new CAPTCHA
+      setUserCaptchaInput(''); // Clear the CAPTCHA input
+      return; // Exit the function if CAPTCHA is incorrect
     }
+else{
+  const raw = JSON.stringify({ email: username, password: password });
+  const requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: raw,
+    redirect: "follow",
+  };
+
+  try {
+    const response = await fetch(servieUrl.otpurl + "rolebased/login/", requestOptions);
+    const data = await response.json();
+
+    if (response.status === 200) {
+      localStorage.setItem("userData", username);
+      localStorage.setItem("Name", data.first_name);
+      setRole(data.role);
+      setUserType(data.role);
+    } else {
+      setError("Login failed. Please check your credentials.");
+    }
+  } catch (error) {
+    setError("Login failed. Please try again later.");
+  }
+}
+   
   };
 
   useEffect(() => {
@@ -95,6 +131,20 @@ export default function LoginAndRegister({ setUserType }) {
             {/* Error Message */}
             {error && <div className="text-red-500 text-sm mb-4">{error}</div>}
             {/* Forgot Password Link */}
+            <div className="captcha-container">
+  
+  <input
+    type="text"
+    placeholder="Enter Captcha"
+    value={userCaptchaInput}
+    onChange={(e) => setUserCaptchaInput(e.target.value)}
+    required
+  />
+  <div className="captcha" onClick={generateCaptcha}>
+    {captcha}
+  </div>
+</div>
+             
             <div className="mb-6">
               <Link to="/forget" className="text-blue-400 hover:underline">
                 Forgot Password?
